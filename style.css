@@ -1,0 +1,338 @@
+/* --- Ultra-Modern Fluid Preloader System --- */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff; /* Bright Pure White Canvas */
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: transform 0.8s cubic-bezier(0.85, 0, 0.15, 1), opacity 0.8s ease;
+}
+
+/* Luxury Slide-Up Dismissal Effect */
+#preloader.fade-out {
+    transform: translateY(-100vh);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Background Atmospheric Canvas */
+.floating-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+/* Custom Outlined Floating Explorer Vectors */
+.float-icon {
+    position: absolute;
+    width: 6vw;
+    min-width: 40px;
+    max-width: 70px;
+    fill: none;
+    stroke: #ff4b2b; /* Vibrant Base Accent Color */
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0.12;
+    animation: driftMotion 12s infinite linear alternate;
+}
+
+/* Asymmetric Responsive Vector Placements */
+.icon-1 { top: 15%; left: 12%; animation-duration: 14s; }
+.icon-2 { top: 20%; right: 12%; animation-duration: 10s; }
+.icon-3 { bottom: 18%; left: 15%; animation-duration: 16s; }
+.icon-4 { bottom: 15%; right: 15%; animation-duration: 11s; }
+
+/* Content Branding Framework */
+.loader-content {
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    z-index: 5;
+}
+
+/* Fluid Loop Logo Structural Container */
+.logo-wrapper {
+    width: 160px;
+    height: 96px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stack-logo-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.fluid-loop-track {
+    fill: none;
+    stroke: url(#logoGrad);
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+    animation: drawTrack 2s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+}
+
+/* Premium Typography Layout */
+.brand-name {
+    font-size: 3.2rem;
+    font-weight: 900;
+    letter-spacing: -2px;
+    color: #0d131a; /* Obsidian Text */
+    margin-bottom: 1.2rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.brand-name span {
+    color: #ff4b2b; /* Electric Coral Period Dot */
+}
+
+/* Modern Micro-Status Text UI */
+.pulse-status-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: #f5f7fa;
+    border-radius: 30px;
+}
+
+.pulse-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #ff4b2b;
+    border-radius: 50%;
+    animation: beaconGlow 1.2s infinite ease-in-out;
+}
+
+.status-text {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #7e8c9c;
+}
+
+/* --- Creative Motion Paths & Interpolations --- */
+@keyframes drawTrack {
+    0% { stroke-dashoffset: 300; }
+    100% { stroke-dashoffset: 0; }
+}
+
+@keyframes driftMotion {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(10px, -15px) rotate(6deg); }
+    100% { transform: translate(-5px, 10px) rotate(-6deg); }
+}
+
+@keyframes beaconGlow {
+    0%, 100% { transform: scale(0.8); opacity: 0.5; }
+    50% { transform: scale(1.3); opacity: 1; }
+}
+
+/* Responsive Adaptive Viewports for Smaller Devices */
+@media (max-width: 480px) {
+    .brand-name { font-size: 2.6rem; }
+    .logo-wrapper { width: 130px; height: 78px; }
+    .float-icon { opacity: 0.08; width: 10vw; }
+}
+
+/* --- Core Navigation CSS Variables & Reset Custom Configuration --- */
+:root {
+    --nav-bg: rgba(255, 255, 255, 0.96);
+    --text-main: #0d131a;
+    --text-muted: #657786;
+    --accent: #ff4b2b;
+    --nav-height: 80px;
+}
+
+/* Header Container Mechanics */
+.main-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--nav-height);
+    background-color: var(--nav-bg);
+    border-bottom: 1px solid #f0f2f5;
+    backdrop-filter: blur(10px);
+    z-index: 999;
+}
+
+.nav-container {
+    max-width: 1400px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Brand Logo Layout */
+.brand-logo-link {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    z-index: 1001; /* Stay above mobile view layout overlays */
+}
+
+.brand-logo-img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+/* Navigation Navigation Center and Wrapper Configurations */
+.nav-menu-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+    margin-left: 4rem;
+}
+
+.nav-menu-list {
+    display: flex;
+    list-style: none;
+    margin: 0 auto; /* Pulls menu links straight into the absolute structural center */
+    gap: 2.5rem;
+}
+
+.menu-item {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-item:hover, .menu-item.active {
+    color: var(--text-main);
+}
+
+/* Clean Dynamic Sliding Underline Border on Active Hover Links */
+.menu-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--accent);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-item:hover::after, .menu-item.active::after {
+    width: 100%;
+}
+
+/* Corner Action Auth Button Configuration */
+.btn-auth {
+    background: linear-gradient(135deg, #ff4b2b, #a832ff);
+    color: #ffffff;
+    border: none;
+    padding: 0.7rem 1.6rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 75, 43, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-auth:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 75, 43, 0.35);
+}
+
+/* Hamburger Icon Mobile Styling */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.nav-bar {
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-main);
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Responsive Media Queries (Tablets & Mobile Viewports) --- */
+@media (max-width: 992px) {
+    .hamburger-menu {
+        display: flex;
+    }
+
+    /* Transforming Mobile Menu Container View into a full screen sliding panel */
+    .nav-menu-wrapper {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: #ffffff;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 0;
+        padding: 8rem 2rem 4rem;
+        gap: 4rem;
+        transition: right 0.4s cubic-bezier(0.85, 0, 0.15, 1);
+        z-index: 1000;
+    }
+
+    .nav-menu-wrapper.mobile-active {
+        right: 0;
+    }
+
+    .nav-menu-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        margin: 0;
+    }
+
+    .menu-item {
+        font-size: 1.4rem;
+    }
+
+    .btn-auth {
+        padding: 0.9rem 2.5rem;
+        font-size: 1.1rem;
+    }
+
+    /* Hamburger Cross (X) Animation Logic Loops */
+    .hamburger-menu.open .nav-bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger-menu.open .nav-bar:nth-child(2) {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    .hamburger-menu.open .nav-bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}

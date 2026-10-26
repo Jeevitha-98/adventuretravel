@@ -1,0 +1,5037 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly | Adventure Expeditions</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Fully Responsive Fluid-Loop Preloader Page for Stackly -->
+<div id="preloader">
+    <!-- Fluid Floating Vector Background Elements -->
+    <div class="floating-bg">
+        <!-- Mountain Peak Icon -->
+        <svg class="float-icon icon-1" viewBox="0 0 24 24"><path d="M14 6l-3.75 5 2.85 3.8-2.2 1.65-4.9-6.45L2 18h20L14 6z"/></svg>
+        <!-- Globe / Latitude Icon -->
+        <svg class="float-icon icon-2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10zM2 12h20"/></svg>
+        <!-- Map Pin Accent -->
+        <svg class="float-icon icon-3" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <!-- Hot Air Balloon Explorer Icon -->
+        <svg class="float-icon icon-4" viewBox="0 0 24 24"><path d="M12 2a8 8 0 0 0-8 8c0 3.25 2.5 6.5 5 8.5v2a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-2c2.5-2 5-5.25 5-8.5a8 8 0 0 0-8-8zm-2 20h4v1h-4v-1z"/></svg>
+    </div>
+
+    <!-- Center Content Branding Hub -->
+    <div class="loader-content">
+        <!-- Re-engineered Responsive Fluid Loop Vector Logo -->
+        <div class="logo-wrapper">
+            <svg class="stack-logo-svg" viewBox="0 0 100 60" xmlns="http://w3.org">
+                <defs>
+                    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#ff4b2b" />
+                        <stop offset="50%" stop-color="#a832ff" />
+                        <stop offset="100%" stop-color="#3b82f6" />
+                    </linearGradient>
+                </defs>
+                <!-- Perfectly proportioned infinity track filling the viewport container -->
+                <path class="fluid-loop-track" d="M 30 30 C 10 10, 10 50, 30 30 C 50 10, 50 50, 70 30 C 90 10, 90 50, 70 30 C 50 10, 50 50, 30 30 Z" />
+            </svg>
+        </div>
+
+        <h1 class="brand-name">Stackly<span>.</span></h1>
+        
+        <!-- Minimal Graphic Pulse Indicator -->
+        <div class="pulse-status-container">
+            <span class="pulse-dot"></span>
+            <span class="status-text">INITIALIZING EXPEDITION</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    
+    // Architectural Component Trigger targeting Preloader Layer
+    const preloader = document.getElementById('preloader');
+    
+    setTimeout(() => {
+        if(preloader) {
+            // Dismiss Preloader with premium clean translation slide effect
+            preloader.classList.add('fade-out');
+            
+            // Seamlessly unlock main content view mechanics
+            document.body.style.overflowY = "auto";
+        }
+    }, 2000); // Strict 2-second timing rule
+    
+});
+
+</script>
+
+<!-- Fully Responsive Navigation Header -->
+<header class="main-navbar">
+    <div class="nav-container">
+        
+        <!-- Brand Logo Container (Clicking refreshes the page) -->
+        <a href="" class="brand-logo-link" onclick="window.location.reload(); return false;">
+            <img src="logo.png" alt="Stackly Logo" class="brand-logo-img">
+        </a>
+
+        <!-- Hamburger Icon for Responsive Layout Mobile View -->
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <span class="nav-bar"></span>
+            <span class="nav-bar"></span>
+            <span class="nav-bar"></span>
+        </div>
+
+        <!-- Navigation Menus Link Layout Wrapper -->
+        <nav class="nav-menu-wrapper" id="navMenuWrapper">
+            <!-- 5 Centered Nav Links -->
+            <ul class="nav-menu-list">
+                <li><a href="#expeditions" class="menu-item active">Expeditions</a></li>
+                <li><a href="#destinations" class="menu-item">Destinations</a></li>
+                <li><a href="#gear" class="menu-item">Gear Guide</a></li>
+                <li><a href="#gallery" class="menu-item">Gallery</a></li>
+                <li><a href="#contact" class="menu-item">Our Story</a></li>
+            </ul>
+
+            <!-- Right Side Corner Auth Button -->
+            <div class="nav-auth-wrapper">
+                <button class="btn-auth" id="authBtn">Join Stackly</button>
+            </div>
+        </nav>
+
+    </div>
+</header>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    
+    // Select HTML Structural Elements for Responsive Navbar Menu Loop
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const navMenuWrapper = document.getElementById('navMenuWrapper');
+    const menuLinks = document.querySelectorAll('.menu-item');
+
+    // Toggle Mobile Panel overlay classes upon action clicks
+    hamburgerMenu.addEventListener('click', () => {
+        hamburgerMenu.classList.toggle('open');
+        navMenuWrapper.classList.toggle('mobile-active');
+        
+        // Prevent background webpage scrolling when structural panel overlay is open
+        if (navMenuWrapper.classList.contains('mobile-active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    // Close the navigation modal window instantly when any single item anchor link is chosen
+    menuLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            // Remove active tags across all structural items
+            menuLinks.forEach(item => item.classList.remove('active'));
+            // Inject structural active highlight onto selection
+            e.target.classList.add('active');
+
+            // Dismiss mobile drawer layouts
+            hamburgerMenu.classList.remove('open');
+            navMenuWrapper.classList.remove('mobile-active');
+            document.body.style.overflow = 'auto';
+        });
+    });
+
+});
+
+</script>
+
+<!-- Fully Responsive Immersive Brand-Themed Hero Section -->
+<section id="hero-arena" class="hero-section">
+    <!-- Theme Floating Vector Background Systems -->
+    <div class="hero-floating-bg">
+        <svg class="hero-float-icon icon-alpha" viewBox="0 0 24 24"><path d="M14 6l-3.75 5 2.85 3.8-2.2 1.65-4.9-6.45L2 18h20L14 6z"/></svg>
+        <svg class="hero-float-icon icon-beta" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2v20M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <svg class="hero-float-icon icon-gamma" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+    </div>
+
+    <div class="hero-container">
+        <!-- LEFT COLUMN: Typography Matrix Engine & Actions -->
+        <div class="hero-text-block">
+            <!-- Scroll-Triggered Staggered Word Entry Header -->
+            <h1 class="hero-title" id="scrollTitle">
+                <span class="scroll-word">Forge</span>
+                <span class="scroll-word">Your</span>
+                <span class="scroll-word">Legend</span>
+                <span class="scroll-word">Abroad<span class="brand-dot">.</span></span>
+            </h1>
+            
+            <!-- Side-Entrance Premium Typography Description -->
+            <p class="hero-description" id="sideContent">
+                Break free from predictable paths. Stackly charts raw, unedited expeditions across vertical mountain ridges, deep subterranean tracks, and endless desert horizons.
+            </p>
+
+            <!-- Bottom-Up Entrance CTA Group -->
+            <div class="hero-cta-group" id="bottomCta">
+                <a href="#expeditions" class="hero-btn primary-cta">Claim Itinerary</a>
+                <a href="#briefing" class="hero-btn secondary-cta">Explore Routes</a>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN: Creative Cinematic Video Terminal Frame -->
+        <div class="hero-video-wrapper" id="videoWrapper">
+            <div class="video-frame-border" id="videoTrigger">
+                <div class="video-overlay-play">
+                    <div class="play-pulse-ring"></div>
+                    <svg class="play-svg" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#ffffff"/></svg>
+                </div>
+                <video loop muted playsinline autoplay class="hero-embedded-video" id="heroVid">
+                    <source src="adventure-reel.mp4" type="video/mp4">
+                    <img src="https://unsplash.com" alt="Expedition Terminal Grid">
+                </video>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* --- Core Brand Theme Variable Maps --- */
+:root {
+    --brand-primary: #ff4b2b;
+    --brand-gradient: linear-gradient(135deg, #ff4b2b 0%, #a832ff 100%);
+    --brand-dark: #0d131a;
+    --text-pure-black: #000000;
+}
+
+/* Creative Hero Context Setup */
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: calc(100vh - 80px);
+    background-color: #ffffff;
+    padding: 3rem 6%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.hero-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 4.5rem;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    z-index: 5;
+}
+
+/* ==========================================
+   LEFT COLUMN: SCROLL & HOVER KINETIC TEXT
+   ========================================== */
+.hero-text-block {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Scroll Word Animation States */
+.hero-title {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem 1.4rem;
+    font-size: clamp(3.2rem, 5.8vw, 5.4rem);
+    font-weight: 900;
+    color: var(--text-pure-black);
+    line-height: 1.05;
+    letter-spacing: -3px;
+    margin-bottom: 2rem;
+}
+
+.scroll-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-word.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.brand-dot {
+    color: var(--brand-primary);
+}
+
+/* Side-Entrance Interactive Paragraph Layout */
+.hero-description {
+    font-size: clamp(1.15rem, 2vw, 1.4rem);
+    font-weight: 700;
+    color: var(--text-pure-black);
+    line-height: 1.6;
+    margin-bottom: 3.5rem;
+    max-width: 680px;
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+    cursor: default;
+}
+
+.hero-description.reveal-active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Interactive Description Hover Micro-Scale Magnification */
+.hero-description:hover {
+    color: var(--brand-primary);
+    transform: scale(1.01) translateX(5px);
+}
+
+/* Bottom-Up Entrance CTA Actions Layout */
+.hero-cta-group {
+    display: flex;
+    gap: 1.5rem;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-cta-group.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 1.1rem 2.8rem;
+    font-size: 1.05rem;
+    font-weight: 800;
+    text-decoration: none;
+    border-radius: 40px;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.primary-cta {
+    background: var(--brand-gradient);
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(255, 75, 43, 0.25);
+}
+
+.primary-cta:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(255, 75, 43, 0.4);
+}
+
+.secondary-cta {
+    background-color: #ffffff;
+    color: var(--text-pure-black);
+    border: 2px solid var(--text-pure-black);
+}
+
+.secondary-cta:hover {
+    background-color: var(--text-pure-black);
+    color: #ffffff;
+    transform: translateY(-4px);
+}
+
+/* ==========================================
+   RIGHT COLUMN: BRAND VIDEO FRAME TERMINAL
+   ========================================== */
+.hero-video-wrapper {
+    width: 100%;
+    opacity: 0;
+    transform: scale(0.9) rotate(2deg);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-video-wrapper.reveal-active {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+}
+
+.video-frame-border {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border: 3px solid var(--text-pure-black);
+    border-radius: 24px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.06);
+    background-color: var(--brand-dark);
+}
+
+.hero-embedded-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.video-frame-border:hover .hero-embedded-video {
+    transform: scale(1.04);
+}
+
+/* Play Interface UI overlay element */
+.video-overlay-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px;
+    height: 64px;
+    background: var(--brand-gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    box-shadow: 0 8px 25px rgba(255, 75, 43, 0.4);
+}
+
+.play-pulse-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--brand-primary);
+    opacity: 0.4;
+    animation: radarPulse 2s infinite ease-out;
+}
+
+.play-svg {
+    width: 20px;
+    height: 20px;
+    margin-left: 4px;
+}
+
+/* ==========================================
+   BACKGROUND VECTORS & KEYFRAMES
+   ========================================== */
+.hero-floating-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-float-icon {
+    position: absolute;
+    width: 5vw;
+    min-width: 45px;
+    max-width: 80px;
+    fill: none;
+    stroke: #a832ff;
+    stroke-width: 1.25;
+    opacity: 0.08;
+    animation: floatingDrift 16s infinite linear alternate;
+}
+
+.icon-alpha { top: 12%; left: 6%; animation-delay: 0s; }
+.icon-beta { bottom: 15%; left: 42%; animation-delay: -3s; }
+.icon-gamma { top: 18%; right: 46%; animation-delay: -6s; }
+
+@keyframes radarPulse {
+    100% { transform: scale(1.8); opacity: 0; }
+}
+
+@keyframes floatingDrift {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(25px, -25px) rotate(8deg); }
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN SYSTEM MEDIA QUERIES
+   ========================================== */
+@media (max-width: 1024px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+    }
+    .hero-text-block {
+        align-items: center;
+        text-align: center;
+    }
+    .hero-title {
+        justify-content: center;
+    }
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero-cta-group {
+        justify-content: center;
+    }
+    .hero-video-wrapper {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-cta-group {
+        flex-direction: column;
+        width: 100%;
+        max-width: 280px;
+    }
+    .hero-btn {
+        text-align: center;
+        width: 100%;
+    }
+}
+
+
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+    // ==========================================
+    // 1. SCROLL-TRIGGERED WORD ENGINE REVEALS
+    // ==========================================
+    const heroSection = document.getElementById('hero-arena');
+    const scrollWords = document.querySelectorAll('.scroll-word');
+    const sideContent = document.getElementById('sideContent');
+    const bottomCta = document.getElementById('bottomCta');
+    const videoWrapper = document.getElementById('videoWrapper');
+
+    const scrollRevealOptions = {
+        root: null,
+        threshold: 0.12 // Fires when 12% of the hero zone is visible
+    };
+
+    const revealElements = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Stagger individual word entries sequentially
+                scrollWords.forEach((word, index) => {
+                    setTimeout(() => {
+                        word.classList.add('reveal-active');
+                    }, index * 120); // 120ms staggered transition gap
+                });
+
+                // Trigger side-content description entry text blocks
+                setTimeout(() => {
+                    sideContent.classList.add('reveal-active');
+                }, scrollWords.length * 120 + 100);
+
+                // Trigger bottom-up action layout buttons entry hooks
+                setTimeout(() => {
+                    bottomCta.classList.add('reveal-active');
+                }, scrollWords.length * 120 + 300);
+
+                // Reveal video frame border card container asset elements
+                setTimeout(() => {
+                    videoWrapper.classList.add('reveal-active');
+                }, scrollWords.length * 120 + 450);
+
+                observer.unobserve(entry.target); // Unbind context memory loops
+            }
+        });
+    };
+
+    const heroObserver = new IntersectionObserver(revealCallback = revealElements, scrollRevealOptions);
+    if (heroSection) heroObserver.observe(heroSection);
+
+    // ==========================================
+    // 2. CREATIVE POP-OUT THEATRE CINEMA VIEWER
+    // ==========================================
+    const videoTrigger = document.getElementById('videoTrigger');
+    const nativeVid = document.getElementById('heroVid');
+
+    if (videoTrigger && nativeVid) {
+        videoTrigger.addEventListener('click', () => {
+            // Build absolute dark overlay frame model layout grids
+            const theaterOverlay = document.createElement('div');
+            theaterOverlay.style.cssText = `
+                position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+                background: rgba(13, 19, 26, 0.98); z-index: 200000;
+                display: flex; align-items: center; justify-content: center;
+                opacity: 0; transition: opacity 0.4s ease; backdrop-filter: blur(12px);
+            `;
+
+            theaterOverlay.innerHTML = `
+                <div style="position: relative; width: 90%; max-width: 1200px; aspect-ratio: 16/9; border: 3px solid #ffffff; border-radius: 16px; overflow: hidden; background: #000;">
+                    <video src="${nativeVid.querySelector('source').src}" autoplay controls style="width: 100%; height: 100%; object-fit: contain;"></video>
+                    <button id="closeTheater" style="position: absolute; top: -50px; right: 0; background: none; border: none; color: #ffffff; font-size: 1.1rem; font-weight: 800; cursor: pointer; letter-spacing: 1px;">CLOSE TERMINAL ✕</button>
+                </div>
+            `;
+
+            document.body.appendChild(theaterOverlay);
+            requestAnimationFrame(() => theaterOverlay.style.opacity = '1');
+            document.body.style.overflow = 'hidden';
+
+            // Dismiss cinema modal mode securely
+            document.getElementById('closeTheater').addEventListener('click', () => {
+                theaterOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    theaterOverlay.remove();
+                    document.body.style.overflow = 'auto';
+                }, 400);
+            });
+        });
+    }
+});
+
+</script>
+
+<!-- Fully Responsive Intersecting Brand Carousel Section -->
+<section id="partner-marquee-zone" class="marquee-section">
+    <div class="marquee-perspective-container">
+        
+        <!-- UPPER TRACK: Electric Coral Ribbon (Moving Left-to-Right) -->
+        <div class="marquee-ribbon track-upper">
+            <div class="marquee-track animation-reverse">
+                <!-- Group 1 -->
+                <div class="marquee-item"><span class="brand-text">Tripadvisor</span></div>
+                <div class="marquee-item"><span class="brand-text">Expedia</span></div>
+                <div class="marquee-item"><span class="brand-text">Booking.com</span></div>
+                <div class="marquee-item"><span class="brand-text">Airbnb</span></div>
+                <div class="marquee-item"><span class="brand-text">Orbitz</span></div>
+                <!-- Duplicate Group 1 for Seamless Infinite Loop -->
+                <div class="marquee-item"><span class="brand-text">Tripadvisor</span></div>
+                <div class="marquee-item"><span class="brand-text">Expedia</span></div>
+                <div class="marquee-item"><span class="brand-text">Booking.com</span></div>
+                <div class="marquee-item"><span class="brand-text">Airbnb</span></div>
+                <div class="marquee-item"><span class="brand-text">Orbitz</span></div>
+            </div>
+        </div>
+
+        <!-- LOWER TRACK: Solar Violet Ribbon (Moving Right-to-Left - Overlapping Layer) -->
+        <div class="marquee-ribbon track-lower">
+            <div class="marquee-track">
+                <!-- Group 2 -->
+                <div class="marquee-item"><span class="brand-text">Booking.com</span></div>
+                <div class="marquee-item"><span class="brand-text">Airbnb</span></div>
+                <div class="marquee-item"><span class="brand-text">Orbitz</span></div>
+                <div class="marquee-item"><span class="brand-text">Tripadvisor</span></div>
+                <div class="marquee-item"><span class="brand-text">Expedia</span></div>
+                <!-- Duplicate Group 2 for Seamless Infinite Loop -->
+                <div class="marquee-item"><span class="brand-text">Booking.com</span></div>
+                <div class="marquee-item"><span class="brand-text">Airbnb</span></div>
+                <div class="marquee-item"><span class="brand-text">Orbitz</span></div>
+                <div class="marquee-item"><span class="brand-text">Tripadvisor</span></div>
+                <div class="marquee-item"><span class="brand-text">Expedia</span></div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    /* --- Intersecting Dynamic Marquee Styles --- */
+.marquee-section {
+    position: relative;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 10px 0; /* Creates breathing room for the diagonal angles */
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* Container defining structural bounds for the rotation matrix layers */
+.marquee-perspective-container {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Shared Ribbon Track Foundation Rules */
+.marquee-ribbon {
+    position: absolute;
+    width: 120%; /* Extends past viewport boundaries to hide edges during rotation */
+    left: -10%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(13, 19, 26, 0.15);
+    overflow: hidden;
+    z-index: 5;
+}
+
+/* ==========================================
+   THEMED DIAGONAL CRISS-CROSS TRACK DESIGN
+   ========================================== */
+
+/* Upper Track: Electric Coral Brand Accent Color */
+.marquee-ribbon.track-upper {
+    background-color: #ff4b2b; 
+    transform: rotate(-5deg) translateY(-35px); /* Rotates upward diagonally */
+}
+
+/* Lower Track: Solar Violet Brand Accent Color (Overlapping layer) */
+.marquee-ribbon.track-lower {
+    background-color: #a832ff; 
+    transform: rotate(4deg) translateY(35px); /* Rotates downward diagonally */
+    z-index: 10; /* Layered on top just like the provided mockup */
+}
+
+/* Infinite Rolling Flex Container Chassis */
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: infiniteScroll 25s linear infinite;
+}
+
+/* Alternate loop direction configuration */
+.marquee-track.animation-reverse {
+    animation-direction: reverse;
+}
+
+/* Individual Marquee Items Grid spacing */
+.marquee-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4rem;
+    height: 100%;
+    white-space: nowrap;
+}
+
+/* High-Contrast Bold White Text Styling */
+.brand-text {
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    font-family: system-ui, -apple-system, sans-serif;
+    opacity: 0.95;
+    user-select: none;
+}
+
+/* ==========================================
+   HARDWARE-ACCELERATED TRANSITION TIMELINES
+   ========================================== */
+@keyframes infiniteScroll {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-50%, 0, 0); /* Shifts exactly halfway through matching duplicates */
+    }
+}
+
+/* Pause the looping sequence on active cursor hovers to allow quick brand checking */
+.marquee-ribbon:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+/* ==========================================
+   RESPONSIVE LAYOUT CONSTRAINTS
+   ========================================== */
+@media (max-width: 768px) {
+    .marquee-section {
+        padding: 5rem 0;
+    }
+    .marquee-perspective-container {
+        height: 180px;
+    }
+    .marquee-ribbon {
+        height: 52px;
+    }
+    /* Flatten angles slightly on mobile viewports to prevent drastic layout cropping */
+    .marquee-ribbon.track-upper {
+        transform: rotate(-3deg) translateY(-20px);
+    }
+    .marquee-ribbon.track-lower {
+        transform: rotate(3deg) translateY(20px);
+    }
+    .marquee-item {
+        padding: 0 2.5rem;
+    }
+}
+
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+    const ribbons = document.querySelectorAll('.marquee-ribbon');
+
+    ribbons.forEach(ribbon => {
+        const track = ribbon.querySelector('.marquee-track');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        let baseTransform = 0;
+
+        // ==========================================
+        // 1. DYNAMIC SPEED ACCELERATION ON SCROLL
+        // ==========================================
+        const speedOptions = { root: null, threshold: 0.1 };
+        
+        const dynamicSpeedObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Normalize motion when visible in viewport
+                    track.style.animationPlayState = 'running';
+                } else {
+                    // Freeze off-screen elements to save device battery and computing cycles
+                    track.style.animationPlayState = 'paused';
+                }
+            });
+        }, speedOptions);
+        
+        dynamicSpeedObserver.observe(ribbon);
+
+        // ==========================================
+        // 2. KINETIC MOUSE INTERACTION & SWIPE VELOCITY
+        // ==========================================
+        
+        // Helper function to extract current hardware translation coordinates
+        const getCurrentX = () => {
+            const style = window.getComputedStyle(track);
+            const matrix = new WebKitCSSMatrix(style.transform);
+            return matrix.m41; 
+        };
+
+        ribbon.addEventListener('mousedown', (e) => {
+            isDown = true;
+            ribbon.style.cursor = 'grabbing';
+            track.style.animationPlayState = 'paused'; // Temporarily pause infinite keyframes loop
+            
+            // Capture historical matrix offsets
+            baseTransform = getCurrentX();
+            startX = e.pageX;
+        });
+
+        window.addEventListener('mouseup', () => {
+            if (!isDown) return;
+            isDown = false;
+            ribbon.style.cursor = 'pointer';
+            
+            // Seamlessly resume core layout automated movement
+            track.style.animationPlayState = 'running';
+        });
+
+        ribbon.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            
+            const x = e.pageX;
+            const walk = (x - startX) * 1.5; // Drag calibration multiplier ratio
+            
+            // Adjust loop track offset manually
+            track.style.transform = `translate3d(${baseTransform + walk}px, 0, 0)`;
+        });
+
+        // Touch gesture mapping for premium smartphone layout compliance
+        ribbon.addEventListener('touchstart', (e) => {
+            track.style.animationPlayState = 'paused';
+            baseTransform = getCurrentX();
+            startX = e.touches[0].pageX;
+        }, { passive: true });
+
+        ribbon.addEventListener('touchmove', (e) => {
+            const x = e.touches[0].pageX;
+            const walk = (x - startX) * 1.2;
+            track.style.transform = `translate3d(${baseTransform + walk}px, 0, 0)`;
+        }, { passive: true });
+
+        ribbon.addEventListener('touchend', () => {
+            track.style.animationPlayState = 'running';
+            track.style.transform = ''; // Return layout calculations smoothly back to CSS control loops
+        });
+    });
+});
+
+</script>
+
+<!-- Fully Responsive Immersive About Grid Section -->
+<section id="about-story" class="about-section">
+    <div class="about-container">
+        
+        <!-- LEFT COLUMN: Dynamic Motion Typography & Core Narrative -->
+        <div class="about-text-block">
+            <!-- Word-by-Word Multi-Directional Animated Header -->
+            <h2 class="about-title" id="aboutTitle">
+                <span class="about-word direction-top">Challenging</span>
+                <span class="about-word direction-right">The</span>
+                <span class="about-word direction-bottom">Uncharted</span>
+                <span class="about-word direction-left">Limits<span class="brand-dot">.</span></span>
+            </h2>
+            
+            <!-- Compact Dynamic Hover Paragraphs -->
+            <p class="about-description scroll-bottom-reveal hover-target">
+                Founded by a collective of high-altitude alpinists and structural cartographers, Stackly was engineered to strip the commercial predictability out of global travel. We do not curate holidays; we organize high-stakes physical expeditions.
+            </p>
+            <p class="about-subtext scroll-bottom-reveal hover-target">
+                Every ridge line tracked, cavern explored, and marine channel mapped by our crew is checked for authentic isolation before your boots ever hit the soil.
+            </p>
+
+            <!-- Bottom-Up Entrance Action Button -->
+            <div class="about-cta-wrapper scroll-bottom-reveal">
+                <a href="#team" class="about-btn-primary">Meet Our Pathfinders</a>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN: Compact Height Interactive Display Card -->
+        <div class="about-image-wrapper" id="aboutImageBlock">
+            <div class="about-graphic-frame">
+                <div class="frame-accent-line"></div>
+                <img src="https://unsplash.com" alt="Mountain Expedition Exploration Pathfinder" class="about-display-img">
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    /* --- High-Contrast Architectural About Section Layout --- */
+.about-section {
+    position: relative;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 10px 6%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.about-container {
+    max-width: 1550px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr; 
+    gap: 4.5rem;
+    align-items: center;
+}
+
+/* ==========================================
+   LEFT COLUMN: BALANCED TYPOGRAPHY WITH HOVER EFFECTS
+   ========================================== */
+.about-text-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-title {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.2rem;
+    font-size: clamp(3rem, 5.8vw, 5rem);
+    font-weight: 900;
+    color: #000000; 
+    line-height: 1.05;
+    letter-spacing: -2.5px;
+    margin-bottom: 2.2rem;
+}
+
+.about-word {
+    display: inline-block;
+    opacity: 0;
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-title .brand-dot {
+    color: #ff4b2b;
+}
+
+/* Compass entrance offsets */
+.direction-top    { transform: translateY(-80px); }
+.direction-right  { transform: translateX(80px); }
+.direction-bottom { transform: translateY(80px); }
+.direction-left   { transform: translateX(-80px); }
+
+.about-word.reveal-active {
+    opacity: 1;
+    transform: translate(0);
+}
+
+/* Clean, Reduced Font Size Core Copy Setup */
+.about-description {
+    font-size: clamp(1.1rem, 1.8vw, 1.35rem); /* Reduced to a balanced readable size */
+    font-weight: 700; 
+    color: #000000; /* High-contrast pure black text color baseline */
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-width: 680px;
+}
+
+.about-subtext {
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem); /* Compact description scale */
+    font-weight: 600;
+    color: #000000; 
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    max-width: 650px;
+    opacity: 0.85;
+}
+
+/* Dynamic Paragraph Hover Target Architecture */
+.hover-target {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease, opacity 0.3s ease;
+    cursor: default;
+}
+
+/* Dynamic Interactive Transformation Loop */
+.hover-target:hover {
+    color: #ff4b2b; /* Morph to Stackly Electric Coral on cursor enter */
+    transform: scale(1.02) translateX(8px); /* Fluid magnification shift */
+    opacity: 1;
+}
+
+/* Shared Bottom Entrance Profiles */
+.scroll-bottom-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-bottom-reveal.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Styled Brand Pill CTA Button */
+.about-btn-primary {
+    display: inline-block;
+    padding: 1.15rem 3rem;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-decoration: none;
+    background: linear-gradient(135deg, #ff4b2b 0%, #a832ff 100%);
+    border-radius: 40px;
+    box-shadow: 0 5px 20px rgba(255, 75, 43, 0.25);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.about-btn-primary:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(255, 75, 43, 0.4);
+}
+
+/* ==========================================
+   RIGHT COLUMN: REDUCED COMPACT IMAGE FRAME
+   ========================================== */
+.about-image-wrapper {
+    width: 100%;
+    opacity: 0;
+    transform: translateX(120px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-image-wrapper.reveal-active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.about-graphic-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 11; 
+    border: 3px solid #000000;
+    border-radius: 20px;
+    background-color: #f8fafc;
+    overflow: hidden;
+}
+
+.about-display-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-graphic-frame:hover .about-display-img {
+    transform: scale(1.04);
+}
+
+.frame-accent-line {
+    position: absolute;
+    bottom: -15px;
+    left: -15px;
+    width: 60px;
+    height: 60px;
+    border-left: 4px solid #a832ff;
+    border-bottom: 4px solid #a832ff;
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* ==========================================
+   RESPONSIVE LAYOUT MEDIA CONFIGS
+   ========================================== */
+@media (max-width: 1024px) {
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+    }
+    .about-text-block {
+        align-items: center;
+        text-align: center;
+    }
+    .about-title {
+        justify-content: center;
+    }
+    .about-image-wrapper {
+        max-width: 650px;
+        margin: 0 auto;
+    }
+}
+
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+    // Target elements inside the Stackly About Section framework
+    const aboutSection = document.getElementById('about-story');
+    const aboutWords = document.querySelectorAll('.about-word');
+    const bottomReveals = document.querySelectorAll('.scroll-bottom-reveal');
+    const imageWrapper = document.getElementById('aboutImageBlock');
+
+    // Setting up the high-performance device viewport scanner rules
+    const observerOptions = {
+        root: null, 
+        threshold: 0.15 // Fires cleanly when 15% of the section area enters view
+    };
+
+    const triggerAboutReveal = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                
+                // 1. Stagger Multi-Directional Word Reveals sequentially
+                aboutWords.forEach((word, index) => {
+                    setTimeout(() => {
+                        word.classList.add('reveal-active');
+                    }, index * 120); // 120ms staggered transition gap
+                });
+
+                // 2. Cascade Compact Bottom-Up Paragraphs and pill button
+                bottomReveals.forEach((element, index) => {
+                    setTimeout(() => {
+                        element.classList.add('reveal-active');
+                    }, (aboutWords.length * 120) + (index * 180)); // Triggers smoothly right after header resolves
+                });
+
+                // 3. Slide in the compact landscape image frame from the right screen boundary
+                setTimeout(() => {
+                    if (imageWrapper) {
+                        imageWrapper.classList.add('reveal-active');
+                    }
+                }, (aboutWords.length * 120) + 350);
+
+                // Disconnect target observation loops immediately to optimize device memory performance
+                observer.unobserve(entry.target);
+            }
+        });
+    };
+
+    // Instantiate and bind the IntersectionObserver setup
+    const aboutObserver = new IntersectionObserver(triggerAboutReveal, observerOptions);
+    
+    if (aboutSection) {
+        aboutObserver.observe(aboutSection);
+    }
+
+});
+
+</script>
+
+<!-- Fully Responsive Staggered Destination Showcase Section -->
+<section id="destinations-showcase" class="destinations-section">
+    
+    <!-- Section Header Container -->
+    <div class="destinations-header">
+        <h2 class="section-main-title" id="destinationsTitle">
+            <span class="dest-word">Popular</span>
+            <span class="dest-word">Expeditions<span class="brand-dot">.</span></span>
+        </h2>
+        <p class="section-subtitle scroll-fade-up">High-fidelity routes mapped for authentic isolation and raw exploration.</p>
+    </div>
+
+    <!-- Cards Grid Framework -->
+    <div class="destinations-grid" id="destinationsGrid">
+        
+        <!-- Card 1 -->
+        <div class="destination-card-item scroll-card-reveal">
+            <div class="card-image-box">
+                <img src="https://unsplash.com" alt="Mountain Trekking" class="dest-img">
+                <div class="card-badge">Alpine</div>
+            </div>
+            <div class="card-meta">
+                <h3>Mountain Trekking</h3>
+                <p>Conquer vertical panoramic peaks and challenge rugged, unedited alpine ridges.</p>
+                <div class="card-footer-row">
+                    <span class="location-tag">🗺️ Ridge Basecamp</span>
+                    <a href="#book" class="explore-inline-btn">Claim Itinerary →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="destination-card-item scroll-card-reveal">
+            <div class="card-image-box">
+                <img src="https://unsplash.com" alt="Deep Sea Diving" class="dest-img">
+                <div class="card-badge">Submarine</div>
+            </div>
+            <div class="card-meta">
+                <h3>Deep Sea Diving</h3>
+                <p>Submerge into deep marine caverns and navigate untamed underwater channels.</p>
+                <div class="card-footer-row">
+                    <span class="location-tag">🗺️ Marine Trenches</span>
+                    <a href="#book" class="explore-inline-btn">Claim Itinerary →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="destination-card-item scroll-card-reveal">
+            <div class="card-image-box">
+                <img src="https://unsplash.com" alt="Desert Safari" class="dest-img">
+                <div class="card-badge">Wilderness</div>
+            </div>
+            <div class="card-meta">
+                <h3>Desert Safari</h3>
+                <p>Navigate sprawling golden dunes and survive beneath endless isolated night skies.</p>
+                <div class="card-footer-row">
+                    <span class="location-tag">🗺️ Dune Horizon</span>
+                    <a href="#book" class="explore-inline-btn">Claim Itinerary →</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    /* --- High-Contrast Destination Grid Matrix --- */
+.destinations-section {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 10px 6%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* Header UI Elements */
+.destinations-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-main-title {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    font-size: clamp(2.6rem, 5vw, 4rem);
+    font-weight: 900;
+    color: #000000; /* Pure High-Contrast Black */
+    letter-spacing: -2px;
+    margin-bottom: 0.8rem;
+}
+
+.dest-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dest-word.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.destinations-header .brand-dot {
+    color: #ff4b2b; /* Stackly Electric Coral */
+}
+
+.section-subtitle {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #000000;
+    opacity: 0;
+    max-width: 600px;
+    margin: 0 auto;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+}
+
+.section-subtitle.reveal-active {
+    opacity: 0.8;
+    transform: translateY(0);
+}
+
+/* ==========================================
+   DESTINATIONS GRID CARDS CAROUSEL FRAME
+   ========================================== */
+.destinations-grid {
+    max-width: 1650px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    width: 100%;
+}
+
+.destination-card-item {
+    background-color: #ffffff;
+    border: 3px solid #000000; /* Bold industrial structural vector borders */
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.destination-card-item.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Dynamic Hover Transformations */
+.destination-card-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(255, 75, 43, 0.08);
+    border-color: #ff4b2b; /* Morph to coral outline on hover */
+}
+
+/* Image Container */
+.card-image-box {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 11;
+    overflow: hidden;
+    background-color: #f8fafc;
+    border-bottom: 3px solid #000000;
+    transition: border-color 0.3s ease;
+}
+
+.destination-card-item:hover .card-image-box {
+    border-color: #ff4b2b;
+}
+
+.dest-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.destination-card-item:hover .dest-img {
+    transform: scale(1.04);
+}
+
+.card-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: linear-gradient(135deg, #ff4b2b 0%, #a832ff 100%); /* Stackly Gradient */
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 30px;
+}
+
+/* Card Content Details Blocks */
+.card-meta {
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-meta h3 {
+    font-size: 1.45rem;
+    font-weight: 900;
+    color: #000000;
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.5px;
+}
+
+.card-meta p {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #000000;
+    opacity: 0.75;
+    line-height: 1.5;
+    margin-bottom: 1.8rem;
+    flex-grow: 1;
+}
+
+/* Card Footer Row Layout */
+.card-footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2px dashed #000000;
+    padding-top: 1.2rem;
+    margin-top: auto;
+}
+
+.location-tag {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: #000000;
+}
+
+.explore-inline-btn {
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #ff4b2b; /* Signature Coral Color Accent */
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.destination-card-item:hover .explore-inline-btn {
+    color: #a832ff; /* Morph to violet on card hover */
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN SYSTEM MEDIA CONFIGS
+   ========================================== */
+@media (max-width: 480px) {
+    .destinations-section {
+        padding: 4rem 4%;
+    }
+    .destinations-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+    const mainSection = document.getElementById('destinations-showcase');
+    const titleWords = document.querySelectorAll('.dest-word');
+    const subtitle = document.querySelector('.section-subtitle');
+    const destinationCards = document.querySelectorAll('.scroll-card-reveal');
+
+    const destinationsObserverOptions = {
+        root: null,
+        threshold: 0.15 
+    };
+
+    const triggerDestinationsAnimations = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                
+                // 1. Stagger Title Word fly-up metrics sequentially
+                titleWords.forEach((word, index) => {
+                    setTimeout(() => {
+                        word.classList.add('reveal-active');
+                    }, index * 120);
+                });
+
+                // 2. Fade subtitle description up smoothly right after header
+                setTimeout(() => {
+                    subtitle.classList.add('reveal-active');
+                }, titleWords.length * 120);
+
+                // 3. Cascade Cards up one by one sequentially
+                destinationCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.add('reveal-active');
+                    }, (titleWords.length * 120) + 200 + (index * 150));
+                });
+
+                // Detach instance loops to optimize memory tracking cycles
+                observer.unobserve(entry.target);
+            }
+        });
+    };
+
+    const sectionObserver = new IntersectionObserver(triggerDestinationsAnimations, destinationsObserverOptions);
+    
+    if (mainSection) {
+        sectionObserver.observe(mainSection);
+    }
+});
+
+</script>
+
+<!-- Fully Responsive Balanced Tabbed Form Panel Layout -->
+<section id="booking-matrix-hub" class="booking-section-ribbon">
+    
+    <!-- Restored Section Header Title Block -->
+    <div class="booking-section-header">
+        <h2 class="booking-main-title scroll-fade-up">Your Dream Destinations<span class="brand-dot-accent">.</span></h2>
+    </div>
+
+    <div class="booking-fluid-container scroll-fade-up">
+        
+        <!-- SECTION TABS HEADER ROW -->
+        <div class="booking-tabs-nav">
+            <button class="tab-trigger active" data-category="expeditions">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z"/></svg>
+                <span>Wilderness Expeditions</span>
+            </button>
+            <button class="tab-trigger" data-category="alpine">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2L2 22h20L14.5 2z"/></svg>
+                <span>Alpine Ridge Trekking</span>
+            </button>
+            <button class="tab-trigger" data-category="submarine">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                <span>Submarine Trench Diving</span>
+            </button>
+        </div>
+
+        <!-- DATA INPUT ENGINE PANEL -->
+        <div class="booking-panel-body">
+            <form id="matrixBookingForm" class="booking-input-row" novalidate>
+                
+                <!-- INPUT 1: Target Destination Vector Node -->
+                <div class="input-card-node">
+                    <label for="terminalDestination">Expedition Vector</label>
+                    <input type="text" id="terminalDestination" placeholder="e.g. Ridge Basecamp, Dune Horizon..." required>
+                </div>
+
+                <!-- INPUT 2: Timeline Dates -->
+                <div class="input-card-node date-range-group">
+                    <div class="date-field">
+                        <label for="departureDate">Launch Coordinate</label>
+                        <input type="date" id="departureDate" required>
+                    </div>
+                    <div class="timeline-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                    <div class="date-field">
+                        <label for="returnDate">Return Sequence</label>
+                        <input type="date" id="returnDate" required>
+                    </div>
+                </div>
+
+                <!-- SUBMIT BUTTON -->
+                <div class="action-submit-node">
+                    <button type="submit" class="btn-matrix-search">Search Routes</button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    /* --- High-Contrast Architectural Interlocking Form Layout --- */
+.booking-section-ribbon {
+    width: 100%;
+    background-color: #ffffff;
+    /* Updated layout constraints: strict 80px top padding and 10px bottom padding padding rules */
+    padding: 80px 6% 10px 6%; 
+    box-sizing: border-box;
+    position: relative;
+    z-index: 100;
+}
+
+/* Restored Section Title Styles */
+.booking-section-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.booking-main-title {
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 800;
+    color: #000000; /* Pure black high-contrast presentation */
+    letter-spacing: -1.5px;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.booking-main-title.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.brand-dot-accent {
+    color: #ff4b2b; /* Stackly Electric Coral */
+}
+
+/* Main Box Card Canvas */
+.booking-fluid-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border: 3px solid #000000;
+    border-radius: 24px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.booking-fluid-container.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================
+   TABS HEADER MATRIX ROUTER BAR
+   ========================================== */
+.booking-tabs-nav {
+    display: flex;
+    background-color: #f8fafc;
+    border-bottom: 3px solid #000000;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.booking-tabs-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.tab-trigger {
+    flex: 1;
+    min-width: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 1.25rem 1.5rem;
+    background: transparent;
+    border: none;
+    border-right: 2px solid #e2e8f0;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tab-trigger:last-child {
+    border-right: none;
+}
+
+.tab-trigger svg {
+    width: 20px;
+    height: 20px;
+    color: #657786;
+    transition: color 0.3s ease;
+}
+
+.tab-trigger span {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #657786;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.tab-trigger.active {
+    background-color: #ffffff;
+}
+
+.tab-trigger.active svg {
+    color: #ff4b2b;
+}
+
+.tab-trigger.active span {
+    color: #000000;
+}
+
+/* ==========================================
+   FORM BODY FIELDS & DATA ENTRY GRID
+   ========================================== */
+.booking-panel-body {
+    padding: 2.2rem;
+}
+
+.booking-input-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.input-card-node {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-card-node.date-range-group {
+    flex: 1.8;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 1rem;
+}
+
+.date-field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.timeline-arrow {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a0aec0;
+}
+
+.timeline-arrow svg {
+    width: 20px;
+    height: 20px;
+}
+
+.booking-input-row label {
+    font-size: 0.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #000000;
+}
+
+.booking-input-row input {
+    width: 100%;
+    height: 48px;
+    padding: 0 1.2rem;
+    background-color: #f8fafc;
+    border: 2px solid #000000;
+    border-radius: 12px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #000000;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.25s ease;
+}
+
+.booking-input-row input:focus {
+    border-color: #ff4b2b;
+}
+
+.action-submit-node {
+    flex-shrink: 0;
+}
+
+.btn-matrix-search {
+    height: 48px;
+    padding: 0 2.5rem;
+    background: linear-gradient(135deg, #ff4b2b 0%, #a832ff 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.05rem;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 75, 43, 0.2);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+    white-space: nowrap;
+}
+
+.btn-matrix-search:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(255, 75, 43, 0.35);
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ========================================== */
+@media (max-width: 992px) {
+    .booking-section-ribbon {
+        padding-top: 40px; /* Compress padding slightly on small mobile viewports */
+    }
+
+    .booking-input-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.5rem;
+    }
+
+    .input-card-node.date-range-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .timeline-arrow {
+        transform: rotate(90deg);
+        height: 20px;
+    }
+
+    .btn-matrix-search {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+    // ==========================================
+    // 1. VIEWPORT ENTRANCE SCROLL HANDLING
+    // ==========================================
+    const formSection = document.getElementById('booking-matrix-hub');
+    const panelTitle = document.querySelector('.booking-main-title');
+    const panelContainer = document.querySelector('.booking-fluid-container');
+
+    const scrollObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                if (panelTitle) panelTitle.classList.add('reveal-active');
+                if (panelContainer) panelContainer.classList.add('reveal-active');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { root: null, threshold: 0.1 });
+
+    if (formSection) scrollObserver.observe(formSection);
+
+    // ==========================================
+    // 2. HORIZONTAL TAB SWITCHING NAVIGATION
+    // ==========================================
+    const tabTriggers = document.querySelectorAll('.tab-trigger');
+    tabTriggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            tabTriggers.forEach(t => t.classList.remove('active'));
+            trigger.classList.add('active');
+        });
+    });
+
+    // ==========================================
+    // 3. SECURE PARAMETER VERIFICATION FIELD VALIDATION ENGINE
+    // ==========================================
+    const bookingForm = document.getElementById('matrixBookingForm');
+
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const targetDest = document.getElementById('terminalDestination').value.trim();
+            const launchDate = document.getElementById('departureDate').value;
+            const returnDate = document.getElementById('returnDate').value;
+
+            // Enforces "Please fill the fields" alert dialog prior to navigation
+            if (!targetDest || !launchDate || !returnDate) {
+                alert('Please fill the fields before initiating terminal search sequence.');
+                return;
+            }
+
+            // Create clean standalone full screen simulated 404 overlay modal window layer
+            const simulationOverlay = document.createElement('div');
+            simulationOverlay.style.cssText = `
+                position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+                background: #000000; color: #ffffff; z-index: 500000;
+                display: flex; flex-direction: column; align-items: center; justify-content: center;
+                font-family: system-ui, -apple-system, sans-serif; opacity: 0; transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            `;
+
+            simulationOverlay.innerHTML = `
+                <h1 style="font-size: clamp(5rem, 15vw, 8rem); font-weight: 900; margin: 0; color: #ff4b2b; letter-spacing: -3px;">404</h1>
+                <h2 style="font-size: 1.5rem; font-weight: 800; margin: 0.5rem 0 1rem; color: #ffffff;">Expedition Unreachable</h2>
+                <p style="font-size: 1.05rem; color: #657786; margin: 0 0 2.5rem 0; text-align: center; max-width: 500px; padding: 0 1.5rem;">Coordinates accepted for vector [ ${targetDest.toUpperCase()} ]. Mapping terminal offline. Core connection severed.</p>
+                <button id="abortSequence" style="background: #ffffff; color: #000000; border: none; padding: 0.9rem 2.8rem; font-weight: 800; font-size: 1rem; border-radius: 40px; cursor: pointer;">Re-center Coordinates</button>
+            `;
+
+            document.body.appendChild(simulationOverlay);
+            requestAnimationFrame(() => simulationOverlay.style.opacity = '1');
+            document.body.style.overflow = 'hidden';
+
+            document.getElementById('abortSequence').addEventListener('click', () => {
+                simulationOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    simulationOverlay.remove();
+                    document.body.style.overflow = 'auto';
+                    bookingForm.reset();
+                }, 400);
+            });
+        });
+    }
+});
+
+</script>
+
+<!-- Fully Responsive Promotional Campaign Section -->
+<section id="campaigns-grid-zone" class="campaigns-section">
+    <div class="campaigns-fluid-container">
+        
+        <!-- Campaign Banner 1: Alpine Expedition -->
+        <div class="campaign-banner-card scroll-banner-reveal accent-coral">
+            <!-- Background Vector Elements Matrix -->
+            <div class="banner-vector-shapes">
+                <svg class="line-vector" viewBox="0 0 100 100"><path d="M10,80 Q50,20 90,80" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="3" stroke-dasharray="5 5"/></svg>
+            </div>
+            
+            <div class="banner-info-pane">
+                <div class="promo-badge">Enjoy 15% Off</div>
+                <h3 class="banner-title">Your long-awaited <span>Alpine trip!</span></h3>
+                <span class="brand-footer-signature">stackly travel</span>
+            </div>
+            
+            <div class="banner-graphic-pane">
+                <div class="graphic-blob-frame">
+                    <img src="https://unsplash.com" alt="Alpine Mountain Peaks" class="campaign-asset-img">
+                </div>
+            </div>
+        </div>
+
+        <!-- Campaign Banner 2: Submarine Caverns -->
+        <div class="campaign-banner-card scroll-banner-reveal accent-violet">
+            <div class="banner-vector-shapes">
+                <svg class="line-vector" viewBox="0 0 100 100"><path d="M20,20 L80,80 M80,20 L20,80" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="2"/></svg>
+            </div>
+            
+            <div class="banner-info-pane">
+                <div class="promo-badge">Enjoy 15% Off</div>
+                <h3 class="banner-title">Your long-awaited <span>Deep Sea dive!</span></h3>
+                <span class="brand-footer-signature">stackly travel</span>
+            </div>
+            
+            <div class="banner-graphic-pane">
+                <div class="graphic-blob-frame">
+                    <img src="https://unsplash.com" alt="Submarine Oceanic Trench" class="campaign-asset-img">
+                </div>
+            </div>
+        </div>
+
+        <!-- Campaign Banner 3: Wilderness Horizon -->
+        <div class="campaign-banner-card scroll-banner-reveal accent-mint">
+            <div class="banner-vector-shapes">
+                <svg class="line-vector" viewBox="0 0 100 100"><circle cx="50" cy="50" r="30" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="2"/></svg>
+            </div>
+            
+            <div class="banner-info-pane">
+                <div class="promo-badge button-dark">Use Code "STACK50"</div>
+                <h3 class="banner-title text-obsidian">Celebrate with a <span>Desert safari!</span></h3>
+                <span class="brand-footer-signature text-obsidian">stackly travel</span>
+            </div>
+            
+            <div class="banner-graphic-pane">
+                <div class="graphic-blob-frame">
+                    <img src="https://unsplash.com" alt="Desert Dunes Camp" class="campaign-asset-img">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    /* --- High-Contrast Promotional Campaign Layout Systems --- */
+.campaigns-section {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 10px 6%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.campaigns-fluid-container {
+    max-width: 1650px;
+    margin: 0 auto;
+    display: grid;
+    /* Clean fluid horizontal distribution grids matching layout blueprint rows */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.2rem;
+    width: 100%;
+}
+
+/* ==========================================
+   CAMPAIGN BANNER CARD BASE STRUCTURE
+   ========================================== */
+.campaign-banner-card {
+    position: relative;
+    height: 220px;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    box-shadow: 0 10px 25px rgba(13, 19, 26, 0.04);
+}
+
+.campaign-banner-card.reveal-active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Creative Micro-Magnification and Lift Hovers */
+.campaign-banner-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 18px 35px rgba(13, 19, 26, 0.08);
+}
+
+/* ==========================================
+   THEMED CARD ACCENTS & CHROMATIC PROFILES
+   ========================================== */
+/* Alpine Coral Theme */
+.campaign-banner-card.accent-coral {
+    background: linear-gradient(135deg, #ff4b2b 0%, #ff6b4a 100%);
+    color: #ffffff;
+}
+/* Submarine Violet Theme */
+.campaign-banner-card.accent-violet {
+    background: linear-gradient(135deg, #a832ff 0%, #bd61ff 100%);
+    color: #ffffff;
+}
+/* Mint Wilderness Horizon Theme */
+.campaign-banner-card.accent-mint {
+    background: linear-gradient(135deg, #7be0cb 0%, #9bf2df 100%);
+    color: #000000;
+}
+
+/* ==========================================
+   BANNER LEFT SIDE: INFORMATION PACKS
+   ========================================== */
+.banner-info-pane {
+    padding: 2rem 1.5rem 2rem 2.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+}
+
+.promo-badge {
+    align-self: flex-start;
+    background-color: rgba(13, 19, 26, 0.9);
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    padding: 6px 14px;
+    border-radius: 30px;
+    margin-bottom: 1.2rem;
+}
+
+.promo-badge.button-dark {
+    background-color: #000000;
+}
+
+.banner-title {
+    font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.5px;
+    margin: 0 0 1.2rem 0;
+}
+
+.banner-title span {
+    font-weight: 900;
+    display: block;
+}
+
+.text-obsidian {
+    color: #000000 !important;
+}
+
+.brand-footer-signature {
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+/* ==========================================
+   BANNER RIGHT SIDE: MAPPED GRAPHIC BLOB
+   ========================================== */
+.banner-graphic-pane {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* Custom Cut-Out Blob Frame to mimic screenshot mask behaviors */
+.graphic-blob-frame {
+    width: 110%;
+    height: 120%;
+    transform: rotate(-6deg) translate(10px, 5px);
+    border-radius: 40px 0 0 40px;
+    overflow: hidden;
+    background-color: #000000;
+    transition: transform 0.5s ease;
+}
+
+.campaign-banner-card:hover .graphic-blob-frame {
+    transform: rotate(-3deg) translate(5px, 2px) scale(1.03);
+}
+
+.campaign-asset-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: rotate(6deg) scale(1.1); /* Counters frame turn metric cleanly */
+    transition: transform 0.5s ease;
+}
+
+.campaign-banner-card:hover .campaign-asset-img {
+    transform: rotate(3deg) scale(1.08);
+}
+
+/* Background Vectors Styling Matrix */
+.banner-vector-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.line-vector {
+    width: 100%;
+    height: 100%;
+}
+
+/* ==========================================
+   RESPONSIVE LAYOUT CONSTRAINTS
+   ========================================== */
+@media (max-width: 480px) {
+    .campaigns-section {
+        padding: 4rem 4%;
+    }
+    .campaign-banner-card {
+        height: 200px;
+        grid-template-columns: 1.25fr 0.75fr;
+    }
+    .banner-info-pane {
+        padding: 1.5rem;
+    }
+}
+
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+    const campaignsZone = document.getElementById('campaigns-grid-zone');
+    const campaignBanners = document.querySelectorAll('.scroll-banner-reveal');
+
+    const campaignObserverOptions = {
+        root: null,
+        threshold: 0.12 // Fires when 12% of the component becomes visible
+    };
+
+    const triggerCampaignReveals = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Cascade campaign banner cards open one by one sequentially
+                campaignBanners.forEach((banner, index) => {
+                    setTimeout(() => {
+                        banner.classList.add('reveal-active');
+                    }, index * 160); // 160ms delay window spacing between panels
+                });
+
+                observer.unobserve(entry.target);
+            }
+        });
+    };
+
+    const campaignsObserver = new IntersectionObserver(triggerCampaignReveals, campaignObserverOptions);
+    
+    if (campaignsZone) {
+        campaignsObserver.observe(campaignsZone);
+    }
+
+});
+
+</script>
+
+<!-- Fully Responsive High-Density 4-Column Exploration Matrix Section -->
+<section id="expedition-matrix-zone" class="matrix-section">
+    
+    <!-- Header Block featuring Letter-by-Letter JavaScript Parsing Container -->
+    <div class="matrix-header">
+        <h2 class="matrix-main-title" id="letterParseTitle">Explore Basecamps</h2>
+    </div>
+
+    <!-- Optimized 4-Column High-Density Image Grid Array -->
+    <div class="matrix-grid-container-four">
+        
+        <!-- Card 1 -->
+        <div class="matrix-card-item scroll-node-reveal">
+            <img src="https://unsplash.com" alt="Alpine Peaks" class="matrix-asset-img">
+            <div class="matrix-card-overlay">
+                <div class="matrix-text-wrapper">
+                    <h3>Alpine Peaks</h3>
+                    <p>Vertical Ridges</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="matrix-card-item scroll-node-reveal">
+            <img src="https://unsplash.com" alt="Marine Trenches" class="matrix-asset-img">
+            <div class="matrix-card-overlay">
+                <div class="matrix-text-wrapper">
+                    <h3>Marine Trenches</h3>
+                    <p>Submarine Caverns</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="matrix-card-item scroll-node-reveal">
+            <img src="https://unsplash.com" alt="Dune Horizons" class="matrix-asset-img">
+            <div class="matrix-card-overlay">
+                <div class="matrix-text-wrapper">
+                    <h3>Dune Horizons</h3>
+                    <p>Desert Safaris</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="matrix-card-item scroll-node-reveal">
+            <img src="https://unsplash.com" alt="Glacier Fields" class="matrix-asset-img">
+            <div class="matrix-card-overlay">
+                <div class="matrix-text-wrapper">
+                    <h3>Glacier Fields</h3>
+                    <p>Ice Expeditions</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Center Corner Call to Action Pinned below Grid Array (Routes to 404) -->
+    <div class="matrix-action-row">
+        <button id="matrixCtaTrigger" class="matrix-btn-see-more">Explore More Vectors</button>
+    </div>
+</section>
+
+<style>
+    /* --- High-Density Vertical Matrix Grid Styles --- */
+.matrix-section {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 10px 6%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.matrix-header {
+    max-width: 1650px;
+    margin: 0 auto 3rem auto;
+}
+
+/* Typography Title Configurations */
+.matrix-main-title {
+    font-size: clamp(2.4rem, 4.5vw, 3.5rem);
+    font-weight: 800;
+    color: #000000; /* Pure High-Contrast Black text color */
+    letter-spacing: -2px;
+}
+
+/* Character Letter Span classes injected dynamically by JS */
+.matrix-char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px) rotate(10deg);
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.matrix-char.char-active {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+}
+
+/* ==========================================
+   OPTIMIZED 4-COLUMN CARDS GRID ASSEMBLY
+   ========================================== */
+.matrix-grid-container-four {
+    max-width: 1650px;
+    margin: 0 auto 3.5rem auto;
+    display: grid;
+    /* Redesigned to 4-columns to significantly increase card width footprint */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.8rem; /* Expanded gap for wider proportional framing layout */
+    width: 100%;
+}
+
+.matrix-card-item {
+    position: relative;
+    /* Adjusted aspect ratio to 16/11 for wider landscape presentation proportions */
+    aspect-ratio: 16 / 11; 
+    border: 3px solid #000000; /* Clean bold vector framing */
+    border-radius: 18px;
+    overflow: hidden;
+    background-color: #f8fafc;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.matrix-card-item.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.matrix-asset-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* High-Contrast Interactive Hover Zoom & Color Morphs */
+.matrix-card-item:hover {
+    border-color: #ff4b2b; /* Stackly Signature Coral outline highlight */
+}
+
+.matrix-card-item:hover .matrix-asset-img {
+    transform: scale(1.04);
+}
+
+/* Vignette Cover Gradients overlay system blocks */
+.matrix-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.85) 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 1.8rem; /* Increased inner padding box metrics */
+    box-sizing: border-box;
+}
+
+.matrix-text-wrapper h3 {
+    font-size: 1.4rem; /* Increased text sizes for wider readable cards */
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 4px 0;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+.matrix-text-wrapper p {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #ff4b2b; /* Stackly Core Color sub-meta labels */
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+/* ==========================================
+   MINIMALIST SEE MORE INTERACTIVE BUTTON
+   ========================================== */
+.matrix-action-row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.matrix-btn-see-more {
+    background-color: #ffffff;
+    color: #000000;
+    border: 2px solid #000000;
+    padding: 0.85rem 3rem;
+    font-size: 0.95rem;
+    font-weight: 800;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.matrix-btn-see-more:hover {
+    background-color: #000000;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN VIEWPORT COLLAPSE BREAKS
+   ========================================== */
+@media (max-width: 1024px) {
+    .matrix-grid-container-four {
+        grid-template-columns: repeat(2, 1fr); /* Collapse into 2 columns on tablet screens */
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 550px) {
+    .matrix-grid-container-four {
+        grid-template-columns: 1fr; /* Collapse down to single full-width cards on narrow smartphones */
+        gap: 1.2rem;
+        aspect-ratio: 16 / 12;
+    }
+    .matrix-section {
+        padding: 4rem 4%;
+    }
+}
+
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+    // ==========================================
+    // 1. SCROLL REVEAL VIEWPORT INTELLIGENCE OBSERVER
+    // ==========================================
+    const matrixSection = document.getElementById('expedition-matrix-zone');
+    const titleHeader = document.getElementById('letterParseTitle');
+    const matrixCards = document.querySelectorAll('.matrix-card-item');
+
+    if (titleHeader) {
+        // Parse raw heading string arrays split down into separate character tags programmatically
+        const rawString = titleHeader.textContent;
+        titleHeader.textContent = '';
+        
+        [...rawString].forEach(char => {
+            const spanNode = document.createElement('span');
+            spanNode.className = 'matrix-char';
+            // Retain whitespace spans properly to prevent structure clipping
+            spanNode.innerHTML = char === ' ' ? '&nbsp;' : char;
+            titleHeader.appendChild(spanNode);
+        });
+    }
+
+    const charSpans = document.querySelectorAll('.matrix-char');
+
+    const matrixObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                
+                // A. Parse typography nodes character by character letter-by-letter loops
+                charSpans.forEach((span, index) => {
+                    setTimeout(() => {
+                        span.classList.add('char-active');
+                    }, index * 40); // 40ms high-speed character loop reveal
+                });
+
+                // B. Cascade tall graphic layout asset frames on screen view
+                matrixCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.add('reveal-active');
+                    }, (charSpans.length * 40) + 150 + (index * 100)); // 100ms incremental staggering
+                });
+
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { root: null, threshold: 0.12 });
+
+    if (matrixSection) matrixObserver.observe(matrixSection);
+
+    // ==========================================
+    // 2. DISPATCH CALL SEQUENCE WORKFLOW (404 REDIRECT OVERLAY)
+    // ==========================================
+    const ctaTrigger = document.getElementById('matrixCtaTrigger');
+
+    if (ctaTrigger) {
+        ctaTrigger.addEventListener('click', () => {
+            // Setup solid backdrop simulation overlay sheet
+            const systemOverlay = document.createElement('div');
+            systemOverlay.style.cssText = `
+                position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+                background: #000000; color: #ffffff; z-index: 600000;
+                display: flex; flex-direction: column; align-items: center; justify-content: center;
+                font-family: system-ui, -apple-system, sans-serif; opacity: 0; transition: opacity 0.3s ease;
+            `;
+
+            systemOverlay.innerHTML = `
+                <h1 style="font-size: clamp(5rem, 12vw, 8rem); font-weight: 900; color: #ff4b2b; margin: 0; letter-spacing: -2px;">404</h1>
+                <h2 style="font-size: 1.4rem; font-weight: 800; margin: 0.5rem 0 1rem; text-transform: uppercase;">Grid Node Offline</h2>
+                <p style="font-size: 1rem; color: #657786; text-align: center; max-width: 440px; margin: 0 0 2rem 0; padding: 0 1rem;">Additional geographical vector sub-indexes are locked inside deep data cold archives. Matrix path unresolved.</p>
+                <button id="closeMatrix" style="background: #ffffff; color: #000000; border: none; padding: 0.85rem 2.5rem; font-weight: 800; font-size: 0.95rem; border-radius: 30px; cursor: pointer;">Return to Basecamp</button>
+            `;
+
+            document.body.appendChild(systemOverlay);
+            requestAnimationFrame(() => systemOverlay.style.opacity = '1');
+            document.body.style.overflow = 'hidden';
+
+            // Terminate simulated dashboard state cleanly
+            document.getElementById('closeMatrix').addEventListener('click', () => {
+                systemOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    systemOverlay.remove();
+                    document.body.style.overflow = 'auto';
+                }, 300);
+            });
+        });
+    }
+
+});
+
+</script>
+
+<!-- Fully Responsive Full-Width Immersive 2-Line CTA Ribbon Banner -->
+<section id="terminal-cta-zone" class="cta-banner-section">
+    
+    <!-- Full-Width Media Backdrop Canvas (Uses img tag approach) -->
+    <div class="cta-media-backdrop">
+        <img src="https://unsplash.com" alt="Mountain Expedition Range Horizon" class="backdrop-raw-img">
+        <div class="backdrop-dark-vignette"></div>
+    </div>
+
+    <!-- Inner Grid Content Structure -->
+    <div class="cta-banner-container">
+        
+        <!-- LEFT CHANNEL: 2-Line High-Impact Typography (Slides From Left) -->
+        <div class="cta-text-package scroll-left-slide">
+            <h2 class="cta-headline-line1">Ready to chart your path?</h2>
+            <h3 class="cta-headline-line2">Lock in your navigation parameters today<span>.</span></h3>
+        </div>
+
+        <!-- RIGHT CHANNEL: Action Node Assembly (Slides From Right) -->
+        <div class="cta-action-package scroll-right-slide">
+            <button id="bannerCtaTrigger" class="cta-btn-premium">Initiate Route Sequence</button>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    /* --- Full-Width Multi-Dimensional CTA Banner Section --- */
+.cta-banner-section {
+    position: relative;
+    width: 100%;
+    min-height: 300px;
+    padding: 6rem 8%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* ==========================================
+   FULL-WIDTH MEDIA BACKDROP CANVAS
+   ========================================== */
+.cta-media-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.backdrop-raw-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Industrial Vignette Coating to protect pure white text clarity */
+.backdrop-dark-vignette {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(13, 19, 26, 0.85) 0%, rgba(13, 19, 26, 0.7) 100%);
+}
+
+/* Inner Layout Frame */
+.cta-banner-container {
+    max-width: 1600px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
+    position: relative;
+    z-index: 5;
+}
+
+/* ==========================================
+   LEFT CHANNEL: 2-LINE HORIZONTAL TYPOGRAPHY
+   ========================================== */
+.cta-text-package {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.cta-text-package.scroll-left-slide {
+    opacity: 0;
+    transform: translateX(-150px); /* Side entrance displacement offset */
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cta-text-package.scroll-left-slide.reveal-active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.cta-headline-line1 {
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-weight: 700;
+    color: #ffffff;
+    opacity: 0.9;
+    letter-spacing: -0.5px;
+    margin: 0;
+}
+
+.cta-headline-line2 {
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    margin: 0;
+}
+
+.cta-headline-line2 span {
+    color: #ff4b2b; /* Stackly Core Coral Dot */
+}
+
+/* ==========================================
+   RIGHT CHANNEL: SIDE ENTRANCE PILL ACTION
+   ========================================== */
+.cta-action-package.scroll-right-slide {
+    opacity: 0;
+    transform: translateX(150px); /* Side entrance displacement offset */
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cta-action-package.scroll-right-slide.reveal-active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.cta-btn-premium {
+    background: linear-gradient(135deg, #ff4b2b 0%, #a832ff 100%);
+    color: #ffffff;
+    border: none;
+    padding: 1.2rem 3rem;
+    font-size: 1.1rem;
+    font-weight: 800;
+    border-radius: 40px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(255, 75, 43, 0.3);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    white-space: nowrap;
+}
+
+.cta-btn-premium:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(255, 75, 43, 0.45);
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN VIEWPORT COLLAPSE BREAKS
+   ========================================== */
+@media (max-width: 992px) {
+    .cta-banner-section {
+        padding: 5rem 6%;
+        text-align: center;
+    }
+    .cta-banner-container {
+        flex-direction: column; /* Collapse row architecture down to single balanced column block */
+        gap: 2.5rem;
+    }
+    .cta-action-package.scroll-right-slide {
+        transform: translateY(50px); /* Pivot translation from horizontal sides to bottom-up format on mobile screen viewports */
+    }
+    .cta-btn-premium {
+        width: 100%;
+        max-width: 340px;
+    }
+}
+
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+    // ==========================================
+    // 1. VIEWPORT OBSERVATION OPPOSITE SIDEReveals
+    // ==========================================
+    const ctaSection = document.getElementById('terminal-cta-zone');
+    const leftTextPane = document.querySelector('.scroll-left-slide');
+    const rightActionPane = document.querySelector('.scroll-right-slide');
+
+    const ctaScrollObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Simultaneously fire entrance logic loops
+                if (leftTextPane) leftTextPane.classList.add('reveal-active');
+                if (rightActionPane) rightActionPane.classList.add('reveal-active');
+                
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { root: null, threshold: 0.15 });
+
+    if (ctaSection) ctaScrollObserver.observe(ctaSection);
+
+    // ==========================================
+    // 2. DISPATCH CALL TIMELINE (SIMULATED 404 POPUP)
+    // ==========================================
+    const bannerCtaTrigger = document.getElementById('bannerCtaTrigger');
+
+    if (bannerCtaTrigger) {
+        bannerCtaTrigger.addEventListener('click', () => {
+            const popupOverlay = document.createElement('div');
+            popupOverlay.style.cssText = `
+                position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+                background: #000000; color: #ffffff; z-index: 700000;
+                display: flex; flex-direction: column; align-items: center; justify-content: center;
+                font-family: system-ui, -apple-system, sans-serif; opacity: 0; transition: opacity 0.3s ease;
+            `;
+
+            popupOverlay.innerHTML = `
+                <h1 style="font-size: clamp(5rem, 12vw, 8rem); font-weight: 900; color: #ff4b2b; margin: 0; letter-spacing: -2px;">404</h1>
+                <h2 style="font-size: 1.4rem; font-weight: 800; margin: 0.5rem 0 1rem; text-transform: uppercase;">Gateway Connection Timed Out</h2>
+                <p style="font-size: 1rem; color: #657786; text-align: center; max-width: 460px; margin: 0 0 2.5rem 0; padding: 0 1.5rem;">Core data trunk line severed while negotiating destination access handshakes. Operation aborted.</p>
+                <button id="closeBannerPopup" style="background: #ffffff; color: #000000; border: none; padding: 0.85rem 2.8rem; font-weight: 800; font-size: 1rem; border-radius: 40px; cursor: pointer;">Re-verify Baseline</button>
+            `;
+
+            document.body.appendChild(popupOverlay);
+            requestAnimationFrame(() => popupOverlay.style.opacity = '1');
+            document.body.style.overflow = 'hidden';
+
+            document.getElementById('closeBannerPopup').addEventListener('click', () => {
+                popupOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    popupOverlay.remove();
+                    document.body.style.overflow = 'auto';
+                }, 300);
+            });
+        });
+    }
+
+});
+
+</script>
+
+<!-- Robust Structural Asymmetric Masonry Gallery Section -->
+<section id="gallery-exploration" class="gallery-section-matrix">
+    
+    <!-- Section Header UI Elements -->
+    <div class="gallery-header-block">
+        <span class="gallery-overline">Top Selling</span>
+        <h2 class="gallery-main-title" id="galleryTitle">
+            <span class="gal-word">Gallery</span>
+            <span class="gal-word">Explore</span>
+            <span class="gal-word">Top</span>
+            <span class="gal-word">Place<span class="brand-dot-marker">.</span></span>
+        </h2>
+        
+        <!-- Filter Category Capsules Navigation Rows -->
+        <div class="filter-capsule-row">
+            <button class="capsule-btn active">Europe</button>
+            <button class="capsule-btn">America</button>
+            <button class="capsule-btn">Africa</button>
+            <button class="capsule-btn">Asia</button>
+        </div>
+    </div>
+
+    <!-- Re-Engineered Asymmetric Masonry Layout Grid Framework -->
+    <div class="gallery-asymmetric-grid">
+        
+        <!-- CARD 1 (Enters from LEFT edge) -->
+        <div class="gallery-grid-card entry-left card-span-normal">
+            <div class="card-media-wrapper">
+                <img src="https://unsplash.com" alt="Coastal Rock Ridge" class="gallery-raw-img">
+            </div>
+            <div class="gallery-hover-overlay">
+                <div class="overlay-caption-box">
+                    <h3>Greece Ridge</h3>
+                    <p>Offer Active: <span>August / Sept</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 2 (Enters from TOP edge - Center Pillar) -->
+        <div class="gallery-grid-card entry-top card-span-tall row-span-2">
+            <div class="card-media-wrapper">
+                <img src="https://unsplash.com" alt="Eiffel Tower Vista" class="gallery-raw-img">
+            </div>
+            <div class="gallery-hover-overlay">
+                <div class="overlay-caption-box">
+                    <h3>France Apex</h3>
+                    <p>Offer Active: <span>May / June</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 3 (Enters from RIGHT edge) -->
+        <div class="gallery-grid-card entry-right card-span-normal">
+            <div class="card-media-wrapper">
+                <img src="https://unsplash.com" alt="London Shard Horizon" class="gallery-raw-img">
+            </div>
+            <div class="gallery-hover-overlay">
+                <div class="overlay-caption-box">
+                    <h3>United Kingdom</h3>
+                    <p>Offer Active: <span>Oct / Nov</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 4 (Enters from BOTTOM edge) -->
+        <div class="gallery-grid-card entry-bottom card-span-normal">
+            <div class="card-media-wrapper">
+                <img src="https://unsplash.com" alt="Lakeside Pagoda" class="gallery-raw-img">
+            </div>
+            <div class="gallery-hover-overlay">
+                <div class="overlay-caption-box">
+                    <h3>Bali Waterway</h3>
+                    <p>Offer Active: <span>April / May</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 5 (Enters from BOTTOM edge) -->
+        <div class="gallery-grid-card entry-bottom card-span-normal">
+            <div class="card-media-wrapper">
+                <img src="https://unsplash.com" alt="Cathedral At Night" class="gallery-raw-img">
+            </div>
+            <div class="gallery-hover-overlay">
+                <div class="overlay-caption-box">
+                    <h3>Italy Cathedral</h3>
+                    <p>Offer Active: <span>Dec / Jan</span></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    /* --- Re-engineered Rigid Geometry Gallery System --- */
+.gallery-section-matrix {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 10px 6% 6rem 6%; 
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.gallery-header-block {
+    text-align: center;
+    margin-bottom: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gallery-overline {
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #657786;
+    margin-bottom: 0.4rem;
+}
+
+.gallery-main-title {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.8rem;
+    font-size: clamp(2.5rem, 5vw, 3.6rem);
+    font-weight: 900;
+    color: #000000;
+    letter-spacing: -2px;
+    margin-bottom: 1.8rem;
+}
+
+.gal-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gal-word.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.brand-dot-marker {
+    color: #ff4b2b;
+}
+
+/* Category Filter Capsules Layout */
+.filter-capsule-row {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.capsule-btn {
+    padding: 0.7rem 1.6rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    background-color: #f8fafc;
+    color: #657786;
+    border: 1px solid #e2e8f0;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.capsule-btn:hover, .capsule-btn.active {
+    background-color: #ff4b2b;
+    color: #ffffff;
+    border-color: #ff4b2b;
+    box-shadow: 0 4px 12px rgba(255, 75, 43, 0.2);
+}
+
+/* ==========================================
+   STRICT GRID AUTO-ROWS MASONRY ENGINE
+   ========================================== */
+.gallery-asymmetric-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 220px; 
+    gap: 2rem;
+    width: 100%;
+}
+
+.gallery-grid-card {
+    position: relative;
+    border: 3px solid #000000; 
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #f8fafc;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%; 
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.card-span-normal { grid-row: span 1; }
+.row-span-2 { grid-row: span 2; }
+
+.card-media-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-raw-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================
+   MULTI-DIRECTIONAL COMPASS ENTRANCE OFFSETS
+   ========================================== */
+.gallery-grid-card.entry-left   { transform: translateX(-100px); opacity: 0; }
+.gallery-grid-card.entry-right  { transform: translateX(100px); opacity: 0; }
+.gallery-grid-card.entry-top    { transform: translateY(-100px); opacity: 0; }
+.gallery-grid-card.entry-bottom { transform: translateY(100px); opacity: 0; }
+
+.gallery-grid-card.reveal-active {
+    opacity: 1;
+    transform: translate(0);
+}
+
+/* ==========================================
+   INTERACTIVE HOVER OVERLAY CAPTIONS
+   ========================================== */
+.gallery-hover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(13, 19, 26, 0.35);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 1.25rem;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 5;
+}
+
+.overlay-caption-box {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border: 2px solid #000000;
+    border-radius: 12px;
+    padding: 0.85rem 1.2rem;
+    transform: translateY(15px);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    text-align: left;
+}
+
+/* Hover Events Loop */
+.gallery-grid-card:hover { border-color: #ff4b2b; }
+.gallery-grid-card:hover .gallery-raw-img { transform: scale(1.04); }
+.gallery-grid-card:hover .gallery-hover-overlay { opacity: 1; }
+.gallery-grid-card:hover .overlay-caption-box { transform: translateY(0); }
+
+.overlay-caption-box h3 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #000000;
+    margin: 0 0 2px 0;
+    letter-spacing: -0.3px;
+}
+
+.overlay-caption-box p {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #657786;
+    margin: 0;
+}
+
+.overlay-caption-box p span {
+    color: #ff4b2b;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN VIEWPORT COLLAPSE BREAKS
+   ========================================== */
+@media (max-width: 1024px) {
+    .gallery-asymmetric-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 240px; 
+    }
+    .row-span-2 {
+        grid-row: span 1; 
+    }
+}
+
+@media (max-width: 650px) {
+    .gallery-section-matrix { padding: 10px 4% 4rem 4%; }
+    .gallery-asymmetric-grid {
+        grid-template-columns: 1fr; 
+        grid-auto-rows: 210px;
+        gap: 1.5rem;
+    }
+}
+
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+    // Target structural elements inside the Stackly Gallery Section
+    const gallerySection = document.getElementById('gallery-exploration');
+    const titleWords = document.querySelectorAll('.gal-word');
+    const displayCards = document.querySelectorAll('.gallery-grid-card');
+
+    // Viewport tracker observer configuration constraints
+    const galleryObserverOptions = {
+        root: null, // Scans visibility relative to the active user window
+        threshold: 0.12 // Fires smoothly when 12% of the component area enters view bounds
+    };
+
+    const triggerGalleryReveal = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                
+                // 1. Stagger Title Word fly-up metrics sequentially
+                titleWords.forEach((word, index) => {
+                    setTimeout(() => {
+                        word.classList.add('reveal-active');
+                    }, index * 120); // Staggers entries by a uniform 120ms window
+                });
+
+                // 2. Stagger and cascade boundary slide entrances for the 5 cards one by one
+                displayCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.add('reveal-active');
+                    }, (titleWords.length * 120) + 150 + (index * 100)); // Delays entry cascade until header completes
+                });
+
+                // Evict tracking observation bounds programmatically to optimize computing memory
+                observer.unobserve(entry.target);
+            }
+        });
+    };
+
+    // Instantiate and bind the scroll tracking observer
+    const galleryObserver = new IntersectionObserver(triggerGalleryReveal, galleryObserverOptions);
+    
+    if (gallerySection) {
+        galleryObserver.observe(gallerySection);
+    }
+});
+
+</script>
+
+<!-- Fully Responsive Immersive Testimonial Slider Grid Section -->
+<section id="explorer-stories" class="stories-section compact-padding">
+    <div class="stories-container">
+        
+        <!-- LEFT COLUMN: Dual-Image Layered Canvas (Slides In From Left) -->
+        <div class="stories-image-wrapper" id="storiesImageBlock">
+            <div class="stories-graphic-canvas">
+                <div class="story-card-base">
+                    <img src="https://unsplash.com" alt="Mountain Expedition Range" class="story-img">
+                </div>
+                <div class="story-card-overlap">
+                    <img src="https://unsplash.com" alt="Alpinist Peak Trekking" class="story-img">
+                    <div class="story-accent-badge">Verified Track</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN: Multi-Directional Typography Matrix & Automated Swapper Feedbacks -->
+        <div class="stories-text-block">
+            <!-- Word-by-Word Multi-Directional Animated Header -->
+            <h2 class="stories-title" id="storiesTitle">
+                <span class="story-word fly-top">Stories</span>
+                <span class="story-word fly-right">From</span>
+                <span class="story-word fly-bottom">The</span>
+                <span class="story-word fly-left">Frontier<span class="brand-dot-purple">.</span></span>
+            </h2>
+            
+            <!-- Automated Rotating Testimonial Deck Chassis Container -->
+            <div class="testimonial-slider-deck scroll-bottom-reveal" id="testimonialDeck">
+                
+                <!-- Slide 1 (Active Baseline) -->
+                <div class="testimonial-matrix-slide active">
+                    <div class="quote-vector-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg>
+                    </div>
+                    <p class="testimonial-quote">
+                        "Stackly stripped the formulaic, scripted feeling entirely out of our route planning. We tracked vertical mountain passes in complete isolation that standard commercial maps didn't even acknowledge exist."
+                    </p>
+                    <div class="explorer-profile-row">
+                        <div class="profile-avatar">
+                            <img src="https://unsplash.com" alt="Sarah Jenkins">
+                        </div>
+                        <div class="profile-meta">
+                            <h4>Sarah Jenkins</h4>
+                            <p>Expedition Vector: Ridge Basecamp</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="testimonial-matrix-slide">
+                    <div class="quote-vector-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg>
+                    </div>
+                    <p class="testimonial-quote">
+                        "Submerging into the subterranean marine caverns with their coordinates was an absolute rush. Authentic, pristine, and entirely uncommercialized isolation from start to finish."
+                    </p>
+                    <div class="explorer-profile-row">
+                        <div class="profile-avatar">
+                            <img src="https://unsplash.com" alt="Marcus Vance">
+                        </div>
+                        <div class="profile-meta">
+                            <h4>Marcus Vance</h4>
+                            <p>Expedition Vector: Deep Caverns</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="testimonial-matrix-slide">
+                    <div class="quote-vector-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg>
+                    </div>
+                    <p class="testimonial-quote">
+                        "Navigating the deep golden dune horizons beneath endless isolated star canopies redefined what travel means to me. Their support terminal grid works flawlessly."
+                    </p>
+                    <div class="explorer-profile-row">
+                        <div class="profile-avatar">
+                            <img src="https://unsplash.com" alt="Elena Rostova">
+                        </div>
+                        <div class="profile-meta">
+                            <h4>Elena Rostova</h4>
+                            <p>Expedition Vector: Desert Dunes</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom-Up Entrance Action Button -->
+            <div class="stories-cta-wrapper scroll-bottom-reveal">
+                <a href="#book" class="stories-btn-primary">Read All Dispatches</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    /* --- High-Contrast Testimonials & Automated Slider Layout --- */
+.stories-section.compact-padding {
+    position: relative;
+    width: 100%;
+    background-color: #ffffff;
+    /* Strict layout constraints enforcing precise 10px spacing rules */
+    padding: 10px 6%;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-bottom: 2px solid #000000;
+}
+
+.stories-container {
+    max-width: 1550px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr; 
+    gap: 6rem;
+    align-items: center;
+}
+
+/* ==========================================
+   LEFT ZONE: LAYERED GRAPHIC CANVAS STAGE
+   ========================================== */
+.stories-image-wrapper {
+    width: 100%;
+    opacity: 0;
+    transform: translateX(-120px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stories-image-wrapper.reveal-active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.stories-graphic-canvas {
+    position: relative;
+    width: 100%;
+    height: 460px;
+}
+
+.story-card-base {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 75%;
+    height: 380px;
+    border: 3px solid #000000;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #f8fafc;
+}
+
+.story-card-overlap {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 55%;
+    height: 280px;
+    border: 3px solid #000000;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #f8fafc;
+    box-shadow: -10px -10px 30px rgba(0,0,0,0.05);
+    z-index: 5;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.story-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.story-card-overlap:hover {
+    transform: translateY(-8px) rotate(1deg);
+}
+
+.story-accent-badge {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 5px 12px;
+    border-radius: 6px;
+}
+
+/* ==========================================
+   RIGHT ZONE: SLIDER DECK ARCHITECTURE
+   ========================================== */
+.stories-text-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.stories-title {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.2rem;
+    font-size: clamp(3rem, 5.8vw, 5rem);
+    font-weight: 900;
+    color: #000000;
+    line-height: 1.05;
+    letter-spacing: -2.5px;
+    margin-bottom: 2.2rem;
+}
+
+.story-word {
+    display: inline-block;
+    opacity: 0;
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stories-title .brand-dot-purple {
+    color: #a832ff;
+}
+
+/* Multi-Directional Title Vectors */
+.fly-top    { transform: translateY(-80px); }
+.fly-right  { transform: translateX(80px); }
+.fly-bottom { transform: translateY(80px); }
+.fly-left   { transform: translateX(-80px); }
+
+.story-word.reveal-active {
+    opacity: 1;
+    transform: translate(0);
+}
+
+/* Absolute Positioning Matrix Deck to hold overlapping carousel sheets */
+.testimonial-slider-deck {
+    position: relative;
+    width: 100%;
+    height: 250px; /* Constrained container height prevents content shifting during crossfade */
+    margin-bottom: 2.5rem;
+    max-width: 680px;
+}
+
+.testimonial-matrix-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f8fafc;
+    border: 2px solid #000000;
+    border-radius: 18px;
+    padding: 2.2rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    
+    /* Cross-dissolve state transitions */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: scale(0.98);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+}
+
+/* Active slide representation */
+.testimonial-matrix-slide.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: scale(1);
+}
+
+.quote-vector-icon {
+    position: absolute;
+    top: -20px;
+    left: 30px;
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #ff4b2b 0%, #a832ff 100%);
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(255, 75, 43, 0.2);
+}
+
+.quote-vector-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.testimonial-quote {
+    font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+    font-weight: 700;
+    color: #000000;
+    line-height: 1.5;
+    margin: 0 0 1.2rem 0;
+    transition: color 0.3s ease;
+    cursor: default;
+}
+
+.testimonial-matrix-slide:hover .testimonial-quote {
+    color: #ff4b2b;
+}
+
+.explorer-profile-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-top: 1px dashed #cbd5e1;
+    padding-top: 1rem;
+    margin-top: auto;
+}
+
+.profile-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #000000;
+    flex-shrink: 0;
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-meta h4 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #000000;
+    margin: 0 0 2px 0;
+}
+
+.profile-meta p {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #657786;
+    margin: 0;
+}
+
+/* Entrance Animations Profiles */
+.scroll-bottom-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-bottom-reveal.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stories-btn-primary {
+    display: inline-block;
+    padding: 1.15rem 3rem;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-decoration: none;
+    background: linear-gradient(135deg, #ff4b2b 0%, #a832ff 100%);
+    border-radius: 40px;
+    box-shadow: 0 5px 20px rgba(255, 75, 43, 0.25);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.stories-btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(255, 75, 43, 0.4);
+}
+
+/* ==========================================
+   RESPONSIVE LAYOUT CONSTRAINTS
+   ========================================== */
+@media (max-width: 1024px) {
+    .stories-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    .stories-text-block {
+        align-items: center;
+        text-align: center;
+    }
+    .stories-title {
+        justify-content: center;
+    }
+    .testimonial-slider-deck {
+        text-align: left;
+        margin: 0 auto 2.5rem auto;
+        height: 270px; /* Allocate tiny vertical padding for text expansions on narrow blocks */
+    }
+    .stories-image-wrapper {
+        max-width: 650px;
+        margin: 0 auto;
+    }
+    .stories-graphic-canvas {
+        height: 380px;
+    }
+    .story-card-base { height: 320px; }
+    .story-card-overlap { height: 220px; }
+}
+
+@media (max-width: 480px) {
+    .testimonial-slider-deck {
+        height: 330px; /* Fluid height protect buffer mapping on small mobile layouts */
+    }
+}
+
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+    // ==========================================
+    // 1. HIGH-PERFORMANCE INTERSECTION REVEALS
+    // ==========================================
+    const storiesSection = document.getElementById('explorer-stories');
+    const headerWordNodes = document.querySelectorAll('.story-word');
+    const structuralBottomReveals = document.querySelectorAll('.scroll-bottom-reveal');
+    const imageCanvasBlock = document.getElementById('storiesImageBlock');
+
+    const scrollObserverOptions = { root: null, threshold: 0.12 };
+
+    const triggerStoriesAnimations = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                headerWordNodes.forEach((word, index) => {
+                    setTimeout(() => word.classList.add('reveal-active'), index * 120);
+                });
+
+                structuralBottomReveals.forEach((element, index) => {
+                    setTimeout(() => element.classList.add('reveal-active'), (headerWordNodes.length * 120) + (index * 180));
+                });
+
+                setTimeout(() => {
+                    if (imageCanvasBlock) imageCanvasBlock.classList.add('reveal-active');
+                }, (headerWordNodes.length * 120) + 350);
+
+                observer.unobserve(entry.target);
+            }
+        });
+    };
+
+    const storiesObserver = new IntersectionObserver(triggerStoriesAnimations, scrollObserverOptions);
+    if (storiesSection) storiesObserver.observe(storiesSection);
+
+    // ==========================================
+    // 2. STRACT AUTOMATED TESTIMONIAL TIMELINE SWAPPER LOOP
+    // ==========================================
+    const slides = document.querySelectorAll('.testimonial-matrix-slide');
+    const deckContainer = document.getElementById('testimonialDeck');
+    let currentIndex = 0;
+    let rotationInterval;
+
+    const executeRotationSequence = () => {
+        // Remove active state tag from current slide
+        slides[currentIndex].classList.remove('active');
+        
+        // Pivot incremental tracking indicator index forward
+        currentIndex = (currentIndex + 1) % slides.length;
+        
+        // Inject active tag onto next slide sequence panel sheet
+        slides[currentIndex].classList.add('active');
+    };
+
+    const startAutomatedTimer = () => {
+        // Run clean interval cycles targeting exactly 2 seconds loop boundaries
+        rotationInterval = setInterval(executeRotationSequence, 2000);
+    };
+
+    const killAutomatedTimer = () => {
+        clearInterval(rotationInterval);
+    };
+
+    // Initialize carousel timer execution threads if slide sheets populate the document array map
+    if (slides.length > 1) {
+        startAutomatedTimer();
+
+        // Pause loop sequences on active mouse hover to grant checking stability
+        if (deckContainer) {
+            deckContainer.addEventListener('mouseenter', killAutomatedTimer);
+            deckContainer.addEventListener('mouseleave', startAutomatedTimer);
+        }
+    }
+});
+
+</script>
+
+<!-- Fully Responsive Architectural FAQ Accordion Section -->
+<section id="faq-matrix-hub" class="faq-section">
+    
+    <!-- Section Header Block -->
+    <div class="faq-header-block">
+        <h2 class="faq-main-title" id="faqScrollTitle">
+            <span class="faq-word">Frequently</span>
+            <span class="faq-word">Asked</span>
+            <span class="faq-word">Questions<span class="brand-dot-marker">.</span></span>
+        </h2>
+        <p class="faq-subtitle scroll-fade-up">Clear parameters and operational answers regarding your next isolated expedition.</p>
+    </div>
+
+    <!-- FAQ Accordion Layout Container Grid -->
+    <div class="faq-accordion-container" id="faqGridContainer">
+        
+        <!-- Accordion Row 1 -->
+        <div class="faq-accordion-card scroll-row-reveal">
+            <button class="faq-trigger-header" aria-expanded="false">
+                <h3>What is included inside a Stackly itinerary template?</h3>
+                <div class="faq-vector-chevron">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
+                </div>
+            </button>
+            <div class="faq-content-panel">
+                <div class="panel-inner-text">
+                    <p>Every itinerary locks in absolute transit path vectors, verified coordinates for isolated basecamps, wilderness route metrics, return flight confirmation windows, and high-fidelity logistics blueprints engineered to bypass standard tourist congestion lines completely.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Accordion Row 2 -->
+        <div class="faq-accordion-card scroll-row-reveal">
+            <button class="faq-trigger-header" aria-expanded="false">
+                <h3>How are the expedition routes verified for safety?</h3>
+                <div class="faq-vector-chevron">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
+                </div>
+            </button>
+            <div class="faq-content-panel">
+                <div class="panel-inner-text">
+                    <p>Our distributed pathfinder network physically tracks, records atmospheric variations, and tests regional resource channels firsthand before publishing any vector mapping data template onto your dashboard terminal.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Accordion Row 3 -->
+        <div class="faq-accordion-card scroll-row-reveal">
+            <button class="faq-trigger-header" aria-expanded="false">
+                <h3>Can I request modifications to a pre-mapped vector path?</h3>
+                <div class="faq-vector-chevron">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
+                </div>
+            </button>
+            <div class="faq-content-panel">
+                <div class="panel-inner-text">
+                    <p>Yes. By utilizing the operational terminal within your account matrix, parameters can be dynamically altered to change duration variables, transit class levels, and extreme activity inclusions to match your squad's survival metrics.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Accordion Row 4 -->
+        <div class="faq-accordion-card scroll-row-reveal">
+            <button class="faq-trigger-header" aria-expanded="false">
+                <h3>What equipment tracking metrics are provided?</h3>
+                <div class="faq-vector-chevron">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
+                </div>
+            </button>
+            <div class="faq-content-panel">
+                <div class="panel-inner-text">
+                    <p>We provide full gear guides mapped explicitly to your destination terrain (Alpine, Submarine, or Desert Dunes). This includes thermal rating configurations, communication wave thresholds, and pack weight load suggestions.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    /* --- Premium Minimalist FAQ Layout System --- */
+.faq-section {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 6rem 6%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.faq-header-block {
+    text-align: center;
+    margin-bottom: 4.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.faq-main-title {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.8rem;
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    font-weight: 900;
+    color: #000000; /* Pure High-Contrast Black text color */
+    letter-spacing: -2px;
+    margin-bottom: 1rem;
+}
+
+.faq-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-word.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.brand-dot-marker {
+    color: #ff4b2b; /* Stackly Signature Coral Accent */
+}
+
+.faq-subtitle {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #657786;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+}
+
+.faq-subtitle.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================
+   FAQ ACCORDION ROW CARDS ASSEMBLY
+   ========================================== */
+.faq-accordion-container {
+    max-width: 900px; /* Constrained width builds clean professional readability alignment */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    width: 100%;
+}
+
+.faq-accordion-card {
+    background-color: #f8fafc;
+    border: 2px solid #000000; /* Bold industrial structural vector borders */
+    border-radius: 16px;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-accordion-card.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.faq-accordion-card:hover {
+    border-color: #ff4b2b; /* Morph focus outline to brand coral */
+    box-shadow: 0 8px 24px rgba(255, 75, 43, 0.05);
+}
+
+/* Header Trigger Bar layout */
+.faq-trigger-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.faq-trigger-header h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #000000;
+    letter-spacing: -0.5px;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.faq-vector-chevron {
+    width: 32px;
+    height: 32px;
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #000000;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.faq-vector-chevron svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* ==========================================
+   SLIDING ACCORDION CONTENT PANEL PANEL
+   ========================================== */
+.faq-content-panel {
+    max-height: 0; /* Strict hidden baseline height configuration for sliding */
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.panel-inner-text {
+    padding: 0 2rem 1.8rem 2rem;
+}
+
+.panel-inner-text p {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #657786;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Active open styling variables handled dynamically via JavaScript */
+.faq-accordion-card.open-active {
+    border-color: #ff4b2b;
+    background-color: #ffffff;
+}
+
+.faq-accordion-card.open-active .faq-vector-chevron {
+    transform: rotate(180deg); /* Spins chevron upward smoothly */
+    background-color: #ff4b2b;
+    border-color: #ff4b2b;
+    color: #ffffff;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN SYSTEM MEDIA CONFIGS
+   ========================================== */
+@media (max-width: 650px) {
+    .faq-section {
+        padding: 4rem 4%;
+    }
+    .faq-trigger-header {
+        padding: 1.25rem 1.5rem;
+    }
+    .panel-inner-text {
+        padding: 0 1.5rem 1.5rem 1.5rem;
+    }
+    .faq-trigger-header h3 {
+        font-size: 1.1rem;
+    }
+}
+
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+    // ==========================================
+    // 1. SCROLL VIEWPORT OBSERVER ENTRANCES
+    // ==========================================
+    const faqSection = document.getElementById('faq-matrix-hub');
+    const titleWordNodes = document.querySelectorAll('.faq-word');
+    const subTitleNode = document.querySelector('.faq-subtitle');
+    const faqRowCards = document.querySelectorAll('.scroll-row-reveal');
+
+    const faqRevealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                
+                // Stagger title header metrics word-by-word
+                titleWordNodes.forEach((word, index) => {
+                    setTimeout(() => {
+                        word.classList.add('reveal-active');
+                    }, index * 120);
+                });
+
+                // Fade description subtitle up safely right after header resolves
+                setTimeout(() => {
+                    if (subTitleNode) subTitleNode.classList.add('reveal-active');
+                }, titleWordNodes.length * 120);
+
+                // Cascade accordion row cards into view one-by-one sequentially
+                faqRowCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.add('reveal-active');
+                    }, (titleWordNodes.length * 120) + 200 + (index * 140)); // 140ms step delays between cards
+                });
+
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { root: null, threshold: 0.15 });
+
+    if (faqSection) faqRevealObserver.observe(faqSection);
+
+    // ==========================================
+    // 2. INTERACTIVE SLIDING ACCORDION ENGINE
+    // ==========================================
+    const accordionTriggers = document.querySelectorAll('.faq-trigger-header');
+
+    accordionTriggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const currentCard = trigger.closest('.faq-accordion-card');
+            const currentPanel = currentCard.querySelector('.faq-content-panel');
+            const isCurrentlyOpen = currentCard.classList.contains('open-active');
+
+            // Optional: Close all other open cards prior to expanding the new selection
+            document.querySelectorAll('.faq-accordion-card').forEach(card => {
+                card.classList.remove('open-active');
+                card.querySelector('.faq-content-panel').style.maxHeight = null;
+                card.querySelector('.faq-trigger-header').setAttribute('aria-expanded', 'false');
+            });
+
+            if (!isCurrentlyOpen) {
+                // Open active selection by measuring natural text scroll-height bounds programmatically
+                currentCard.classList.add('open-active');
+                currentPanel.style.maxHeight = currentPanel.scrollHeight + "px";
+                trigger.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
+
+});
+
+</script>
+
+<!-- Fully Responsive Asymmetrical News & Blog Section -->
+<section id="news-resources-matrix" class="blog-section">
+    
+    <!-- Section Header Block -->
+    <div class="blog-header-block">
+        <h2 class="blog-main-title" id="blogScrollTitle">
+            <span class="blog-word">Latest</span>
+            <span class="blog-word">News</span>
+            <span class="blog-word">and</span>
+            <span class="blog-word">Resources<span class="brand-dot-marker">.</span></span>
+        </h2>
+        <p class="blog-subtitle scroll-fade-up">Stay updated with high-stakes field logs, route dispatches, and survival strategies straight from our pathfinders.</p>
+    </div>
+
+    <!-- Asymmetrical Layout Container Frame -->
+    <div class="blog-asymmetric-grid">
+        
+        <!-- LEFT CHANNEL: Featured Spotlight Story (Card 1) -->
+        <div class="blog-spotlight-card scroll-node-reveal">
+            <div class="spotlight-media-box">
+                <img src="https://unsplash.com" alt="Featured Expedition Ridge" class="blog-raw-img">
+            </div>
+            <div class="spotlight-content-box">
+                <div class="blog-category-badge">Field Dispatches</div>
+                <h3 class="spotlight-title">Where does it come from?</h3>
+                <p class="spotlight-desc">Contrary to popular belief, Stackly itineraries are not simply random layouts. Each path has roots in verified coordinates, physical mapping data, and authentic remote field logging making it over 2000 routes deep.</p>
+                <button class="blog-inline-cta-btn fallback-redirect">Read more</button>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN: Vertical Stacked Article Stream -->
+        <div class="blog-sidebar-stream">
+            
+            <!-- Sidebar Card 2 -->
+            <div class="stream-article-node scroll-node-reveal">
+                <div class="stream-media-box">
+                    <img src="https://unsplash.com" alt="Submarine Expedition View" class="blog-raw-img">
+                    <div class="stream-category-badge gradient-purple">Tactical Briefing</div>
+                </div>
+                <div class="stream-content-box">
+                    <h4 class="stream-title">Deep Submarine Cavern Formations</h4>
+                    <p class="stream-desc">Contrary to popular belief, deep marine cavern navigation has roots in specific sonar data calibrations, ensuring absolute structural safety.</p>
+                </div>
+            </div>
+
+            <!-- Sidebar Card 3 -->
+            <div class="stream-article-node scroll-node-reveal">
+                <div class="stream-media-box">
+                    <img src="https://unsplash.com" alt="Wilderness Camp Gear" class="blog-raw-img">
+                    <div class="stream-category-badge">Gear Logs</div>
+                </div>
+                <div class="stream-content-box">
+                    <h4 class="stream-title">Arid Zone Survival Blueprints</h4>
+                    <p class="stream-desc">Contrary to popular belief, desert survival loops are thoroughly stress-tested against continuous solar exposure variables across global horizons.</p>
+                </div>
+            </div>
+
+            <!-- Sidebar Card 4 -->
+            <div class="stream-article-node scroll-node-reveal">
+                <div class="stream-media-box">
+                    <img src="https://unsplash.com" alt="Alpine Ascent Paths" class="blog-raw-img">
+                    <div class="stream-category-badge">News</div>
+                </div>
+                <div class="stream-content-box">
+                    <h4 class="stream-title">Alpine Ridge Structural Analysis</h4>
+                    <p class="stream-desc">Contrary to popular belief, mountain ridge tracks demand extreme structural mapping parameters to preserve navigation timelines safely.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<style>
+    /* --- Premium Asymmetrical Blog Grid Styles --- */
+.blog-section {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 10px 6%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.blog-header-block {
+    text-align: center;
+    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.blog-main-title {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.8rem;
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    font-weight: 900;
+    color: #000000; /* Pure High-Contrast Black text color */
+    letter-spacing: -2px;
+    margin-bottom: 1rem;
+}
+
+.blog-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.blog-word.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.brand-dot-marker {
+    color: #ff4b2b; /* Stackly Signature Coral Accent */
+}
+
+.blog-subtitle {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #000000;
+    max-width: 650px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+}
+
+.blog-subtitle.reveal-active {
+    opacity: 0.8;
+    transform: translateY(0);
+}
+
+/* ==========================================
+   ASYMMETRIC GRID CONFIGURATION CHASSIS
+   ========================================== */
+.blog-asymmetric-grid {
+    max-width: 1650px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 4rem;
+    width: 100%;
+}
+
+.blog-raw-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Shared Entry Reveal Variables */
+.scroll-node-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.scroll-node-reveal.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================
+   LEFT ZONE: LARGE FEATURED SPOTLIGHT STORY
+   ========================================== */
+.blog-spotlight-card {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid #000000; /* Bold industrial structural vector borders */
+    border-radius: 24px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.spotlight-media-box {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background-color: #f8fafc;
+    border-bottom: 3px solid #000000;
+}
+
+.blog-spotlight-card:hover .blog-raw-img {
+    transform: scale(1.03);
+}
+
+.spotlight-content-box {
+    padding: 2.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.blog-category-badge {
+    background-color: #ff4b2b; /* Solid Stackly Coral Badge */
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 5px 14px;
+    border-radius: 8px;
+    margin-bottom: 1.2rem;
+}
+
+.spotlight-title {
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: #000000;
+    letter-spacing: -0.5px;
+    margin: 0 0 0.8rem 0;
+    transition: color 0.3s ease;
+}
+
+.blog-spotlight-card:hover .spotlight-title {
+    color: #ff4b2b;
+}
+
+.spotlight-desc {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #000000;
+    opacity: 0.75;
+    line-height: 1.6;
+    margin: 0 0 1.8rem 0;
+}
+
+.blog-inline-cta-btn {
+    background: transparent;
+    border: none;
+    color: #ff4b2b;
+    font-size: 0.95rem;
+    font-weight: 800;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: color 0.2s ease;
+}
+
+.blog-inline-cta-btn:hover {
+    color: #a832ff;
+}
+
+/* ==========================================
+   RIGHT ZONE: VERTICAL STACKED STREAM LIST
+   ========================================== */
+.blog-sidebar-stream {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    justify-content: center;
+}
+
+.stream-article-node {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 1.5rem;
+    align-items: center;
+    cursor: pointer;
+}
+
+.stream-media-box {
+    position: relative;
+    width: 140px;
+    aspect-ratio: 1 / 1;
+    border: 2px solid #000000;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.stream-article-node:hover .blog-raw-img {
+    transform: scale(1.05);
+}
+
+.stream-category-badge {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff4b2b;
+    color: #ffffff;
+    font-size: 0.6rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 3px 8px;
+    border-radius: 6px;
+    white-space: nowrap;
+}
+
+.stream-category-badge.gradient-purple {
+    background: #a832ff; /* Solar Violet Badge Color Option */
+}
+
+.stream-content-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.stream-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #a832ff; /* Premium Violet Headers from original mockup file */
+    margin: 0 0 0.4rem 0;
+    letter-spacing: -0.3px;
+    transition: color 0.2s ease;
+}
+
+.stream-article-node:hover .stream-title {
+    color: #ff4b2b;
+}
+
+.stream-desc {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #000000;
+    opacity: 0.75;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN SYSTEM MEDIA CONFIGS
+   ========================================== */
+@media (max-width: 1024px) {
+    .blog-asymmetric-grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+    }
+    .blog-sidebar-stream {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 550px) {
+    .stream-article-node {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .stream-media-box {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+    }
+    .blog-section {
+        padding: 4rem 4%;
+    }
+}
+
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+    // ==========================================
+    // 1. SCROLL REVEAL TIMELINE TIMINGS
+    // ==========================================
+    const blogSection = document.getElementById('news-resources-matrix');
+    const wordSpans = document.querySelectorAll('.blog-word');
+    const subtitleBlock = document.querySelector('.blog-subtitle');
+    const articleCards = document.querySelectorAll('.scroll-node-reveal');
+
+    const blogRevealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Stagger title header fields word-by-word
+                wordSpans.forEach((word, index) => {
+                    setTimeout(() => {
+                        word.classList.add('reveal-active');
+                    }, index * 120); // 120ms smooth incremental gap
+                });
+
+                // Fade description subtitle open safely right after header resolves
+                setTimeout(() => {
+                    if (subtitleBlock) subtitleBlock.classList.add('reveal-active');
+                }, wordSpans.length * 120);
+
+                // Cascade asymmetrical article items one-by-one sequentially
+                articleCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.add('reveal-active');
+                    }, (wordSpans.length * 120) + 200 + (index * 140)); // 140ms staggered card flow
+                });
+
+                // Disconnect section observer target safely to maintain low device process cycles
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { root: null, threshold: 0.12 });
+
+    if (blogSection) blogRevealObserver.observe(blogSection);
+
+    // ==========================================
+    // 2. REDIRECT PIPELINE ACTIONS (404 POPUP OVERLAY)
+    // ==========================================
+    const redirectTriggers = document.querySelectorAll('.fallback-redirect, .blog-spotlight-card, .stream-article-node');
+
+    redirectTriggers.forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+            // Prevent event double-firing from children inner elements nested inside parent grids
+            e.stopPropagation();
+
+            const terminalOverlay = document.createElement('div');
+            terminalOverlay.style.cssText = `
+                position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+                background: #000000; color: #ffffff; z-index: 800000;
+                display: flex; flex-direction: column; align-items: center; justify-content: center;
+                font-family: system-ui, -apple-system, sans-serif; opacity: 0; transition: opacity 0.3s ease;
+            `;
+
+            terminalOverlay.innerHTML = `
+                <h1 style="font-size: clamp(5rem, 12vw, 8rem); font-weight: 900; color: #ff4b2b; margin: 0; letter-spacing: -2px;">404</h1>
+                <h2 style="font-size: 1.35rem; font-weight: 800; margin: 0.5rem 0 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Dispatch Log Missing</h2>
+                <p style="font-size: 1rem; color: #657786; text-align: center; max-width: 450px; margin: 0 0 2rem 0; padding: 0 1.5rem;">The requested document archive has been encrypted or pulled down from remote field servers. Path untrackable.</p>
+                <button id="killOverlayBtn" style="background: #ffffff; color: #000000; border: none; padding: 0.85rem 2.5rem; font-weight: 800; font-size: 0.95rem; border-radius: 30px; cursor: pointer;">Return to Basecamp</button>
+            `;
+
+            document.body.appendChild(terminalOverlay);
+            requestAnimationFrame(() => terminalOverlay.style.opacity = '1');
+            document.body.style.overflow = 'hidden';
+
+            document.getElementById('killOverlayBtn').addEventListener('click', () => {
+                terminalOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    terminalOverlay.remove();
+                    document.body.style.overflow = 'auto';
+                }, 300);
+            });
+        });
+    });
+
+});
+
+</script>
+
+<!-- Fully Responsive Full-Width Immersive Subscription CTA Ribbon -->
+<section id="subscription-hub-zone" class="subscribe-banner-section">
+    
+    <!-- Full-Width Media Backdrop Canvas (Uses img tag approach) -->
+    <div class="subscribe-media-backdrop">
+        <img src="https://unsplash.com" alt="Wilderness Camp Horizon" class="backdrop-raw-img">
+        <div class="backdrop-dark-overlay"></div>
+    </div>
+
+    <!-- Inner Grid Content Structure -->
+    <div class="subscribe-banner-container">
+        
+        <!-- LEFT CHANNEL: Bold Pithy Copy -->
+        <div class="subscribe-text-package">
+            <h2 class="subscribe-headline">Join the Inner Circle</h2>
+            <p class="subscribe-subheadline">Lock in immediate access to raw pathfinder coordinates and exclusive route dispatches.</p>
+        </div>
+
+        <!-- RIGHT CHANNEL: Inline Email Validation Assembly -->
+        <div class="subscribe-form-package">
+            <form id="standaloneSubscribeForm" class="subscribe-inline-form" novalidate>
+                <div class="input-field-wrapper">
+                    <svg class="mail-vector-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <input type="email" id="subscriberEmail" placeholder="Enter your terminal email..." required>
+                </div>
+                <button type="submit" class="subscribe-btn-premium">Initialize Feed</button>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    /* --- Full-Width Multi-Dimensional Subscription Section --- */
+.subscribe-banner-section {
+    position: relative;
+    width: 100%;
+    min-height: 280px;
+    padding: 5rem 8%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+    background-color: #0d131a;
+}
+
+/* ==========================================
+   FULL-WIDTH MEDIA BACKDROP CANVAS
+   ========================================== */
+.subscribe-media-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.subscribe-media-backdrop .backdrop-raw-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Premium Contrast Layer protecting white typography readability */
+.backdrop-dark-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(13, 19, 26, 0.9) 0%, rgba(13, 19, 26, 0.75) 100%);
+}
+
+/* Inner Layout Alignment Frame */
+.subscribe-banner-container {
+    max-width: 1600px;
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+}
+
+/* ==========================================
+   LEFT CHANNEL: RICH BRAND TEXT COPY
+   ========================================== */
+.subscribe-text-package {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.subscribe-headline {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: -1.5px;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.subscribe-subheadline {
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    font-weight: 600;
+    color: #ffffff;
+    opacity: 0.8;
+    line-height: 1.5;
+    margin: 0;
+    max-width: 600px;
+}
+
+/* ==========================================
+   RIGHT CHANNEL: INLINE FORM WRAPPERS
+   ========================================== */
+.subscribe-form-package {
+    width: 100%;
+}
+
+.subscribe-inline-form {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(8px);
+    border: 2px solid #ffffff; /* Premium solid white outline */
+    padding: 0.5rem;
+    border-radius: 50px;
+    box-sizing: border-box;
+}
+
+.input-field-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-left: 1.2rem;
+    flex-grow: 1;
+    position: relative;
+}
+
+.mail-vector-icon {
+    width: 20px;
+    height: 20px;
+    color: #ffffff;
+    opacity: 0.7;
+    flex-shrink: 0;
+}
+
+.subscribe-inline-form input {
+    width: 100%;
+    height: 44px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.subscribe-inline-form input::placeholder {
+    color: #ffffff;
+    opacity: 0.6;
+}
+
+/* Brand Premium Action Pill */
+.subscribe-btn-premium {
+    height: 48px;
+    padding: 0 2.2rem;
+    background: linear-gradient(135deg, #ff4b2b 0%, #a832ff 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 75, 43, 0.25);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+    white-space: nowrap;
+}
+
+.subscribe-btn-premium:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(255, 75, 43, 0.4);
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN VIEWPORT CONFIGS
+   ========================================== */
+@media (max-width: 992px) {
+    .subscribe-banner-section {
+        padding: 4rem 6%;
+    }
+    .subscribe-banner-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2.5rem;
+    }
+    .subscribe-subheadline {
+        margin: 0 auto;
+    }
+    .subscribe-inline-form {
+        flex-direction: column; /* Stack input field and submit button vertically on mobile devices */
+        background: transparent;
+        border: none;
+        padding: 0;
+        gap: 1rem;
+    }
+    .input-field-wrapper {
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 2px solid #ffffff;
+        border-radius: 30px;
+        padding: 0.4rem 1.2rem;
+        box-sizing: border-box;
+    }
+    .subscribe-btn-premium {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+    const subscribeForm = document.getElementById('standaloneSubscribeForm');
+
+    if (subscribeForm) {
+        subscribeForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Extract the user email string safely
+            const emailInput = document.getElementById('subscriberEmail');
+            const emailValue = emailInput ? emailInput.value.trim() : '';
+
+            // Enforce explicit baseline text validation checks prior to processing
+            if (!emailValue) {
+                alert('Please fill out the field with a valid address before initializing subscription.');
+                return;
+            }
+
+            // Build dynamic full screen 404 overlay modal window layer
+            const errorOverlay = document.createElement('div');
+            errorOverlay.style.cssText = `
+                position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+                background: #000000; color: #ffffff; z-index: 900000;
+                display: flex; flex-direction: column; align-items: center; justify-content: center;
+                font-family: system-ui, -apple-system, sans-serif; opacity: 0; transition: opacity 0.3s ease;
+            `;
+
+            errorOverlay.innerHTML = `
+                <h1 style="font-size: clamp(5rem, 12vw, 8rem); font-weight: 900; color: #ff4b2b; margin: 0; letter-spacing: -2px;">404</h1>
+                <h2 style="font-size: 1.4rem; font-weight: 800; margin: 0.5rem 0 1rem; text-transform: uppercase;">Gateway Connection Severed</h2>
+                <p style="font-size: 1rem; color: #657786; text-align: center; max-width: 460px; margin: 0 0 2.5rem 0; padding: 0 1.5rem;">Target feed terminal for account [ ${emailValue.toUpperCase()} ] failed to resolve handshakes with our secure mapping grid. Operation aborted.</p>
+                <button id="closeSubPopup" style="background: #ffffff; color: #000000; border: none; padding: 0.85rem 2.8rem; font-weight: 800; font-size: 1rem; border-radius: 40px; cursor: pointer;">Re-verify Coordinates</button>
+            `;
+
+            document.body.appendChild(errorOverlay);
+            
+            // Force paint loop layout pass cycle updates
+            requestAnimationFrame(() => errorOverlay.style.opacity = '1');
+            document.body.style.overflow = 'hidden';
+
+            // Reset action parameters safely upon exit
+            document.getElementById('closeSubPopup').addEventListener('click', () => {
+                errorOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    errorOverlay.remove();
+                    document.body.style.overflow = 'auto';
+                    subscribeForm.reset(); // Purge email field cleanly upon completion
+                }, 300);
+            });
+        });
+    }
+
+});
+
+</script>
+
+<!-- Fully Responsive High-Contrast Adventure Domain Footer Hub -->
+<footer class="stackly-main-footer">
+    
+    <!-- Top Segment: 4-Column Navigation Layout Matrix Bound inside Center Grid Box -->
+    <div class="footer-upper-grid">
+        
+        <!-- COLUMN 1: Brand Identifier & Transmission Nodes -->
+        <div class="footer-brand-column">
+            <!-- Brand Logo (Clicking triggers smooth back-to-top execution) -->
+            <a href="#" class="footer-logo-anchor" id="backToTopLogo" aria-label="Return to Top Canvas">
+                <img src="logo.png" alt="Stackly Logo" class="footer-brand-logo-img">
+            </a>
+            <p class="footer-brand-desc">
+                Engineering premium, unedited exploration tracks and high-fidelity navigation templates designed to safely bypass highly commercialized international transit lanes.
+            </p>
+            <!-- Vector Social Transmission Nodes Row -->
+            <div class="footer-social-row">
+                <a href="#" class="social-icon-node fallback-redirect" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                </a>
+                <a href="#" class="social-icon-node fallback-redirect" aria-label="X Terminal">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a href="#" class="social-icon-node fallback-redirect" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.5-1.196-1.5-1.95 0-.774.534-1.95 1.5-1.95s1.5.118 1.5 1.95c0 .754-.534 1.95-1.5 1.95_zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="#" class="social-icon-node fallback-redirect" aria-label="YouTube">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.508 9.388.508 9.388.508s7.518 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- COLUMN 2: Explore Sectors Links Matrix -->
+        <div class="footer-links-column">
+            <h3 class="footer-heading-title">Explore Menus</h3>
+            <ul class="footer-links-list">
+                <li><a href="#" class="fallback-redirect">Alpine Ridge Treks</a></li>
+                <li><a href="#" class="fallback-redirect">Desert Dune Safaris</a></li>
+                <li><a href="#" class="fallback-redirect">Deep Trench Diving</a></li>
+                <li><a href="#" class="fallback-redirect">Wilderness Crossings</a></li>
+            </ul>
+        </div>
+
+        <!-- COLUMN 3: Catering Support Logistics -->
+        <div class="footer-links-column">
+            <h3 class="footer-heading-title">Catering Support</h3>
+            <ul class="footer-links-list">
+                <li><a href="#" class="fallback-redirect">Pathfinder Blueprints</a></li>
+                <li><a href="#" class="fallback-redirect">Fleet Tracking Nodes</a></li>
+                <li><a href="#" class="fallback-redirect">Terminal Help Grid</a></li>
+                <li><a href="#" class="fallback-redirect">Safety Certifications</a></li>
+            </ul>
+        </div>
+
+        <!-- COLUMN 4: Headquarters Physical Coordinates -->
+        <div class="footer-links-column address-column">
+            <h3 class="footer-heading-title">Headquarters Location</h3>
+            <div class="footer-contact-block">
+                <div class="contact-info-row">
+                    <svg class="contact-vector-svg color-coral" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <p>MMR Complex, Periyakollappatty, Chinna Thirupathi, Salem, Tamil Nadu 636008</p>
+                </div>
+                <div class="contact-info-row">
+                    <svg class="contact-vector-svg color-coral" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <p class="phone-text-number">+91 7010792745</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bottom Segment: Bound inside Center Ribbon Box -->
+    <div class="footer-bottom-ribbon">
+        <div class="copyright-text">
+            &copy; 2026 Stackly Industries. All expedition paths reserved.
+        </div>
+        <div class="legal-links-row">
+            <a href="#" class="fallback-redirect">Privacy Policy</a>
+            <a href="#" class="fallback-redirect">Terms of Service</a>
+            <a href="#" class="fallback-redirect">Cookie Management</a>
+        </div>
+    </div>
+</footer>
+
+<style>
+    /* --- High-Contrast Balanced Obsidian Footer Architecture --- */
+.stackly-main-footer {
+    width: 100%;
+    background-color: #0d131a; /* Deep Obsidian Base */
+    /* Tight padding rules on top and base bounds removes empty space gaps */
+    padding: 4rem 4% 1.5rem 4%; 
+    overflow: hidden;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* ==========================================
+   TOP SEGMENT: 4-COLUMN CENTER LOCK NAVIGATION GRID
+   ========================================== */
+.footer-upper-grid {
+    /* Hard center lock configuration eliminates left/right void fields */
+    max-width: 1280px; 
+    margin: 0 auto;
+    display: grid;
+    /* Proportional width splitting creates symmetric layout block alignment */
+    grid-template-columns: 1.25fr 0.85fr 0.85fr 1.05fr;
+    gap: 3rem;
+    padding-bottom: 3.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
+}
+
+/* Column 1: Core Brand Identity */
+.footer-brand-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-logo-anchor {
+    display: inline-block;
+    height: 38px;
+    margin-bottom: 1.25rem;
+}
+
+.footer-brand-logo-img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+.footer-brand-desc {
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: #ffffff;
+    opacity: 0.65;
+    margin: 0 0 1.8rem 0;
+    max-width: 320px;
+}
+
+/* Vector Social Circular Buttons List */
+.footer-social-row {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.social-icon-node {
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.04);
+    color: #ffffff;
+    opacity: 0.6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.social-icon-node svg {
+    width: 15px;
+    height: 15px;
+}
+
+.social-icon-node:hover {
+    background-color: #ff4b2b; /* Stackly Electric Coral */
+    color: #ffffff;
+    opacity: 1;
+    transform: translateY(-3px);
+}
+
+/* Columns 2 & 3: Standard Sitemap Link Sets */
+.footer-heading-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #ffffff; 
+    letter-spacing: -0.5px;
+    margin: 0 0 1.25rem 0;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.footer-heading-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 22px;
+    height: 3px;
+    background-color: #ff4b2b; 
+}
+
+.footer-links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.footer-links-list li a {
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #ffffff;
+    opacity: 0.6;
+    transition: all 0.25s ease;
+}
+
+.footer-links-list li a:hover {
+    opacity: 1;
+    color: #ff4b2b; 
+    padding-left: 4px;
+}
+
+/* Column 4: Physical Coordinates Data Pack Block */
+.footer-contact-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.contact-info-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.contact-vector-svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+.contact-vector-svg.color-coral {
+    color: #ff4b2b; 
+}
+
+.contact-info-row p {
+    font-size: 0.92rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #ffffff;
+    opacity: 0.65;
+    margin: 0;
+}
+
+.phone-text-number {
+    font-weight: 700 !important;
+    opacity: 0.95 !important;
+}
+
+/* ==========================================
+   BOTTOM SEGMENT: CENTER LOCK LEGAL RIBBON
+   ========================================== */
+.footer-bottom-ribbon {
+    /* Bound layout parameters to identical center matrix widths */
+    max-width: 1280px; 
+    margin: 0 auto;
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.copyright-text {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #ffffff;
+    opacity: 0.4;
+}
+
+.legal-links-row {
+    display: flex;
+    gap: 1.8rem;
+}
+
+.legal-links-row a {
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #ffffff;
+    opacity: 0.4;
+    transition: opacity 0.2s ease;
+}
+
+.legal-links-row a:hover {
+    opacity: 0.85;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN SYSTEM MEDIA CONFIGS
+   ========================================== */
+@media (max-width: 1024px) {
+    .footer-upper-grid {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 650px) {
+    .stackly-main-footer {
+        padding: 3rem 5% 1.5rem 5%;
+    }
+    .footer-upper-grid {
+        grid-template-columns: 1fr; 
+        gap: 2.2rem;
+    }
+    .footer-bottom-ribbon {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+    .legal-links-row {
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+}
+
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+    // ========================================================
+    // 1. BRAND LOGO INTERACTIVE BACK TO TOP WORKFLOW
+    // ========================================================
+    const backToTopLogo = document.getElementById('backToTopLogo');
+
+    if (backToTopLogo) {
+        backToTopLogo.addEventListener('click', (e) => {
+            // Intercept standard anchor jumping behavior
+            e.preventDefault();
+            
+            // Execute a clean, smooth dynamic hardware-accelerated back to window top loop
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // ========================================================
+    // 2. DISPATCH CALL TIMELINE INTERPRETATION (404 OVERLAY)
+    // ========================================================
+    const sitemapTriggers = document.querySelectorAll('.stackly-main-footer .fallback-redirect');
+
+    sitemapTriggers.forEach(node => {
+        node.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Prevent event double-firing from nested parent boxes
+            e.stopPropagation();
+
+            // Build dynamic full screen 404 overlay modal window layer
+            const customOverlay = document.createElement('div');
+            customOverlay.style.cssText = `
+                position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+                background: #000000; color: #ffffff; z-index: 1000000;
+                display: flex; flex-direction: column; align-items: center; justify-content: center;
+                font-family: system-ui, -apple-system, sans-serif; opacity: 0; transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            `;
+
+            customOverlay.innerHTML = `
+                <h1 style="font-size: clamp(5rem, 12vw, 8rem); font-weight: 900; color: #ff4b2b; margin: 0; letter-spacing: -2px;">404</h1>
+                <h2 style="font-size: 1.35rem; font-weight: 800; margin: 0.5rem 0 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Matrix Path Unresolved</h2>
+                <p style="font-size: 1rem; color: #657786; text-align: center; max-width: 450px; margin: 0 0 2rem 0; padding: 0 1.5rem;">The targeted sub-index node link has been unmapped to protect remote basecamp server locations. Connection offline.</p>
+                <button id="dismissFooterOverlay" style="background: #ffffff; color: #000000; border: none; padding: 0.85rem 2.5rem; font-weight: 800; font-size: 0.95rem; border-radius: 30px; cursor: pointer; transition: transform 0.2s ease;">Return to Basecamp</button>
+            `;
+
+            document.body.appendChild(customOverlay);
+            
+            // Force layout paint frame loop updates
+            requestAnimationFrame(() => {
+                customOverlay.style.opacity = '1';
+            });
+            document.body.style.overflow = 'hidden';
+
+            // Reset action parameters safely upon modal exit
+            document.getElementById('dismissFooterOverlay').addEventListener('click', () => {
+                customOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    customOverlay.remove();
+                    document.body.style.overflow = 'auto';
+                }, 300);
+            });
+        });
+    });
+
+});
+
+</script>
