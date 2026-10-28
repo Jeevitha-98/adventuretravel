@@ -1,0 +1,603 @@
+<!-- Fully Responsive High-Contrast Adventure Gateway Login Portal -->
+<section id="vault-auth-container" class="auth-viewport-arena">
+    <div class="auth-central-chassis">
+        
+        <!-- HEADER TOP ACTION BAR ROW -->
+        <div class="auth-top-nav-row">
+            <span class="vault-meta-tag">— COMMAND TERMINAL —</span>
+            <button class="btn-terminal-back fallback-redirect" id="vaultHomeBtn">← BASECAMP</button>
+        </div>
+
+        <!-- MAIN GREETING PACK BLOCK -->
+        <div class="auth-greeting-header">
+            <h1 class="auth-main-title">Welcome <span>Back.</span></h1>
+            <p class="auth-subtitle">Select your operational role parameters to unlock your custom project registry dashboard.</p>
+        </div>
+
+        <!-- AUTH VALIDATION ENTRY SYSTEM FORM -->
+        <form id="vaultSecureLoginForm" class="auth-matrix-form" novalidate>
+            
+            <!-- ROLE SELECTOR BLOCKS ROW GRID -->
+            <div class="role-selector-matrix-row">
+                <!-- Option A: Atelier Owner (Default Active Baseline) -->
+                <div class="role-card-wrapper active" data-role="partner" id="rolePartner">
+                    <div class="role-icon-node">👑</div>
+                    <div class="role-meta-text">
+                        <span class="role-title-head">Atelier Owner</span>
+                        <p class="role-sub-desc">STUDIO DASHBOARD</p>
+                    </div>
+                </div>
+
+                <!-- Option B: Private Client -->
+                <div class="role-card-wrapper" data-role="client" id="roleClient">
+                    <div class="role-icon-node">🧳</div>
+                    <div class="role-meta-text">
+                        <span class="role-title-head">Private Client</span>
+                        <p class="role-sub-desc">REGISTRY DECK</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DATA ROW 1: Email Box Slot -->
+            <div class="auth-input-node-field">
+                <label for="vaultUserEmail">EMAIL ADDRESS</label>
+                <div class="auth-input-wrapper-box">
+                    <input type="email" id="vaultUserEmail" placeholder="name@example.com" required>
+                </div>
+            </div>
+
+            <!-- DATA ROW 2: Password Key Slot -->
+            <div class="auth-input-node-field">
+                <label for="vaultUserKey">SECURITY PASSWORD KEY</label>
+                <div class="auth-input-wrapper-box">
+                    <input type="password" id="vaultUserKey" placeholder="••••••••" required>
+                    <span class="eye-toggle-vector" id="togglePasswordVisibility">👁️</span>
+                </div>
+            </div>
+
+            <!-- UTILITY CHECKLIST METADATA ROW LINK LINES -->
+            <div class="auth-utilities-line-row">
+                <label class="remember-me-checkbox-label">
+                    <input type="checkbox" id="rememberMeToggle">
+                    <span>Remember me</span>
+                </label>
+                <button type="button" class="auth-utility-forget-link fallback-redirect">Forgot Password?</button>
+            </div>
+
+            <!-- CORE PRIMARY SUBMIT TRANSMISSION PILL BUTTON -->
+            <div class="auth-action-submit-node">
+                <button type="submit" class="btn-auth-launch-sequence">LOG IN SECURELY →</button>
+            </div>
+
+        </form>
+
+        <!-- DIVIDER BREAK RIBBON TRACK -->
+        <div class="auth-or-divider-ribbon">
+            <span>OR SIGN IN WITH</span>
+        </div>
+
+        <!-- SOCIAL OUTSOURCED GATEWAYS ROW GRID -->
+        <div class="auth-social-gateways-stack">
+            <button type="button" class="social-gateway-pill-btn fallback-redirect">
+                <span class="social-brand-letter">G</span> Google
+            </button>
+            <button type="button" class="social-gateway-pill-btn fallback-redirect">
+                <span class="social-brand-letter">F</span> Facebook
+            </button>
+        </div>
+
+        <!-- FOOTER TRANSITION BLOCK NODES LINK ROWS -->
+        <div class="auth-footer-routing-box">
+            <p>Don't have an account? <button type="button" class="auth-register-link-trigger fallback-redirect"
+    onclick="window.location.href='signup.html'">
+    Create Account
+</button></p>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    /* --- High-Contrast Light Master Portal Styles --- */
+.auth-viewport-arena {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #ffffff; /* Flipped to crisp pure white background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 4%;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.auth-central-chassis {
+    width: 100%;
+    max-width: 520px; 
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================================
+   HEADER ACTIONS & TERMINAL META TEXT TAGS
+   ========================================== */
+.auth-top-nav-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.2rem;
+    width: 100%;
+}
+
+.vault-meta-tag {
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: #000000;
+    opacity: 0.45;
+    letter-spacing: 2px;
+}
+
+.btn-terminal-back {
+    background-color: #f8fafc;
+    color: #000000;
+    border: 2px solid #000000; /* Bold industrial framing lines */
+    border-radius: 40px; 
+    padding: 0.5rem 1.4rem;
+    font-size: 0.8rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-terminal-back:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* ==========================================
+   TYPOGRAPHY GREETING HEADER MESSAGES
+   ========================================== */
+.auth-greeting-header {
+    margin-bottom: 2.5rem;
+    text-align: left;
+}
+
+.auth-main-title {
+    font-size: clamp(2.4rem, 5vw, 3.5rem);
+    font-weight: 900;
+    color: #000000; /* High-contrast obsidian black typography */
+    letter-spacing: -2px;
+    margin: 0 0 0.8rem 0;
+}
+
+.auth-main-title span {
+    font-style: italic; 
+    font-weight: 400;
+    color: #ff4b2b; /* Signature Electric Coral */
+}
+
+.auth-subtitle {
+    font-size: 0.98rem;
+    font-weight: 600;
+    line-height: 1.6;
+    color: #657786;
+    margin: 0;
+}
+
+/* ==========================================
+   ROLE MATRIX SELECTORS CHASSIS
+   ========================================== */
+.role-selector-matrix-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-bottom: 2.2rem;
+    width: 100%;
+}
+
+.role-card-wrapper {
+    background-color: #ffffff;
+    border: 2px solid #e2e8f0; 
+    border-radius: 14px;
+    padding: 1.2rem 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    user-select: none;
+    box-sizing: border-box;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.role-icon-node {
+    font-size: 1.15rem;
+    opacity: 0.5;
+    transition: opacity 0.25s ease;
+}
+
+.role-meta-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.role-title-head {
+    font-size: 0.98rem;
+    font-weight: 800;
+    color: #000000;
+}
+
+.role-sub-desc {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #657786;
+    letter-spacing: 0.5px;
+    margin: 0;
+}
+
+.role-card-wrapper.active {
+    border-color: #000000; /* Bold solid black frame on select */
+    background-color: #f8fafc;
+}
+
+.role-card-wrapper.active .role-icon-node {
+    opacity: 1;
+}
+
+.role-card-wrapper.active .role-sub-desc {
+    color: #ff4b2b; 
+    opacity: 1;
+}
+
+/* ==========================================
+   FORM CONTROLS DATA FILL MATRIX FIELDS
+   ========================================== */
+.auth-matrix-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    width: 100%;
+}
+
+.auth-input-node-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.auth-input-node-field label {
+    font-size: 0.78rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #000000;
+}
+
+.auth-input-wrapper-box {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.auth-input-wrapper-box input {
+    width: 100%;
+    height: 52px;
+    background-color: #f8fafc; /* Architectural light wells */
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 0 1.25rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #000000;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.25s ease;
+}
+
+.auth-input-wrapper-box input:focus {
+    border-color: #000000;
+    background-color: #ffffff;
+}
+
+.eye-toggle-vector {
+    position: absolute;
+    right: 1.25rem;
+    font-size: 1.05rem;
+    cursor: pointer;
+    user-select: none;
+    opacity: 0.4;
+    transition: opacity 0.2s ease;
+}
+
+.eye-toggle-vector:hover {
+    opacity: 0.9;
+}
+
+/* Utilities Checklist Links Line */
+.auth-utilities-line-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: -0.25rem;
+}
+
+.remember-me-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #000000;
+    opacity: 0.7;
+}
+
+.remember-me-checkbox-label input {
+    accent-color: #ff4b2b; 
+}
+
+.auth-utility-forget-link {
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #000000;
+    opacity: 0.6;
+    cursor: pointer;
+    transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.auth-utility-forget-link:hover {
+    color: #ff4b2b;
+    opacity: 1;
+}
+
+/* ==========================================
+   PRIMARY LAUNCH TERMINAL BUTTON ACTION CAP
+   ========================================== */
+.auth-action-submit-node {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.btn-auth-launch-sequence {
+    width: 100%;
+    height: 54px;
+    background-color: #000000; /* Solid obsidian black fill button block */
+    color: #ffffff;
+    border: none;
+    border-radius: 50px; 
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease;
+}
+
+.btn-auth-launch-sequence:hover {
+    background-color: #ff4b2b; /* Inverts to signature bright coral on hover */
+    transform: translateY(-2px);
+}
+
+/* Divider Ribbon Lines */
+.auth-or-divider-ribbon {
+    text-align: center;
+    position: relative;
+    margin: 2.2rem 0;
+    width: 100%;
+}
+
+.auth-or-divider-ribbon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #e2e8f0;
+    z-index: 1;
+}
+
+.auth-or-divider-ribbon span {
+    position: relative;
+    z-index: 5;
+    background-color: #ffffff; /* Matches pure white container backing */
+    padding: 0 1.2rem;
+    font-size: 0.72rem;
+    font-weight: 900;
+    color: #a0aec0;
+    letter-spacing: 1px;
+}
+
+/* ==========================================
+   SOCIAL GATEWAYS BUTTON STACK CHASSIS
+   ========================================== */
+.auth-social-gateways-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    width: 100%;
+}
+
+.social-gateway-pill-btn {
+    width: 100%;
+    height: 48px;
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    border-radius: 12px;
+    color: #000000;
+    font-size: 0.95rem;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.25s ease;
+}
+
+.social-gateway-pill-btn:hover {
+    background-color: #f8fafc;
+    border-color: #ff4b2b;
+}
+
+.social-brand-letter {
+    font-style: italic; 
+    font-weight: 900;
+    color: #ff4b2b; 
+    margin-right: 4px;
+}
+
+/* Footer Navigation Register Trigger link info */
+.auth-footer-routing-box {
+    text-align: center;
+    margin-top: 2.2rem;
+    width: 100%;
+}
+
+.auth-footer-routing-box p {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #657786;
+    margin: 0;
+}
+
+.auth-register-link-trigger {
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-size: 0.92rem;
+    font-weight: 900;
+    color: #000000;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    cursor: pointer;
+}
+
+.auth-register-link-trigger:hover {
+    color: #ff4b2b;
+}
+
+/* Mobile Responsiveness Mapping Override blocks */
+@media (max-width: 550px) {
+    .auth-viewport-arena { padding: 2rem 5%; }
+    .role-selector-matrix-row { grid-template-columns: 1fr; gap: 0.9rem; } 
+    .role-card-wrapper { padding: 1rem 1.2rem; }
+}
+
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+    // Target active login page parameters variables
+    const loginForm = document.getElementById('vaultSecureLoginForm');
+    const userEmailInput = document.getElementById('vaultUserEmail');
+    const userKeyInput = document.getElementById('vaultUserKey');
+    const toggleEye = document.getElementById('togglePasswordVisibility');
+    
+    const rolePartner = document.getElementById('rolePartner');
+    const roleClient = document.getElementById('roleClient');
+    let dynamicActiveRole = 'partner'; // Tracks row selection states: partner or client
+
+    // ========================================================
+    // 1. DYNAMIC INTERACTIVE ROLE CARD SELECTION TOGGLES
+    // ========================================================
+    if (rolePartner && roleClient) {
+        rolePartner.addEventListener('click', () => {
+            roleClient.classList.remove('active');
+            rolePartner.classList.add('active');
+            dynamicActiveRole = 'partner';
+        });
+
+        roleClient.addEventListener('click', () => {
+            rolePartner.classList.remove('active');
+            roleClient.classList.add('active');
+            dynamicActiveRole = 'client';
+        });
+    }
+
+    // ========================================================
+    // 2. PASSWORD VISIBILITY KEY EYE TOGGLE MASKING
+    // ========================================================
+    if (toggleEye && userKeyInput) {
+        toggleEye.addEventListener('click', () => {
+            const isMaskedType = userKeyInput.getAttribute('type') === 'password';
+            userKeyInput.setAttribute('type', isMaskedType ? 'text' : 'password');
+            toggleEye.textContent = isMaskedType ? '🙈' : '👁️';
+        });
+    }
+
+    // ========================================================
+    // 3. SECURE LOCALSTORAGE CACHE COMMIT & REDIRECT PIPELINE
+    // ========================================================
+    if (loginForm) {
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const emailValue = userEmailInput.value.trim();
+            const keyValue = userKeyInput.value.trim();
+
+            // Enforces strict "Please fill the fields" warning alerts prior to route submission
+            if (!emailValue || !keyValue) {
+                alert('Please fill out all input fields before attempting log in sequence.');
+                return;
+            }
+
+            // Commit input email handle to browser cache storage bucket for header retrieval
+            localStorage.setItem('activeExplorerEmail', emailValue);
+
+            // Redirect smoothly based on current selection index parameter card track
+            if (dynamicActiveRole === 'partner') {
+                window.location.href = 'partner-dashboard.html';
+            } else if (dynamicActiveRole === 'client') {
+                window.location.href = 'client-dashboard.html';
+            }
+        });
+    }
+
+    // ========================================================
+    // 4. SECURE 404 COCKPIT OVERLAY INTERCEPTOR ROUTER
+    // ========================================================
+    const fallbackTriggers = document.querySelectorAll('#vault-auth-container .fallback-redirect');
+
+    fallbackTriggers.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation(); // Protect child row nodes from double firing handlers
+
+            const terminalOverlay = document.createElement('div');
+            terminalOverlay.style.cssText = `
+                position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+                background: #000000; color: #ffffff; z-index: 5000000;
+                display: flex; flex-direction: column; align-items: center; justify-content: center;
+                font-family: system-ui, -apple-system, sans-serif; opacity: 0; transition: opacity 0.3s ease;
+            `;
+
+            terminalOverlay.innerHTML = `
+                <h1 style="font-size: clamp(5rem, 12vw, 8rem); font-weight: 900; color: #ff4b2b; margin: 0; letter-spacing: -2px;">404</h1>
+                <h2 style="font-size: 1.35rem; font-weight: 800; margin: 0.5rem 0 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Gateway Link Severed</h2>
+                <p style="font-size: 1rem; color: #657786; text-align: center; max-width: 450px; margin: 0 0 2rem 0; padding: 0 1rem;">This authentication parameter sub-directory is offline for security vault re-calibration. Connection severed.</p>
+                <button id="closeAuthOverlay" style="background: #ffffff; color: #000000; border: none; padding: 0.85rem 2.5rem; font-weight: 800; font-size: 0.95rem; border-radius: 30px; cursor: pointer; transition: transform 0.2s ease;">Return to Basecamp</button>
+            `;
+
+            document.body.appendChild(terminalOverlay);
+            requestAnimationFrame(() => terminalOverlay.style.opacity = '1');
+            document.body.style.overflow = 'hidden';
+
+            document.getElementById('closeAuthOverlay').addEventListener('click', () => {
+                terminalOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    terminalOverlay.remove();
+                    document.body.style.overflow = 'auto';
+                }, 300);
+            });
+        });
+    });
+});
+
+</script>

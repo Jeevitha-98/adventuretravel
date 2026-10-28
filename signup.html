@@ -1,0 +1,373 @@
+
+<!-- Fully Responsive High-Contrast Adventure Registration Portal -->
+<section id="vault-register-container" class="auth-viewport-arena">
+    <div class="auth-central-chassis">
+        
+        <!-- HEADER TOP ACTION BAR ROW -->
+        <div class="auth-top-nav-row">
+            <span class="vault-meta-tag">— COMMAND REGISTER —</span>
+            <button class="btn-terminal-back" id="backToLoginBtn">← BACK TO LOG IN</button>
+        </div>
+
+        <!-- MAIN GREETING PACK BLOCK -->
+        <div class="auth-greeting-header">
+            <h1 class="auth-main-title">Create <span>Account.</span></h1>
+            <p class="auth-subtitle">Register your pioneer profile to open your customized adventure route parameter matrix.</p>
+        </div>
+
+        <!-- AUTH VALIDATION ENTRY SYSTEM FORM -->
+        <form id="vaultSecureRegisterForm" class="auth-matrix-form" novalidate>
+            
+            <!-- DATA ROW 1: Full Name Slot -->
+            <div class="auth-input-node-field">
+                <label for="registerFullName">FULL NAME</label>
+                <div class="auth-input-wrapper-box">
+                    <input type="text" id="registerFullName" placeholder="Enter your full name..." required>
+                </div>
+            </div>
+
+            <!-- DATA ROW 2: Email Box Slot -->
+            <div class="auth-input-node-field">
+                <label for="registerUserEmail">EMAIL ADDRESS</label>
+                <div class="auth-input-wrapper-box">
+                    <input type="email" id="registerUserEmail" placeholder="you@example.com" required>
+                </div>
+            </div>
+
+            <!-- DATA ROW 3: Password Key Slot -->
+            <div class="auth-input-node-field">
+                <label for="registerUserKey">PASSWORD</label>
+                <div class="auth-input-wrapper-box">
+                    <input type="password" id="registerUserKey" placeholder="••••••••" required>
+                    <span class="eye-toggle-vector" id="toggleRegPassword">👁️</span>
+                </div>
+            </div>
+
+            <!-- DATA ROW 4: Confirm Password Key Slot -->
+            <div class="auth-input-node-field">
+                <label for="registerUserKeyConfirm">CONFIRM PASSWORD</label>
+                <div class="auth-input-wrapper-box">
+                    <input type="password" id="registerUserKeyConfirm" placeholder="••••••••" required>
+                    <span class="eye-toggle-vector" id="toggleRegPasswordConfirm">👁️</span>
+                </div>
+            </div>
+
+            <!-- CORE PRIMARY SIGN UP TRANSMISSION PILL BUTTON -->
+            <div class="auth-action-submit-node">
+                <button type="submit" class="btn-auth-launch-sequence">SIGN UP →</button>
+            </div>
+
+        </form>
+
+        <!-- FOOTER TRANSITION BLOCK NODES LINK ROWS -->
+        <div class="auth-footer-routing-box">
+            <p>Already have an account? <button type="button" class="auth-login-link-trigger" id="footerLoginRedirect">Log In</button></p>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    /* --- High-Contrast Light Master Registration Portal Styles --- */
+.auth-viewport-arena {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #ffffff; /* Locked to pure white background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 4%;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.auth-central-chassis {
+    width: 100%;
+    max-width: 520px; 
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================================
+   HEADER ACTIONS & TERMINAL META TEXT TAGS
+   ========================================== */
+.auth-top-nav-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.2rem;
+    width: 100%;
+}
+
+.vault-meta-tag {
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: #000000;
+    opacity: 0.45;
+    letter-spacing: 2px;
+}
+
+.btn-terminal-back {
+    background-color: #f8fafc;
+    color: #000000;
+    border: 2px solid #000000; /* Bold industrial framing lines */
+    border-radius: 40px; 
+    padding: 0.5rem 1.4rem;
+    font-size: 0.8rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-terminal-back:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* ==========================================
+   TYPOGRAPHY GREETING HEADER MESSAGES
+   ========================================== */
+.auth-greeting-header {
+    margin-bottom: 2.2rem;
+    text-align: left;
+}
+
+.auth-main-title {
+    font-size: clamp(2.4rem, 5vw, 3.5rem);
+    font-weight: 900;
+    color: #000000; /* High-contrast obsidian black typography */
+    letter-spacing: -2px;
+    margin: 0 0 0.8rem 0;
+}
+
+.auth-main-title span {
+    font-style: italic; 
+    font-weight: 400;
+    color: #ff4b2b; /* Signature Electric Coral */
+}
+
+.auth-subtitle {
+    font-size: 0.98rem;
+    font-weight: 600;
+    line-height: 1.6;
+    color: #657786;
+    margin: 0;
+}
+
+/* ==========================================
+   FORM CONTROLS DATA FILL MATRIX FIELDS
+   ========================================== */
+.auth-matrix-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    width: 100%;
+}
+
+.auth-input-node-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.auth-input-node-field label {
+    font-size: 0.78rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #000000;
+}
+
+.auth-input-wrapper-box {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.auth-input-wrapper-box input {
+    width: 100%;
+    height: 52px;
+    background-color: #f8fafc; /* Light architectural wells */
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 0 1.25rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #000000;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.25s ease;
+}
+
+.auth-input-wrapper-box input:focus {
+    border-color: #000000;
+    background-color: #ffffff;
+}
+
+.eye-toggle-vector {
+    position: absolute;
+    right: 1.25rem;
+    font-size: 1.05rem;
+    cursor: pointer;
+    user-select: none;
+    opacity: 0.4;
+    transition: opacity 0.2s ease;
+}
+
+.eye-toggle-vector:hover {
+    opacity: 0.9;
+}
+
+/* ==========================================
+   PRIMARY LAUNCH TERMINAL BUTTON ACTION CAP
+   ========================================== */
+.auth-action-submit-node {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.btn-auth-launch-sequence {
+    width: 100%;
+    height: 54px;
+    background-color: #000000; /* Solid obsidian black fill button block */
+    color: #ffffff;
+    border: none;
+    border-radius: 50px; 
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease;
+}
+
+.btn-auth-launch-sequence:hover {
+    background-color: #ff4b2b; /* Inverts to signature bright coral on hover */
+    transform: translateY(-2px);
+}
+
+/* Footer Navigation Login Trigger link info */
+.auth-footer-routing-box {
+    text-align: center;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.auth-footer-routing-box p {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #657786;
+    margin: 0;
+}
+
+.auth-login-link-trigger {
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-size: 0.92rem;
+    font-weight: 900;
+    color: #000000;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    cursor: pointer;
+}
+
+.auth-login-link-trigger:hover {
+    color: #ff4b2b;
+}
+
+/* Mobile Responsiveness Mapping Override blocks */
+@media (max-width: 550px) {
+    .auth-viewport-arena { padding: 2rem 5%; }
+}
+
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+    // Target elements inside the Registration system box
+    const registerForm = document.getElementById('vaultSecureRegisterForm');
+    const fullNameInput = document.getElementById('registerFullName');
+    const emailInput = document.getElementById('registerUserEmail');
+    const passwordInput = document.getElementById('registerUserKey');
+    const confirmPasswordInput = document.getElementById('registerUserKeyConfirm');
+    
+    const togglePass = document.getElementById('toggleRegPassword');
+    const togglePassConfirm = document.getElementById('toggleRegPasswordConfirm');
+    
+    const backToLoginBtn = document.getElementById('backToLoginBtn');
+    const footerRedirectBtn = document.getElementById('footerLoginRedirect');
+
+    // ========================================================
+    // 1. STRICT VALIDATION FILTER (REALTIME FIELD TYPING CONSTRAINTS)
+    // ========================================================
+    if (fullNameInput) {
+        fullNameInput.addEventListener('input', () => {
+            // Rejects numeric numbers instantly from the full name field text
+            fullNameInput.value = fullNameInput.value.replace(/[0-9]/g, '');
+        });
+    }
+
+    // ========================================================
+    // 2. INLINE PASSWORD KEY EYE EXTENSION TOGGLES
+    // ========================================================
+    if (togglePass && passwordInput) {
+        togglePass.addEventListener('click', () => {
+            const isMasked = passwordInput.getAttribute('type') === 'password';
+            passwordInput.setAttribute('type', isMasked ? 'text' : 'password');
+            togglePass.textContent = isMasked ? '🙈' : '👁️';
+        });
+    }
+
+    if (togglePassConfirm && confirmPasswordInput) {
+        togglePassConfirm.addEventListener('click', () => {
+            const isMasked = confirmPasswordInput.getAttribute('type') === 'password';
+            confirmPasswordInput.setAttribute('type', isMasked ? 'text' : 'password');
+            togglePassConfirm.textContent = isMasked ? '🙈' : '👁️';
+        });
+    }
+
+    // ========================================================
+    // 3. NAVIGATION HOOK SHORTCUT FUNCTIONS
+    // ========================================================
+    const navigateToLoginPage = () => {
+        window.location.href = 'login.html'; // Adjust target mapping string as needed
+    };
+
+    if (backToLoginBtn) backToLoginBtn.addEventListener('click', navigateToLoginPage);
+    if (footerRedirectBtn) footerRedirectBtn.addEventListener('click', navigateToLoginPage);
+
+    // ========================================================
+    // 4. SUBMIT VALIDATION PROCESS CHASSIS
+    // ========================================================
+    if (registerForm) {
+        registerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const nameValue = fullNameInput.value.trim();
+            const emailValue = emailInput.value.trim();
+            const passValue = passwordInput.value.trim();
+            const confirmValue = confirmPasswordInput.value.trim();
+
+            // Enforce strict "Please fill the fields" alert blocks
+            if (!nameValue || !emailValue || !passValue || !confirmValue) {
+                alert('Please fill out all input fields before initiating registration sequence.');
+                return;
+            }
+
+            // Confirm encryption matching parameters check
+            if (passValue !== confirmValue) {
+                alert('Security password keys do not match. Re-verify inputs.');
+                return;
+            }
+
+            // Safe transmission success routing step back to target login page
+            alert('Profile configuration committed successfully. Routing back to terminal gateway.');
+            navigateToLoginPage();
+        });
+    }
+
+});
+
+</script>

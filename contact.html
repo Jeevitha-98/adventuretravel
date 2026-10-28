@@ -1053,3 +1053,983 @@
 });
 
 </script>
+
+<!-- Fully Responsive Immersive Map Matrix Section -->
+<section id="basecamp-map-zone" class="map-matrix-section">
+    <div class="map-fluid-container scroll-fade-up">
+        
+        <!-- FULL SCREEN MAP DISPLAY WRAPPER FRAMING CANVAS -->
+        <div class="map-media-backdrop">
+            <!-- Satellite Map Topology Image Layout -->
+            <img src="https://unsplash.com" alt="Satellite Basecamp Coordinates Grid Map" class="map-raw-img">
+            <div class="map-dark-vignette"></div>
+
+            <!-- CREATIVE FLOATING RADAR GLOW PIN ICON (Centered over target parameters) -->
+            <div class="map-radar-glow-pin">
+                <div class="radar-ping-pulse"></div>
+                <div class="radar-core-dot">📍</div>
+            </div>
+        </div>
+
+        <!-- TRANSLUCENT GLASS DETAILS FLOATING CONTROLLER BOX PANEL -->
+        <div class="map-overlay-control-card">
+            <span class="map-vector-overline">Operational Grid</span>
+            <h3 class="map-title-header">Headquarters Coordinate</h3>
+            <p class="pure-black-paragraph">
+                MMR Complex, Periyakollappatty, Chinna Thirupathi, Salem, Tamil Nadu 636008
+            </p>
+            
+            <!-- Terminal Action Trigger Link Button -->
+            <div class="map-action-wrapper">
+                <button class="map-btn-premium fallback-redirect">Open Location Vector</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    /* --- High-Contrast Architectural Map System Layout --- */
+.map-matrix-section {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 5rem 6%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.map-fluid-container {
+    max-width: 1550px;
+    margin: 0 auto;
+    position: relative;
+    border: 3px solid #000000; /* Bold industrial structural vector borders */
+    border-radius: 28px;
+    height: 520px; /* Rigid constraint bounding height prevents frame fragmentation */
+    overflow: hidden;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================================
+   FULL-WIDTH MAP MEDIA BACKDROP STAGE
+   ========================================== */
+.map-media-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.map-raw-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(100%) contrast(1.08); /* High contrast monochromatic map tint */
+    transition: transform 10s ease;
+}
+
+/* Subtly shift mapping canvas slowly on container hover focus loops */
+.map-fluid-container:hover .map-raw-img {
+    transform: scale(1.05) rotate(0.5deg);
+}
+
+/* Premium Contrast Layer protecting text block legibility from background bleed */
+.map-dark-vignette {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 50%, rgba(13, 19, 26, 0.1) 0%, rgba(13, 19, 26, 0.65) 100%);
+    pointer-events: none;
+}
+
+/* ==========================================
+   CREATIVE FLOATING RADAR GLOW PIN ICON
+   ========================================== */
+.map-radar-glow-pin {
+    position: absolute;
+    top: 45%; /* Centered tracking coordinate position mapping values */
+    left: 62%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+}
+
+.radar-core-dot {
+    font-size: 1.8rem;
+    position: relative;
+    z-index: 10;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));
+    animation: bounceMarker 2s infinite ease-in-out;
+}
+
+.radar-ping-pulse {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    background-color: rgba(255, 75, 43, 0.35); /* Electric Coral ping aura */
+    border: 2px solid #ff4b2b;
+    border-radius: 50%;
+    z-index: 1;
+    animation: pingRadar 1.8s infinite cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes pingRadar {
+    0% { transform: scale(0.6); opacity: 1; }
+    100% { transform: scale(1.8); opacity: 0; }
+}
+
+@keyframes bounceMarker {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+/* ==========================================
+   TRANSLUCENT GLASS DETAILS FLOATING CARD PANEL
+   ========================================== */
+.map-overlay-control-card {
+    position: absolute;
+    left: 3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    max-width: 420px;
+    background: rgba(255, 255, 255, 0.95); /* Ultra premium solid high-contrast glass overlay backing */
+    backdrop-filter: blur(12px);
+    border: 2px solid #000000;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-sizing: border-box;
+    box-shadow: 0 20px 45px rgba(13, 19, 26, 0.12);
+    z-index: 10;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.map-fluid-container:hover .map-overlay-control-card {
+    border-color: #ff4b2b; /* Morph block boundary line accent color to coral on group focus hover loops */
+    transform: translateY(-54px);
+}
+
+.map-vector-overline {
+    font-size: 0.75rem;
+    font-weight: 900;
+    color: #ff4b2b; /* Core Coral Tag */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.map-title-header {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #000000;
+    margin: 0 0 0.8rem 0;
+    letter-spacing: -0.5px;
+}
+
+/* Pure Black Pure Content Hover Paragraph Typography Styling */
+.pure-black-paragraph {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #000000; /* Pure solid black text font rule */
+    line-height: 1.5;
+    margin: 0 0 2.2rem 0;
+    opacity: 0.8;
+    transition: transform 0.4s ease, color 0.3s ease;
+    cursor: default;
+}
+
+.map-overlay-control-card:hover .pure-black-paragraph {
+    color: #ff4b2b; /* Morph to coral on typography cursor focus links */
+    transform: translateX(4px);
+}
+
+/* Capsule Pill Request Trigger Link Button */
+.map-btn-premium {
+    width: 100%;
+    height: 48px;
+    background: linear-gradient(90deg, #ff4c2b 0%, #d83490 45%, #943bf1 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 50px; /* Capsule track round curve */
+    font-size: 0.95rem;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(216, 52, 144, 0.25);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+    white-space: nowrap;
+}
+
+.map-btn-premium:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 12px 25px rgba(216, 52, 144, 0.4);
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN SYSTEM MEDIA QUERIES
+   ========================================== */
+@media (max-width: 992px) {
+    .map-fluid-container {
+        height: 640px; /* Expand vertical canvas proportions to handle vertical stacked mobile overlays */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 2rem;
+    }
+    .map-overlay-control-card {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none !important;
+        width: 100%;
+        max-width: 100%;
+        padding: 2rem;
+    }
+    .map-radar-glow-pin {
+        top: 30%; /* Shift active target pin northward away from mobile blocking cards */
+        left: 50%;
+    }
+    .map-matrix-section {
+        padding: 4rem 4%;
+    }
+}
+
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+    // Target maps action link trigger nodes mapping variables
+    const mapActionButtons = document.querySelectorAll('#basecamp-map-zone .fallback-redirect');
+
+    mapActionButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation(); // Shield child nodes from double firing handlers on active parents bounds
+
+            // Build structural fullscreen 404 cockpit dashboard canvas sheet overlay layer
+            const simulationOverlay = document.createElement('div');
+            simulationOverlay.style.cssText = `
+                position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+                background: #000000; color: #ffffff; z-index: 2500000;
+                display: flex; flex-direction: column; align-items: center; justify-content: center;
+                font-family: system-ui, -apple-system, sans-serif; opacity: 0; transition: opacity 0.35s ease;
+            `;
+
+            simulationOverlay.innerHTML = `
+                <h1 style="font-size: clamp(5rem, 12vw, 8rem); font-weight: 900; color: #ff4b2b; margin: 0; letter-spacing: -2px;">404</h1>
+                <h2 style="font-size: 1.35rem; font-weight: 800; margin: 0.5rem 0 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Navigation Vector Offline</h2>
+                <p style="font-size: 1rem; color: #657786; text-align: center; max-width: 450px; margin: 0 0 2rem 0; padding: 0 1rem;">The live spatial GPS handshake data stream for this specific flagship coordinate has dropped connection. Matrix path unmapped.</p>
+                <button id="dismissMapOverlay" style="background: #ffffff; color: #000000; border: none; padding: 0.85rem 2.5rem; font-weight: 800; font-size: 0.95rem; border-radius: 30px; cursor: pointer; transition: transform 0.2s ease;">Return to Basecamp</button>
+            `;
+
+            document.body.appendChild(simulationOverlay);
+            
+            // Force layout paint frame repaint passes
+            requestAnimationFrame(() => simulationOverlay.style.opacity = '1');
+            document.body.style.overflow = 'hidden';
+
+            // Reset dashboard layout states cleanly upon dismissal close sequences
+            document.getElementById('dismissMapOverlay').addEventListener('click', () => {
+                simulationOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    simulationOverlay.remove();
+                    document.body.style.overflow = 'auto';
+                }, 300);
+            });
+        });
+    });
+
+});
+
+</script>
+
+<!-- Fully Responsive Full-Width Immersive Subscription CTA Ribbon -->
+<section id="subscription-hub-zone" class="subscribe-banner-section">
+    
+    <!-- Full-Width Media Backdrop Canvas (Uses img tag approach) -->
+    <div class="subscribe-media-backdrop">
+        <img src="https://unsplash.com" alt="Wilderness Camp Horizon" class="backdrop-raw-img">
+        <div class="backdrop-dark-overlay"></div>
+    </div>
+
+    <!-- Inner Grid Content Structure -->
+    <div class="subscribe-banner-container">
+        
+        <!-- LEFT CHANNEL: Bold Pithy Copy -->
+        <div class="subscribe-text-package">
+            <h2 class="subscribe-headline">Join the Inner Circle</h2>
+            <p class="subscribe-subheadline">Lock in immediate access to raw pathfinder coordinates and exclusive route dispatches.</p>
+        </div>
+
+        <!-- RIGHT CHANNEL: Inline Email Validation Assembly -->
+        <div class="subscribe-form-package">
+            <form id="standaloneSubscribeForm" class="subscribe-inline-form" novalidate>
+                <div class="input-field-wrapper">
+                    <svg class="mail-vector-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <input type="email" id="subscriberEmail" placeholder="Enter your terminal email..." required>
+                </div>
+                <button type="submit" class="subscribe-btn-premium">Initialize Feed</button>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    /* --- Full-Width Multi-Dimensional Subscription Section --- */
+.subscribe-banner-section {
+    position: relative;
+    width: 100%;
+    min-height: 280px;
+    padding: 5rem 8%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+    background-color: #0d131a;
+}
+
+/* ==========================================
+   FULL-WIDTH MEDIA BACKDROP CANVAS
+   ========================================== */
+.subscribe-media-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.subscribe-media-backdrop .backdrop-raw-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Premium Contrast Layer protecting white typography readability */
+.backdrop-dark-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(13, 19, 26, 0.9) 0%, rgba(13, 19, 26, 0.75) 100%);
+}
+
+/* Inner Layout Alignment Frame */
+.subscribe-banner-container {
+    max-width: 1600px;
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+}
+
+/* ==========================================
+   LEFT CHANNEL: RICH BRAND TEXT COPY
+   ========================================== */
+.subscribe-text-package {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.subscribe-headline {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: -1.5px;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.subscribe-subheadline {
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    font-weight: 600;
+    color: #ffffff;
+    opacity: 0.8;
+    line-height: 1.5;
+    margin: 0;
+    max-width: 600px;
+}
+
+/* ==========================================
+   RIGHT CHANNEL: INLINE FORM WRAPPERS
+   ========================================== */
+.subscribe-form-package {
+    width: 100%;
+}
+
+.subscribe-inline-form {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(8px);
+    border: 2px solid #ffffff; /* Premium solid white outline */
+    padding: 0.5rem;
+    border-radius: 50px;
+    box-sizing: border-box;
+}
+
+.input-field-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-left: 1.2rem;
+    flex-grow: 1;
+    position: relative;
+}
+
+.mail-vector-icon {
+    width: 20px;
+    height: 20px;
+    color: #ffffff;
+    opacity: 0.7;
+    flex-shrink: 0;
+}
+
+.subscribe-inline-form input {
+    width: 100%;
+    height: 44px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.subscribe-inline-form input::placeholder {
+    color: #ffffff;
+    opacity: 0.6;
+}
+
+/* Brand Premium Action Pill */
+.subscribe-btn-premium {
+    height: 48px;
+    padding: 0 2.2rem;
+    background: linear-gradient(135deg, #ff4b2b 0%, #a832ff 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 75, 43, 0.25);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+    white-space: nowrap;
+}
+
+.subscribe-btn-premium:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(255, 75, 43, 0.4);
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN VIEWPORT CONFIGS
+   ========================================== */
+@media (max-width: 992px) {
+    .subscribe-banner-section {
+        padding: 4rem 6%;
+    }
+    .subscribe-banner-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2.5rem;
+    }
+    .subscribe-subheadline {
+        margin: 0 auto;
+    }
+    .subscribe-inline-form {
+        flex-direction: column; /* Stack input field and submit button vertically on mobile devices */
+        background: transparent;
+        border: none;
+        padding: 0;
+        gap: 1rem;
+    }
+    .input-field-wrapper {
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 2px solid #ffffff;
+        border-radius: 30px;
+        padding: 0.4rem 1.2rem;
+        box-sizing: border-box;
+    }
+    .subscribe-btn-premium {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+    const subscribeForm = document.getElementById('standaloneSubscribeForm');
+
+    if (subscribeForm) {
+        subscribeForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Extract the user email string safely
+            const emailInput = document.getElementById('subscriberEmail');
+            const emailValue = emailInput ? emailInput.value.trim() : '';
+
+            // Enforce explicit baseline text validation checks prior to processing
+            if (!emailValue) {
+                alert('Please fill out the field with a valid address before initializing subscription.');
+                return;
+            }
+
+            // Build dynamic full screen 404 overlay modal window layer
+            const errorOverlay = document.createElement('div');
+            errorOverlay.style.cssText = `
+                position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+                background: #000000; color: #ffffff; z-index: 900000;
+                display: flex; flex-direction: column; align-items: center; justify-content: center;
+                font-family: system-ui, -apple-system, sans-serif; opacity: 0; transition: opacity 0.3s ease;
+            `;
+
+            errorOverlay.innerHTML = `
+                <h1 style="font-size: clamp(5rem, 12vw, 8rem); font-weight: 900; color: #ff4b2b; margin: 0; letter-spacing: -2px;">404</h1>
+                <h2 style="font-size: 1.4rem; font-weight: 800; margin: 0.5rem 0 1rem; text-transform: uppercase;">Gateway Connection Severed</h2>
+                <p style="font-size: 1rem; color: #657786; text-align: center; max-width: 460px; margin: 0 0 2.5rem 0; padding: 0 1.5rem;">Target feed terminal for account [ ${emailValue.toUpperCase()} ] failed to resolve handshakes with our secure mapping grid. Operation aborted.</p>
+                <button id="closeSubPopup" style="background: #ffffff; color: #000000; border: none; padding: 0.85rem 2.8rem; font-weight: 800; font-size: 1rem; border-radius: 40px; cursor: pointer;">Re-verify Coordinates</button>
+            `;
+
+            document.body.appendChild(errorOverlay);
+            
+            // Force paint loop layout pass cycle updates
+            requestAnimationFrame(() => errorOverlay.style.opacity = '1');
+            document.body.style.overflow = 'hidden';
+
+            // Reset action parameters safely upon exit
+            document.getElementById('closeSubPopup').addEventListener('click', () => {
+                errorOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    errorOverlay.remove();
+                    document.body.style.overflow = 'auto';
+                    subscribeForm.reset(); // Purge email field cleanly upon completion
+                }, 300);
+            });
+        });
+    }
+
+});
+
+</script>
+
+<!-- Fully Responsive High-Contrast Adventure Domain Footer Hub -->
+<footer class="stackly-main-footer">
+    
+    <!-- Top Segment: 4-Column Navigation Layout Matrix Bound inside Center Grid Box -->
+    <div class="footer-upper-grid">
+        
+        <!-- COLUMN 1: Brand Identifier & Transmission Nodes -->
+        <div class="footer-brand-column">
+            <!-- Brand Logo (Clicking triggers smooth back-to-top execution) -->
+            <a href="#" class="footer-logo-anchor" id="backToTopLogo" aria-label="Return to Top Canvas">
+                <img src="logo.png" alt="Stackly Logo" class="footer-brand-logo-img">
+            </a>
+            <p class="footer-brand-desc">
+                Engineering premium, unedited exploration tracks and high-fidelity navigation templates designed to safely bypass highly commercialized international transit lanes.
+            </p>
+            <!-- Vector Social Transmission Nodes Row -->
+            <div class="footer-social-row">
+                <a href="#" class="social-icon-node fallback-redirect" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                </a>
+                <a href="#" class="social-icon-node fallback-redirect" aria-label="X Terminal">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a href="#" class="social-icon-node fallback-redirect" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.5-1.196-1.5-1.95 0-.774.534-1.95 1.5-1.95s1.5.118 1.5 1.95c0 .754-.534 1.95-1.5 1.95_zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="#" class="social-icon-node fallback-redirect" aria-label="YouTube">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.508 9.388.508 9.388.508s7.518 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- COLUMN 2: Explore Sectors Links Matrix -->
+        <div class="footer-links-column">
+            <h3 class="footer-heading-title">Explore Menus</h3>
+            <ul class="footer-links-list">
+                <li><a href="#" class="fallback-redirect">Alpine Ridge Treks</a></li>
+                <li><a href="#" class="fallback-redirect">Desert Dune Safaris</a></li>
+                <li><a href="#" class="fallback-redirect">Deep Trench Diving</a></li>
+                <li><a href="#" class="fallback-redirect">Wilderness Crossings</a></li>
+            </ul>
+        </div>
+
+        <!-- COLUMN 3: Catering Support Logistics -->
+        <div class="footer-links-column">
+            <h3 class="footer-heading-title">Catering Support</h3>
+            <ul class="footer-links-list">
+                <li><a href="#" class="fallback-redirect">Pathfinder Blueprints</a></li>
+                <li><a href="#" class="fallback-redirect">Fleet Tracking Nodes</a></li>
+                <li><a href="#" class="fallback-redirect">Terminal Help Grid</a></li>
+                <li><a href="#" class="fallback-redirect">Safety Certifications</a></li>
+            </ul>
+        </div>
+
+        <!-- COLUMN 4: Headquarters Physical Coordinates -->
+        <div class="footer-links-column address-column">
+            <h3 class="footer-heading-title">Headquarters Location</h3>
+            <div class="footer-contact-block">
+                <div class="contact-info-row">
+                    <svg class="contact-vector-svg color-coral" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <p>MMR Complex, Periyakollappatty, Chinna Thirupathi, Salem, Tamil Nadu 636008</p>
+                </div>
+                <div class="contact-info-row">
+                    <svg class="contact-vector-svg color-coral" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <p class="phone-text-number">+91 7010792745</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bottom Segment: Bound inside Center Ribbon Box -->
+    <div class="footer-bottom-ribbon">
+        <div class="copyright-text">
+            &copy; 2026 Stackly Industries. All expedition paths reserved.
+        </div>
+        <div class="legal-links-row">
+            <a href="#" class="fallback-redirect">Privacy Policy</a>
+            <a href="#" class="fallback-redirect">Terms of Service</a>
+            <a href="#" class="fallback-redirect">Cookie Management</a>
+        </div>
+    </div>
+</footer>
+
+<style>
+    /* --- High-Contrast Balanced Obsidian Footer Architecture --- */
+.stackly-main-footer {
+    width: 100%;
+    background-color: #0d131a; /* Deep Obsidian Base */
+    /* Tight padding rules on top and base bounds removes empty space gaps */
+    padding: 4rem 4% 1.5rem 4%; 
+    overflow: hidden;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* ==========================================
+   TOP SEGMENT: 4-COLUMN CENTER LOCK NAVIGATION GRID
+   ========================================== */
+.footer-upper-grid {
+    /* Hard center lock configuration eliminates left/right void fields */
+    max-width: 1280px; 
+    margin: 0 auto;
+    display: grid;
+    /* Proportional width splitting creates symmetric layout block alignment */
+    grid-template-columns: 1.25fr 0.85fr 0.85fr 1.05fr;
+    gap: 3rem;
+    padding-bottom: 3.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
+}
+
+/* Column 1: Core Brand Identity */
+.footer-brand-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-logo-anchor {
+    display: inline-block;
+    height: 38px;
+    margin-bottom: 1.25rem;
+}
+
+.footer-brand-logo-img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+.footer-brand-desc {
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: #ffffff;
+    opacity: 0.65;
+    margin: 0 0 1.8rem 0;
+    max-width: 320px;
+}
+
+/* Vector Social Circular Buttons List */
+.footer-social-row {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.social-icon-node {
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.04);
+    color: #ffffff;
+    opacity: 0.6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.social-icon-node svg {
+    width: 15px;
+    height: 15px;
+}
+
+.social-icon-node:hover {
+    background-color: #ff4b2b; /* Stackly Electric Coral */
+    color: #ffffff;
+    opacity: 1;
+    transform: translateY(-3px);
+}
+
+/* Columns 2 & 3: Standard Sitemap Link Sets */
+.footer-heading-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #ffffff; 
+    letter-spacing: -0.5px;
+    margin: 0 0 1.25rem 0;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.footer-heading-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 22px;
+    height: 3px;
+    background-color: #ff4b2b; 
+}
+
+.footer-links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.footer-links-list li a {
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #ffffff;
+    opacity: 0.6;
+    transition: all 0.25s ease;
+}
+
+.footer-links-list li a:hover {
+    opacity: 1;
+    color: #ff4b2b; 
+    padding-left: 4px;
+}
+
+/* Column 4: Physical Coordinates Data Pack Block */
+.footer-contact-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.contact-info-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.contact-vector-svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+.contact-vector-svg.color-coral {
+    color: #ff4b2b; 
+}
+
+.contact-info-row p {
+    font-size: 0.92rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #ffffff;
+    opacity: 0.65;
+    margin: 0;
+}
+
+.phone-text-number {
+    font-weight: 700 !important;
+    opacity: 0.95 !important;
+}
+
+/* ==========================================
+   BOTTOM SEGMENT: CENTER LOCK LEGAL RIBBON
+   ========================================== */
+.footer-bottom-ribbon {
+    /* Bound layout parameters to identical center matrix widths */
+    max-width: 1280px; 
+    margin: 0 auto;
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.copyright-text {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #ffffff;
+    opacity: 0.4;
+}
+
+.legal-links-row {
+    display: flex;
+    gap: 1.8rem;
+}
+
+.legal-links-row a {
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #ffffff;
+    opacity: 0.4;
+    transition: opacity 0.2s ease;
+}
+
+.legal-links-row a:hover {
+    opacity: 0.85;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN SYSTEM MEDIA CONFIGS
+   ========================================== */
+@media (max-width: 1024px) {
+    .footer-upper-grid {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 650px) {
+    .stackly-main-footer {
+        padding: 3rem 5% 1.5rem 5%;
+    }
+    .footer-upper-grid {
+        grid-template-columns: 1fr; 
+        gap: 2.2rem;
+    }
+    .footer-bottom-ribbon {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+    .legal-links-row {
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+}
+
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+    // ========================================================
+    // 1. BRAND LOGO INTERACTIVE BACK TO TOP WORKFLOW
+    // ========================================================
+    const backToTopLogo = document.getElementById('backToTopLogo');
+
+    if (backToTopLogo) {
+        backToTopLogo.addEventListener('click', (e) => {
+            // Intercept standard anchor jumping behavior
+            e.preventDefault();
+            
+            // Execute a clean, smooth dynamic hardware-accelerated back to window top loop
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // ========================================================
+    // 2. DISPATCH CALL TIMELINE INTERPRETATION (404 OVERLAY)
+    // ========================================================
+    const sitemapTriggers = document.querySelectorAll('.stackly-main-footer .fallback-redirect');
+
+    sitemapTriggers.forEach(node => {
+        node.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Prevent event double-firing from nested parent boxes
+            e.stopPropagation();
+
+            // Build dynamic full screen 404 overlay modal window layer
+            const customOverlay = document.createElement('div');
+            customOverlay.style.cssText = `
+                position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+                background: #000000; color: #ffffff; z-index: 1000000;
+                display: flex; flex-direction: column; align-items: center; justify-content: center;
+                font-family: system-ui, -apple-system, sans-serif; opacity: 0; transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            `;
+
+            customOverlay.innerHTML = `
+                <h1 style="font-size: clamp(5rem, 12vw, 8rem); font-weight: 900; color: #ff4b2b; margin: 0; letter-spacing: -2px;">404</h1>
+                <h2 style="font-size: 1.35rem; font-weight: 800; margin: 0.5rem 0 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Matrix Path Unresolved</h2>
+                <p style="font-size: 1rem; color: #657786; text-align: center; max-width: 450px; margin: 0 0 2rem 0; padding: 0 1.5rem;">The targeted sub-index node link has been unmapped to protect remote basecamp server locations. Connection offline.</p>
+                <button id="dismissFooterOverlay" style="background: #ffffff; color: #000000; border: none; padding: 0.85rem 2.5rem; font-weight: 800; font-size: 0.95rem; border-radius: 30px; cursor: pointer; transition: transform 0.2s ease;">Return to Basecamp</button>
+            `;
+
+            document.body.appendChild(customOverlay);
+            
+            // Force layout paint frame loop updates
+            requestAnimationFrame(() => {
+                customOverlay.style.opacity = '1';
+            });
+            document.body.style.overflow = 'hidden';
+
+            // Reset action parameters safely upon modal exit
+            document.getElementById('dismissFooterOverlay').addEventListener('click', () => {
+                customOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    customOverlay.remove();
+                    document.body.style.overflow = 'auto';
+                }, 300);
+            });
+        });
+    });
+
+});
+
+</script>

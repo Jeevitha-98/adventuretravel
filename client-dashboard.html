@@ -1,0 +1,2767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly | Adventure Client Portal</title>
+    <link rel="stylesheet" href="client-styles.css">
+    <!-- Professional crisp vector icons font suite for adventure travel context -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+</head>
+<body>
+
+    <!-- Main Platform Application Interface (Loads Immediately) -->
+    <div id="dashboard-screen" class="dashboard-wrapper">
+        
+        <!-- Overlay Mask for responsive mobile sidebars slider drawer -->
+        <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+        <!-- Top App Navigation Banner Bar -->
+        <header class="dash-header">
+            <div class="header-left">
+                <!-- Programmatic Pure HTML/CSS Black 3-Line Hamburger Vector Button Toggle -->
+                <button class="hamburger-menu" id="hamburger" onclick="toggleSidebar()" aria-label="Toggle Navigation Menu">
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                </button>
+                <div class="brand-logo" onclick="refreshDashboard()" title="Refresh Dashboard & Reset View">
+                    <!-- Global Image Tag Anchor provided for custom branding logo assets -->
+                  
+                    <span class="brand-text">Stackly<span>Adventures</span></span>
+                </div>
+            </div>
+            
+            <div class="header-right">
+                <div class="notifications-bell" onclick="window.location.href='404.html'" title="View Account Notifications">
+                    <svg xmlns="http://w3.org" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vector-bell">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                    </svg>
+                    <span class="badge"></span>
+                </div>
+                
+                <div class="profile-pill">
+                    <span class="user-greeting" id="user-display-name">Jeevi</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-container">
+            <!-- Sidebar Structural Drawer Panel with Client Adventure Vector Menus -->
+            <aside class="dash-sidebar" id="sidebar">
+                <nav class="sidebar-nav">
+                    <!-- Section Title Alone for Isolated Testing -->
+                    <button class="nav-item active" onclick="switchSection('book-trip')">
+                        <i class="fa-solid fa-earth-americas"></i>
+                        <span>Book New Adventure</span>
+                    </button>
+                    <button class="nav-item" onclick="switchSection('my-trips')">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <span>My Expeditions Plan</span>
+                    </button>
+                    <button class="nav-item" onclick="switchSection('gear-checklist')">
+                        <i class="fa-solid fa-backpack"></i>
+                        <span>Gear & Equipment Packing</span>
+                    </button>
+                    <button class="nav-item" onclick="switchSection('payments')">
+                        <i class="fa-solid fa-credit-card"></i>
+                        <span>Invoices & Permits Fees</span>
+                    </button>
+                    <button class="nav-item" onclick="switchSection('help-desk')">
+                        <i class="fa-solid fa-life-ring"></i>
+                        <span>Wilderness Support Desk</span>
+                    </button>
+                </nav>
+                
+                <div class="sidebar-footer">
+                  <button class="logout-btn" onclick="window.location.href='login.html'">
+    <i class="fa-solid fa-arrow-rotate-left"></i>
+    <span>Reset View</span>
+</button>
+                </div>
+            </aside>
+
+            <!-- Main Content Presentation Viewports -->
+            <main class="content-viewport">
+                
+             <!-- Enhanced Live Client Adventure Booking Section -->
+<section id="section-book-trip" class="dash-section">
+    <div class="section-header-meta">
+        <h2>Book New Adventure</h2>
+        <p class="section-desc">Select your desired wilderness expedition track, pick an open outfitter seasonal deployment date window, and reserve your certified guide manifest slot instantly.</p>
+    </div>
+
+    <div class="booking-grid-layout">
+        
+        <!-- Left Column: Interactive Intake Form Flow Steps -->
+        <div class="booking-flow-panel">
+            
+            <!-- Step 1: Adventure Specialty Route Selection Chips -->
+            <div class="form-step-card">
+                <div class="step-badge">Step 1</div>
+                <h3>Choose Expedition Specialty Track</h3>
+                <p class="step-subtext">Select the core geographic wilderness classification matching your extreme exploration targets.</p>
+                
+                <div class="specialty-chips-grid">
+                    <div class="specialty-chip active" onclick="selectExpeditionTrack(this, 'Technical Alpine Circuit', 1250.00)">
+                        <i class="fa-solid fa-mountain-peaks"></i>
+                        <span>Alpine Circuit</span>
+                    </div>
+                    <div class="specialty-chip" onclick="selectExpeditionTrack(this, 'Overland Safari Trail', 850.00)">
+                        <i class="fa-solid fa-tree"></i>
+                        <span>Wilderness Safari</span>
+                    </div>
+                    <div class="specialty-chip" onclick="selectExpeditionTrack(this, 'Deep Marine Diving', 950.00)">
+                        <i class="fa-solid fa-water"></i>
+                        <span>Marine Exploration</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Date Picker and Briefing Windows Matrix -->
+            <div class="form-step-card">
+                <div class="step-badge">Step 2</div>
+                <h3>Secure Operational Deployment Window</h3>
+                <p class="step-subtext">Pick an open outfitter outfitting calendar slot for your basecamp synchronization review briefing.</p>
+                
+                <div class="date-picker-row">
+                    <div class="input-date-wrapper">
+                        <label for="expedition-date"><i class="fa-regular fa-calendar-days"></i> Target Departure Date</label>
+                        <input type="date" id="expedition-date" class="custom-date-input" value="2026-11-15" onchange="synchronizeSummaryReceipt()">
+                    </div>
+                </div>
+
+                <h4 class="time-slots-header">Available Pre-Trip Briefing Slots (IST)</h4>
+                <div class="time-slots-grid">
+                    <div class="time-slot active" onclick="selectBriefingSlot(this, '09:00 AM - 10:00 AM')">09:00 AM</div>
+                    <div class="time-slot" onclick="selectBriefingSlot(this, '11:30 AM - 12:30 PM')">11:30 AM</div>
+                    <div class="time-slot" onclick="selectBriefingSlot(this, '02:00 PM - 03:00 PM')">02:00 PM</div>
+                    <div class="time-slot" onclick="selectBriefingSlot(this, '04:30 PM - 05:30 PM')">04:30 PM</div>
+                </div>
+            </div>
+
+            <!-- Step 3: Medical and Critical Background Disclosures -->
+            <div class="form-step-card">
+                <div class="step-badge">Step 3</div>
+                <h3>Wilderness Experience & Medical Parameters</h3>
+                <p class="step-subtext">Briefly outline your previous altitude conditioning or technical exploration certifications to prepare your sherpa guides team.</p>
+                <textarea id="expedition-notes" class="custom-textarea" rows="4" placeholder="List certifications (e.g., PADI, AIARE), high-altitude thresholds, or dietary criteria targets here..." oninput="synchronizeSummaryReceipt()"></textarea>
+            </div>
+
+        </div>
+
+        <!-- Right Column: Sticky Outfitter Receipt Summary Widget Panel -->
+        <div class="booking-sidebar-panel">
+            <div class="summary-sticky-card">
+                <h3>Expedition Summary</h3>
+                <div class="summary-divider"></div>
+                
+                <div class="summary-item">
+                    <span class="summary-label">Selected Track:</span>
+                    <span class="summary-value" id="summary-track">Technical Alpine Circuit</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Departure Date:</span>
+                    <span class="summary-value" id="summary-date">2026-11-15</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Briefing Window:</span>
+                    <span class="summary-value" id="summary-time">09:00 AM - 10:00 AM</span>
+                </div>
+                
+                <div class="summary-divider"></div>
+                
+                <div class="fee-breakdown-row">
+                    <div>
+                        <h4>Basecamp Outfitter Deposit</h4>
+                        <p class="fee-subtext">Includes regulatory permit clearances</p>
+                    </div>
+                    <div class="fee-amount">$<span id="summary-price">1250.00</span></div>
+                </div>
+
+                <!-- Primary confirmation triggers checkout portal mapping instantly to 404 page -->
+                <button class="primary-booking-btn" onclick="navigateToErrorPage()">
+                    <i class="fa-solid fa-compass"></i> Initialize Secure Checkout
+                </button>
+                <p class="compliance-footer-text"><i class="fa-solid fa-shield-halved"></i> Transactions are backed by absolute search-and-rescue outfitter liability escrow guidelines.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    /* Client Adventure Booking Advanced Component Workspace Styles */
+.booking-grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px; /* Locked explicit desktop sidebar configuration grid track width */
+    gap: 32px;
+    align-items: start;
+    margin-top: 12px;
+}
+
+.booking-flow-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Step Wrapper Cards Blueprint Properties */
+.form-step-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+    position: relative;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01);
+}
+
+.step-badge {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background-color: var(--brand-primary);
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.form-step-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 4px;
+    margin-bottom: 6px;
+    color: var(--text-main);
+}
+
+.step-subtext {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+/* Practice Focus Specialty Selector Chips Setup Grid */
+.specialty-chips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+}
+
+.specialty-chip {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px;
+    background: var(--bg-light);
+    border: 2px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.specialty-chip i {
+    font-size: 20px;
+    color: var(--text-muted);
+    width: 24px;
+    text-align: center;
+}
+
+.specialty-chip span {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.specialty-chip:hover {
+    background: var(--brand-accent-hover);
+    border-color: rgba(5, 150, 105, 0.2);
+}
+
+.specialty-chip.active {
+    background: var(--brand-accent-hover);
+    border-color: var(--brand-accent);
+}
+
+.specialty-chip.active i {
+    color: var(--brand-accent);
+}
+
+/* Date and Time Pickers Precision Inputs Formatting */
+.date-picker-row {
+    margin-bottom: 24px;
+}
+
+.input-date-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-date-wrapper label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.custom-date-input {
+    width: 100%;
+    max-width: 260px;
+    padding: 12px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    outline: none;
+    color: var(--text-main);
+    background: var(--bg-light);
+}
+
+.custom-date-input:focus {
+    border-color: var(--brand-accent);
+}
+
+.time-slots-header {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--text-muted);
+}
+
+.time-slots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 12px;
+}
+
+.time-slot {
+    text-align: center;
+    padding: 12px 8px;
+    background: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.time-slot:hover {
+    background: var(--brand-accent-hover);
+    border-color: var(--brand-accent);
+}
+
+.time-slot.active {
+    background: var(--brand-accent);
+    color: #FFFFFF;
+    border-color: var(--brand-accent);
+}
+
+/* Matter Background Content textareas styling rules */
+.custom-textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    resize: vertical;
+    background: var(--bg-light);
+    font-family: inherit;
+}
+
+.custom-textarea:focus {
+    border-color: var(--brand-accent);
+}
+
+/* Right Column Summary Sidebar Floating Stack */
+.booking-sidebar-panel {
+    position: sticky;
+    top: calc(var(--header-height) + 24px);
+    z-index: 10;
+}
+
+.summary-sticky-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01);
+}
+
+.summary-sticky-card h3 {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.summary-divider {
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 16px 0;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+    font-size: 13px;
+    gap: 8px;
+}
+
+.summary-label {
+    color: var(--text-muted);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.summary-value {
+    color: var(--text-main);
+    font-weight: 700;
+    text-align: right;
+    word-break: break-word;
+}
+
+.fee-breakdown-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 18px;
+    margin-bottom: 24px;
+}
+
+.fee-breakdown-row h4 {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.fee-subtext {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.fee-amount {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--brand-accent);
+}
+
+.primary-booking-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--brand-accent);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.primary-booking-btn:hover {
+    background-color: #047857; /* Darker green shade block */
+}
+
+.primary-booking-btn:active {
+    transform: scale(0.98);
+}
+
+.compliance-footer-text {
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin-top: 14px;
+    text-align: center;
+}
+
+.compliance-footer-text i {
+    color: #059669;
+}
+
+/* Absolute Media Breakpoints Overrides Query Matrix Layouts */
+@media (max-width: 1200px) {
+    .booking-grid-layout {
+        grid-template-columns: 1fr; /* Drop tracking tracks to 1 column layout on smaller viewports */
+        gap: 24px;
+    }
+    
+    .booking-sidebar-panel {
+        position: static; /* Flatten sticky alignment behaviors so summary card falls underneath cleanly */
+    }
+}
+
+@media (max-width: 600px) {
+    .specialty-chips-grid {
+        grid-template-columns: 1fr; /* Single column layout for selector chips on small smartphones */
+    }
+    
+    .custom-date-input {
+        max-width: 100%;
+    }
+}
+
+</style>
+
+<script>
+    // State parameters tracking initialization components
+let chosenRouteTitle = "Technical Alpine Circuit";
+let chosenBriefingTime = "09:00 AM - 10:00 AM";
+let chosenRouteDepositPrice = 1250.00;
+
+/**
+ * Handles target choice updates on the adventure route track chips array layout
+ */
+function selectExpeditionTrack(chipElement, trackNameString, depositPriceValue) {
+    // Strips selection style states from adjacent item components arrays
+    chipElement.parentNode.querySelectorAll('.specialty-chip').forEach(chip => {
+        chip.classList.remove('active');
+    });
+    
+    // Toggle targeted chip element active programmatically
+    chipElement.classList.add('active');
+    
+    // Synchronize inner state storage values
+    chosenRouteTitle = trackNameString;
+    chosenRouteDepositPrice = depositPriceValue;
+    synchronizeSummaryReceipt();
+}
+
+/**
+ * Handles target click selections adjustments on briefing time slots grids
+ */
+function selectBriefingSlot(slotElement, timeWindowString) {
+    slotElement.parentNode.querySelectorAll('.time-slot').forEach(slot => {
+        slot.classList.remove('active');
+    });
+    
+    slotElement.classList.add('active');
+    chosenBriefingTime = timeWindowString;
+    synchronizeSummaryReceipt();
+}
+
+/**
+ * Flushes active data selections values programmatically into the sticky preview receipt panel widget
+ */
+function synchronizeSummaryReceipt() {
+    const calendarDateInput = document.getElementById('expedition-date').value;
+    
+    // Bind current tracking variables into summary nodes fields
+    document.getElementById('summary-track').innerText = chosenRouteTitle;
+    document.getElementById('summary-time').innerText = chosenBriefingTime;
+    document.getElementById('summary-price').innerText = chosenRouteDepositPrice.toFixed(2);
+    
+    if (calendarDateInput) {
+        document.getElementById('summary-date').innerText = calendarDateInput;
+    } else {
+        document.getElementById('summary-date').innerText = "Not assigned";
+    }
+}
+
+/**
+ * Absolute navigation action forwarder mapping out to 404 page error instance
+ */
+function navigateToErrorPage() {
+    window.location.href = "404.html";
+}
+
+</script>
+
+                <!-- Enhanced My Expeditions Plan Section Workspace -->
+<section id="section-my-trips" class="dash-section hidden">
+    <div class="section-header-meta">
+        <h2>My Expeditions Plan</h2>
+        <p class="section-desc">Review your scheduled wilderness departures, check out assigned Sherpa guide profiles, or access your secure pre-trip digital coordination links.</p>
+    </div>
+
+    <!-- Active Structural Filtering Status Headers -->
+    <div class="trips-filter-bar">
+        <button class="status-tab active" onclick="filterTrips(this, 'upcoming')">Active Expeditions (2)</button>
+        <button class="status-tab" onclick="filterTrips(this, 'past')">Archived Journey History (1)</button>
+    </div>
+
+    <!-- Expeditions Stack View Grid -->
+    <div class="trips-list-container" id="trips-wrapper">
+        
+        <!-- Live Expedition Item Card 1 -->
+        <div class="trip-card upcoming">
+            <div class="card-left-meta">
+                <div class="date-badge-box">
+                    <span class="month-txt">NOV</span>
+                    <span class="day-txt">15</span>
+                    <span class="year-txt">2026</span>
+                </div>
+                <div class="route-domain-badge specialty-alpine">
+                    <i class="fa-solid fa-mountain-peaks"></i> Alpine Circuit
+                </div>
+            </div>
+
+            <div class="card-center-details">
+                <span class="urgency-tag high-priority"><i class="fa-solid fa-triangle-exclamation"></i> Action Needed</span>
+                <h3>Mont Blanc Summit Route Ascent</h3>
+                <p class="time-meta-string"><i class="fa-solid fa-location-dot"></i> Basecamp Check-in: Chamonix Corridor | Telemetry Active</p>
+                
+                <div class="assigned-guide-row">
+                    <img src="https://unsplash.com" alt="Guide Portrait" class="guide-avatar">
+                    <div>
+                        <h4 class="guide-name">Chief Expedition Lead Alexander Vance</h4>
+                        <p class="guide-meta-title">IFMGA Certified High-Altitude Alpine Specialist</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-right-actions">
+                <!-- Action triggers video conference portal fallback which routes directly into 404 navigation layout -->
+                <button class="launch-briefing-btn" onclick="navigateToErrorPage()">
+                    <i class="fa-solid fa-satellite-dish"></i> Join Basecamp Briefing Room
+                </button>
+                <button class="secondary-action-btn" onclick="triggerRescheduleNotice('Route #EXP-MB-9941')">
+                    <i class="fa-solid fa-calendar-minus"></i> Modify Dates Block
+                </button>
+            </div>
+        </div>
+
+        <!-- Live Expedition Item Card 2 -->
+        <div class="trip-card upcoming">
+            <div class="card-left-meta">
+                <div class="date-badge-box">
+                    <span class="month-txt">DEC</span>
+                    <span class="day-txt">02</span>
+                    <span class="year-txt">2026</span>
+                </div>
+                <div class="route-domain-badge specialty-safari">
+                    <i class="fa-solid fa-tree"></i> Wilderness Safari
+                </div>
+            </div>
+
+            <div class="card-center-details">
+                <span class="urgency-tag normal-priority"><i class="fa-solid fa-circle-info"></i> Cleared</span>
+                <h3>Serengeti Wilderness Trail & Crater Loop</h3>
+                <p class="time-meta-string"><i class="fa-solid fa-location-dot"></i> Deployment Node: Ngorongoro Outfitting Hub</p>
+                
+                <div class="assigned-guide-row">
+                    <img src="https://unsplash.com" alt="Guide Portrait" class="guide-avatar">
+                    <div>
+                        <h4 class="guide-name">Elena Rostova</h4>
+                        <p class="guide-meta-title">Senior Ecologist & Professional Overland Tracker</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-right-actions">
+                <button class="launch-briefing-btn locked-state" onclick="navigateToErrorPage()">
+                    <i class="fa-solid fa-lock"></i> Briefing Locks Until Dec
+                </button>
+                <button class="secondary-action-btn" onclick="triggerRescheduleNotice('Route #EXP-SG-4110')">
+                    <i class="fa-solid fa-calendar-minus"></i> Modify Dates Block
+                </button>
+            </div>
+        </div>
+
+        <!-- Archived Historical Expedition Item Card 3 -->
+        <div class="trip-card past hidden">
+            <div class="card-left-meta">
+                <div class="date-badge-box historical">
+                    <span class="month-txt">AUG</span>
+                    <span class="day-txt">14</span>
+                    <span class="year-txt">2026</span>
+                </div>
+                <div class="route-domain-badge specialty-marine">
+                    <i class="fa-solid fa-water"></i> Marine Diving
+                </div>
+            </div>
+
+            <div class="card-center-details">
+                <span class="urgency-tag completed-priority"><i class="fa-solid fa-circle-check"></i> Journey Concluded</span>
+                <h3>Deep Marine Red Sea Diving Audit</h3>
+                <p class="time-meta-string"><i class="fa-solid fa-circle-check"></i> Completed Aug 14, 2026 | Logged 12 deep reef descents</p>
+                
+                <div class="assigned-guide-row">
+                    <img src="https://unsplash.com" alt="Guide Portrait" class="guide-avatar">
+                    <div>
+                        <h4 class="guide-name">Chief Expedition Lead Alexander Vance</h4>
+                        <p class="guide-meta-title">IFMGA Certified High-Altitude Alpine Specialist</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-right-actions">
+                <button class="secondary-action-btn outfitter-brief-btn" onclick="navigateToErrorPage()">
+                    <i class="fa-solid fa-file-pdf"></i> Download Expedition Brief Logs
+                </button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    /* Traveler Itinerary Milestone Blueprint Classes */
+.trips-filter-bar {
+    display: flex;
+    gap: 12px;
+    border-bottom: 2px solid var(--border-color);
+    margin-bottom: 28px;
+    padding-bottom: 2px;
+}
+
+.status-tab {
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: -3px;
+}
+
+.status-tab:hover {
+    color: var(--brand-accent);
+}
+
+.status-tab.active {
+    color: var(--brand-accent);
+    border-bottom-color: var(--brand-accent);
+}
+
+.trips-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.trip-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01);
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.trip-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.02);
+}
+
+/* Column Area 1: Left Badge Elements */
+.card-left-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    min-width: 130px;
+    flex-shrink: 0;
+}
+
+.date-badge-box {
+    background-color: var(--brand-primary);
+    color: #FFFFFF;
+    width: 76px;
+    padding: 10px 0;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.date-badge-box.historical {
+    background-color: var(--text-muted);
+}
+
+.month-txt {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    opacity: 0.8;
+}
+
+.day-txt {
+    font-size: 26px;
+    font-weight: 900;
+    line-height: 1.1;
+    margin: 2px 0;
+}
+
+.year-txt {
+    font-size: 10px;
+    font-weight: 600;
+    opacity: 0.7;
+}
+
+.route-domain-badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.specialty-alpine { background-color: #FFF7ED; color: #C2410C; }
+.specialty-safari { background-color: #E6F4EA; color: #137333; }
+.specialty-marine { background-color: #EFF6FF; color: #1E40AF; }
+
+/* Column Area 2: Narrative Details Content */
+.card-center-details {
+    flex: 1;
+}
+
+.urgency-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+}
+
+.high-priority { color: #EF4444; }
+.normal-priority { color: var(--brand-accent); }
+.completed-priority { color: #64748B; }
+
+.card-center-details h3 {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 6px;
+    line-height: 1.3;
+}
+
+.time-meta-string {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+.assigned-guide-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.guide-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1.5px solid var(--border-color);
+}
+
+.guide-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.guide-meta-title {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+/* Column Area 3: Right Sidebar Controls */
+.card-right-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 240px;
+    flex-shrink: 0;
+}
+
+.launch-briefing-btn {
+    width: 100%;
+    padding: 12px 16px;
+    background-color: var(--brand-accent);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color 0.2s;
+}
+
+.launch-briefing-btn:hover {
+    background-color: #047857;
+}
+
+.launch-briefing-btn.locked-state {
+    background-color: #E2E8F0;
+    color: #94A3B8;
+    cursor: not-allowed;
+}
+
+.secondary-action-btn {
+    width: 100%;
+    padding: 10px 16px;
+    background-color: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.secondary-action-btn:hover {
+    background-color: var(--bg-light);
+}
+
+.outfitter-brief-btn {
+    border-color: var(--brand-accent);
+    color: var(--brand-accent);
+}
+
+.outfitter-brief-btn:hover {
+    background-color: var(--brand-accent-hover);
+}
+
+/* Absolute Media Rule Overrides for Mobile Presentation Frameworks */
+@media (max-width: 992px) {
+    .trip-card {
+        flex-direction: column; /* Flattens columns down to linear flowing stack on small mobile screens */
+        align-items: flex-start;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .card-left-meta {
+        flex-direction: row; /* Horizontal alignment for badges instead of vertical stack on tiny devices */
+        justify-content: space-between;
+        width: 100%;
+        min-width: auto;
+    }
+
+    .date-badge-box {
+        flex-direction: row; /* Converts date cube element into flat micro ribbon row line profile */
+        width: auto;
+        padding: 4px 12px;
+        gap: 6px;
+    }
+
+    .day-txt {
+        font-size: 14px;
+        margin: 0;
+    }
+
+    .month-txt, .year-txt {
+        font-size: 11px;
+    }
+
+    .card-right-actions {
+        width: 100%;
+        min-width: auto;
+    }
+}
+
+</style>
+
+<script>
+    /**
+ * Programmatic State Filtration Engine
+ * Switches visibility between active upcoming expeditions and historical conclude outfitter logs
+ */
+function filterTrips(tabButtonElement, filterCriteriaKeyword) {
+    // Strip accent borders from adjacent tab links element arrays
+    tabButtonElement.parentNode.querySelectorAll('.status-tab').forEach(button => {
+        button.classList.remove('active');
+    });
+    
+    // Assign chosen highlighted status to selected tracker tab anchor
+    tabButtonElement.classList.add('active');
+    
+    // Query all trip card components blocks inside workspace lists stack
+    const totalTripCards = document.querySelectorAll('.trip-card');
+    
+    totalTripCards.forEach(card => {
+        if (card.classList.contains(filterCriteriaKeyword)) {
+            card.classList.remove('hidden');
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+}
+
+/**
+ * Handles outfitter modification warnings prompts
+ */
+function triggerRescheduleNotice(expeditionRouteId) {
+    alert(`Portal Notification:\n\nTo safely modify your departure coordinates for outfitting slot [${expeditionRouteId}], please submit a request to your outfitter coordinator using the Support Desk tab.`);
+}
+
+/**
+ * Absolute navigation action forwarder mapping out to 404 page error instance
+ */
+function navigateToErrorPage() {
+    window.location.href = "404.html";
+}
+
+</script>
+
+               <!-- Enhanced Gear & Equipment Packing Section Workspace -->
+<section id="section-gear-checklist" class="dash-section hidden">
+    <div class="section-header-meta">
+        <h2>Gear & Equipment Packing</h2>
+        <p class="section-desc">Audit essential alpine hardware checklists, monitor your technical rucksack weight thresholds, and request basecamp gear rentals directly from your expedition outfitter.</p>
+    </div>
+
+    <!-- Weight Allocation Safety Telemetry Strip Row -->
+    <div class="gear-metrics-strip">
+        <div class="g-metric-card border-left-emerald">
+            <div class="g-metric-icon"><i class="fa-solid fa-weight-scale"></i></div>
+            <div class="g-metric-content">
+                <h5>Rucksack Weight Allocation</h5>
+                <h3>14.2 kg / 20 kg</h3>
+                <p class="g-metric-meta-sub">Safe baseline threshold for high-altitude portering</p>
+                <div class="weight-progress-bar-wrapper">
+                    <div class="weight-progress-fill" style="width: 71%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Two-Column Interactive Selection Workspace -->
+    <div class="gear-workspace-grid">
+        
+        <!-- Left Sub-Column: Mandatory Expedition Packing Checklist -->
+        <div class="gear-checklist-panel">
+            <h4 class="subpanel-title"><i class="fa-solid fa-list-check"></i> Mandatory Expedition Trail List</h4>
+            <p class="panel-instruction-text">Toggle mandatory trail items to cross-verify your expeditionary deployment readiness status.</p>
+            
+            <div class="checklist-items-stack">
+                <label class="checklist-row-item">
+                    <input type="checkbox" checked onchange="calculateWeightAudit(this, 3.5)">
+                    <span class="custom-checkbox-indicator"></span>
+                    <div class="item-text-wrapper">
+                        <strong>4-Season Expedition Dome Tent</strong>
+                        <span>Technical alpine basecamp wind protection | 3.5 kg</span>
+                    </div>
+                </label>
+
+                <label class="checklist-row-item">
+                    <input type="checkbox" checked onchange="calculateWeightAudit(this, 1.8)">
+                    <span class="custom-checkbox-indicator"></span>
+                    <div class="item-text-wrapper">
+                        <strong>-15°C Down Sleeping Bag Matrix</strong>
+                        <span>Hydrophobic goose down insulation | 1.8 kg</span>
+                    </div>
+                </label>
+
+                <label class="checklist-row-item">
+                    <input type="checkbox" onchange="calculateWeightAudit(this, 2.2)">
+                    <span class="custom-checkbox-indicator"></span>
+                    <div class="item-text-wrapper">
+                        <strong>Technical Steel Crampons & Ice Axe</strong>
+                        <span>Rigid mountaineering glacier climbing steel | 2.2 kg</span>
+                    </div>
+                </label>
+            </div>
+        </div>
+
+        <!-- Right Sub-Column: Secure Outfitter Rental Request Center -->
+        <div class="gear-rental-panel">
+            <div class="secure-rental-card">
+                <h4 class="subpanel-title"><i class="fa-solid fa-backpack"></i> Basecamp Rental Request</h4>
+                <p class="form-instruction-txt">Missing critical hardware? Reserve verified outfitter gear arrays to collect directly at basecamp check-in.</p>
+                
+                <div class="rental-item-row">
+                    <div class="rental-item-meta">
+                        <strong>Satellite Emergency Messenger</strong>
+                        <span>Garmin InReach SOS Tracker</span>
+                    </div>
+                    <div class="rental-price-tag">$45 / Trip</div>
+                </div>
+
+                <div class="rental-item-row">
+                    <div class="rental-item-meta">
+                        <strong>High-Altitude Shell Parka</strong>
+                        <span>Gore-Tex Pro Waterproof Layer</span>
+                    </div>
+                    <div class="rental-price-tag">$60 / Trip</div>
+                </div>
+
+                <!-- Action button maps straight to 404 navigation layout fallback -->
+                <button type="button" class="execute-rental-btn" onclick="navigateToErrorPage()">
+                    <i class="fa-solid fa-cart-shopping"></i> Request Basecamp Rentals
+                </button>
+                
+                <div class="gear-compliance-seal">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>All outfitter rentals are fully calibrated, sanitised, and tested against rigid international safety standards before deployment.</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    /* Partner Equipment & Fleet Hardware Ledgers Sheet Styles */
+.gear-metrics-strip {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.g-metric-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01);
+}
+
+.border-left-emerald { border-left: 4px solid #059669; }
+
+.g-metric-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    background-color: #E6F4EA;
+    color: #059669;
+    flex-shrink: 0;
+}
+
+.g-metric-content {
+    flex: 1;
+}
+
+.g-metric-card h5 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+
+.g-metric-card h3 {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--text-main);
+    line-height: 1.2;
+}
+
+.g-metric-meta-sub {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+/* Weight Meter Custom Telemetry Progress Line */
+.weight-progress-bar-wrapper {
+    width: 100%;
+    height: 6px;
+    background-color: var(--border-color);
+    border-radius: 10px;
+    margin-top: 12px;
+    overflow: hidden;
+}
+
+.weight-progress-fill {
+    height: 100%;
+    background-color: #059669;
+    border-radius: 10px;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base Multi-Column Workspace Framework Layout */
+.gear-workspace-grid {
+    display: grid;
+    grid-template-columns: 1fr 360px; /* Locked explicit layout balance width for checkout widgets */
+    gap: 32px;
+    align-items: start;
+    margin-top: 12px;
+}
+
+.subpanel-title {
+    font-size: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--text-main);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.subpanel-title i {
+    color: var(--brand-accent);
+}
+
+.panel-instruction-text {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* Left Sub-Column: Checklist Architecture Layout Stack */
+.checklist-items-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.checklist-row-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+    transition: background-color 0.2s ease;
+}
+
+.checklist-row-item:hover {
+    background-color: var(--bg-light);
+}
+
+/* Hide native standard checkbox input overlay */
+.checklist-row-item input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Custom Vector Box Outlines Indicators */
+.custom-checkbox-indicator {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--text-muted);
+    border-radius: 4px;
+    display: inline-block;
+    flex-shrink: 0;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.checklist-row-item input:checked ~ .custom-checkbox-indicator {
+    background-color: #059669;
+    border-color: #059669;
+}
+
+.custom-checkbox-indicator::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checklist-row-item input:checked ~ .custom-checkbox-indicator::after {
+    display: block;
+}
+
+.item-text-wrapper strong {
+    font-size: 14px;
+    color: var(--text-main);
+    display: block;
+}
+
+.item-text-wrapper span {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* Strikethrough style effect on checked list node strings labels */
+.checklist-row-item input:checked ~ .item-text-wrapper strong {
+    text-decoration: line-through;
+    color: var(--text-muted);
+}
+
+/* Right Sub-Column: Secure Rental Input Box Cards Controls */
+.secure-rental-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01);
+}
+
+.form-instruction-txt {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-top: -4px;
+    margin-bottom: 20px;
+}
+
+.rental-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.rental-item-row:last-of-type {
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 20px;
+}
+
+.rental-item-meta strong {
+    font-size: 13px;
+    color: var(--text-main);
+    display: block;
+}
+
+.rental-item-meta span {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.rental-price-tag {
+    font-size: 14px;
+    font-weight: 800;
+    color: #059669;
+}
+
+.execute-rental-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--brand-primary);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.execute-rental-btn:hover {
+    background-color: var(--brand-accent);
+}
+
+.gear-compliance-seal {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-top: 18px;
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+.gear-compliance-seal i {
+    color: #059669;
+    font-size: 13px;
+    margin-top: 2px;
+}
+
+/* Absolute Media Rule Query Overrides for Mobile Presentation Frameworks */
+@media (max-width: 1100px) {
+    .gear-workspace-grid {
+        grid-template-columns: 1fr; /* Stack panels vertically on tablet boundaries */
+        gap: 32px;
+    }
+}
+
+@media (max-width: 600px) {
+    .checklist-row-item {
+        padding: 14px 16px;
+    }
+}
+
+</style>
+
+<script>
+    // Local base calculation weight memory counters configuration state variables
+let calculatedBaseWeightTotal = 5.3;
+
+/**
+ * Recalculates total rucksack weight indicators based on box check toggles natively
+ */
+function calculateWeightAudit(checkboxElementReference, individualItemWeightVal) {
+    const textAvatarGreetingNode = document.querySelector('.g-metric-card h3');
+    const progressBarFillNode = document.querySelector('.weight-progress-fill');
+    
+    if (checkboxElementReference.checked) {
+        calculatedBaseWeightTotal += individualItemWeightVal;
+    } else {
+        calculatedBaseWeightTotal -= individualItemWeightVal;
+    }
+    
+    // Bounds clamping controls safety locks to isolate mathematical precision errors
+    if (calculatedBaseWeightTotal < 0) calculatedBaseWeightTotal = 0;
+    
+    // Convert absolute values safely into dynamic template string logs
+    const outputWeightString = `${calculatedBaseWeightTotal.toFixed(1)} kg / 20 kg`;
+    const capacityPercentageValue = Math.min((calculatedBaseWeightTotal / 20) * 100, 100);
+    
+    // Flush visual metrics parameters directly down into view container frames
+    if (textAvatarGreetingNode) {
+        textAvatarGreetingNode.innerText = outputWeightString;
+    }
+    if (progressBarFillNode) {
+        progressBarFillNode.style.width = `${capacityPercentageValue}%`;
+        
+        // Dynamic alert color shifts matching threshold safety checks
+        if (capacityPercentageValue > 90) {
+            progressBarFillNode.style.backgroundColor = "#EF4444"; // Alert crimson warning
+        } else {
+            progressBarFillNode.style.backgroundColor = "#059669"; // Normal emerald green
+        }
+    }
+}
+
+/**
+ * Standard fixed absolute dashboard view navigation router rule redirecting to 404 page
+ */
+function navigateToErrorPage() {
+    window.location.href = "404.html";
+}
+
+</script>
+
+
+
+                <!-- Section 4: Invoices & Permits Fees -->
+              <!-- Enhanced Invoices & Permits Fees Section Workspace -->
+<section id="section-payments" class="dash-section hidden">
+    <div class="section-header-meta">
+        <h2>Invoices & Permits Fees</h2>
+        <p class="section-desc">Verify active national park permitting fees, review satellite medical evacuation insurance receipts, and manage outstanding outfitter deposit statements.</p>
+    </div>
+
+    <!-- Financial Status Metric Ribbon Cards Strip Row -->
+    <div class="financial-metrics-strip">
+        <div class="metric-block-card accent-trust">
+            <div class="metric-icon-box"><i class="fa-solid fa-wallet"></i></div>
+            <div>
+                <h5>Paid Outfitter Deposits</h5>
+                <h3>$1,250.00</h3>
+                <p class="metric-meta-desc">Secured funds credited to active treks</p>
+            </div>
+        </div>
+        
+        <div class="metric-block-card accent-due">
+            <div class="metric-icon-box"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+            <div>
+                <h5>Pending Permitting Balance</h5>
+                <h3>$420.00</h3>
+                <p class="metric-meta-desc">3 Regional access permits unissued</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settlement ledgers and payments gateway sub-grid -->
+    <div class="billing-workspace-grid">
+        
+        <!-- Left Sub-Column: Statement Invoices Registry List Table -->
+        <div class="billing-ledger-panel">
+            <h4 class="subpanel-title"><i class="fa-solid fa-receipt"></i> Outfitter Payment Logs</h4>
+            <div class="billing-ledger-list">
+                
+                <!-- Invoice Row Item 1 -->
+                <div class="ledger-item-card status-paid">
+                    <div class="item-primary-meta">
+                        <div class="bill-type-icon"><i class="fa-solid fa-file-lines"></i></div>
+                        <div>
+                            <strong>INV #EXP-MB-2026-08</strong>
+                            <span class="ledger-meta-sub">Mont Blanc Basecamp Deposit Clearance</span>
+                        </div>
+                    </div>
+                    <div class="item-secondary-meta">
+                        <div class="ledger-date-txt">Sep 15, 2026</div>
+                        <div class="ledger-price-amt">$1,250.00</div>
+                        <span class="invoice-badge pill-paid">Settled Trans</span>
+                    </div>
+                </div>
+
+                <!-- Invoice Row Item 2 -->
+                <div class="ledger-item-card status-pending">
+                    <div class="item-primary-meta">
+                        <div class="bill-type-icon"><i class="fa-solid fa-hourglass-half"></i></div>
+                        <div>
+                            <strong>PRM #PARK-MB-441</strong>
+                            <span class="ledger-meta-sub">Chamonix Alpine Regional Regulatory Access Permit</span>
+                        </div>
+                    </div>
+                    <div class="item-secondary-meta">
+                        <div class="ledger-date-txt">Sep 23, 2026</div>
+                        <div class="ledger-price-amt">$420.00</div>
+                        <span class="invoice-badge pill-pending">Payment Due</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Right Sub-Column: Secure Permit Deposit Top-Up Form Portal -->
+        <div class="escrow-portal-panel">
+            <div class="secure-form-card">
+                <h4 class="subpanel-title"><i class="fa-solid fa-shield-halved"></i> Secure Roster Top-Up</h4>
+                <p class="form-instruction-txt">Settle outstanding permit balances to prevent regional trail allocation clearance drops.</p>
+                
+                <form id="escrow-payment-form">
+                    <div class="form-input-group">
+                        <label for="escrow-amount">Payment Allocation ($)</label>
+                        <div class="currency-input-wrapper">
+                            <span class="currency-symbol">$</span>
+                            <input type="number" id="escrow-amount" class="form-text-input" value="420" min="10" required>
+                        </div>
+                    </div>
+
+                    <div class="form-input-group">
+                        <label for="card-num-mock">Credit Card Reference Number</label>
+                        <div class="input-icon-wrapper">
+                            <i class="fa-solid fa-credit-card input-prefix-icon"></i>
+                            <input type="text" id="card-num-mock" class="form-text-input prefix-spaced" placeholder="•••• •••• •••• 8800" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row-dual">
+                        <div class="form-input-group">
+                            <label for="card-expiry-mock">Expiry</label>
+                            <input type="text" id="card-expiry-mock" class="form-text-input" placeholder="MM/YY" required>
+                        </div>
+                        <div class="form-input-group">
+                            <label for="card-cvv-mock">CVV</label>
+                            <input type="password" id="card-cvv-mock" class="form-text-input" placeholder="•••" maxlength="4" required>
+                        </div>
+                    </div>
+
+                    <!-- Direct fallback bridge to 404 error file page layout -->
+                    <button type="button" class="execute-payment-btn" onclick="navigateToErrorPage()">
+                        <i class="fa-solid fa-lock"></i> Authorize Escrow Payment
+                    </button>
+                </form>
+
+                <div class="trust-compliance-seal">
+                    <i class="fa-solid fa-building-columns"></i>
+                    <span>Transactions are strictly managed under standard park outfitting secure banking guarantee protocols.</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    /* Financial Trust Ledger System Dashboard Styles */
+.financial-metrics-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+.metric-block-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01);
+}
+
+.metric-icon-box {
+    width: 52px;
+    height: 52px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+}
+
+.accent-trust .metric-icon-box { background-color: #E6F4EA; color: #059669; }
+.accent-due .metric-icon-box { background-color: #FFF7ED; color: #D97706; }
+
+.metric-block-card h5 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+
+.metric-block-card h3 {
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--text-main);
+}
+
+.metric-meta-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+/* Base Multi-Column Workspace Framework Layout */
+.billing-workspace-grid {
+    display: grid;
+    grid-template-columns: 1fr 360px; /* Locked explicit layout balance split width for checkout widgets */
+    gap: 32px;
+    align-items: start;
+}
+
+.subpanel-title {
+    font-size: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--text-main);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.subpanel-title i {
+    color: var(--brand-accent);
+}
+
+/* Left Sub-Column: Billing Ledger Item Lists */
+.billing-ledger-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.ledger-item-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    transition: background-color 0.2s ease;
+}
+
+.ledger-item-card:hover {
+    background-color: var(--bg-light);
+}
+
+.item-primary-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.bill-type-icon {
+    width: 40px;
+    height: 40px;
+    background-color: var(--bg-light);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    color: var(--text-muted);
+}
+
+.item-primary-meta strong {
+    font-size: 14px;
+    color: var(--text-main);
+    display: block;
+}
+
+.ledger-meta-sub {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.item-secondary-meta {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    text-align: right;
+}
+
+.ledger-date-txt {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.ledger-price-amt {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--text-main);
+    min-width: 80px;
+}
+
+/* Structural Payment Badges Tag Shields */
+.invoice-badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.pill-paid { background-color: #D1FAE5; color: #065F46; }
+.pill-pending { background-color: #FEE2E2; color: #991B1B; }
+
+/* Right Sub-Column: Secure Payment Input Controls Panel */
+.secure-form-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01);
+}
+
+.form-instruction-txt {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-top: -8px;
+    margin-bottom: 20px;
+}
+
+.form-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.form-input-group label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.form-text-input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    outline: none;
+    background-color: var(--bg-light);
+    color: var(--text-main);
+}
+
+.form-text-input:focus {
+    border-color: var(--brand-accent);
+    background-color: #FFFFFF;
+}
+
+/* Custom Compound Prefix Icons Wrappers Formatting */
+.currency-input-wrapper, .input-icon-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.currency-symbol {
+    position: absolute;
+    left: 14px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.currency-input-wrapper .form-text-input {
+    padding-left: 28px;
+}
+
+.input-prefix-icon {
+    position: absolute;
+    left: 14px;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.prefix-spaced {
+    padding-left: 38px;
+}
+
+.form-row-dual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.execute-payment-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--brand-accent);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.execute-payment-btn:hover {
+    background-color: #047857;
+}
+
+.trust-compliance-seal {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-top: 18px;
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+.trust-compliance-seal i {
+    color: #059669;
+    font-size: 13px;
+    margin-top: 2px;
+}
+
+/* Absolute Media Rule Query Overrides for Mobile Presentation Frameworks */
+@media (max-width: 1100px) {
+    .billing-workspace-grid {
+        grid-template-columns: 1fr; /* Stack panels vertically on tablet boundaries */
+        gap: 32px;
+    }
+}
+
+@media (max-width: 680px) {
+    .ledger-item-card {
+        flex-direction: column; /* Flatten invoice items to vertical stacked blocks */
+        align-items: flex-start;
+        gap: 14px;
+        padding: 16px;
+    }
+
+    .item-secondary-meta {
+        width: 100%;
+        justify-content: space-between;
+        text-align: left;
+        padding-left: 56px; /* Offsets alignments neatly under parent text boundaries */
+    }
+    
+    .ledger-price-amt {
+        min-width: auto;
+    }
+}
+
+</style>
+
+<script>
+    /**
+ * Direct absolute link engine bridge routing panel lookups into 404.html template page instance
+ */
+function navigateToErrorPage() {
+    window.location.href = "404.html";
+}
+
+</script>
+
+               <!-- Enhanced Wilderness Support Desk Section Workspace -->
+<section id="section-help-desk" class="dash-section hidden">
+    <div class="section-header-meta">
+        <h2>Wilderness Support Desk</h2>
+        <p class="section-desc">Submit high-priority operational requests directly to your assigned outfitter's logistics team or explore secure self-service adventure travel troubleshooting materials.</p>
+    </div>
+
+    <div class="support-workspace-grid">
+        
+        <!-- Left Sub-Column: Secure Outfitter Intake Request Ticket Form -->
+        <div class="support-form-panel">
+            <div class="support-intake-card">
+                <h4><i class="fa-solid fa-paper-plane"></i> Dispatch Support Ticket</h4>
+                <p class="panel-instruction-text">Have immediate questions regarding international visa entry codes, equipment delays, or satellite network registration profiles? Open a secure outfitter tracking ticket below.</p>
+                
+                <form id="expedition-support-ticket-form" onsubmit="submitTravelSupportTicket(event)">
+                    <div class="support-input-group">
+                        <label for="support-urgency">Priority Urgency Level</label>
+                        <select id="support-urgency" class="support-select-input" required>
+                            <option value="Standard / General Enquiry">Standard / General Enquiry</option>
+                            <option value="Urgent — Upcoming Departure Deadline">Urgent — Upcoming Departure Deadline</option>
+                            <option value="Medical / Evacuation Insurance Update">Medical / Evacuation Insurance Update</option>
+                        </select>
+                    </div>
+
+                    <div class="support-input-group">
+                        <label for="support-subject">Inquiry Subject Header</label>
+                        <input type="text" id="support-subject" class="support-text-input" placeholder="e.g., Request for equipment rental modification or visa voucher copy" required>
+                    </div>
+
+                    <div class="support-input-group">
+                        <label for="support-message">Detailed Narrative Request</label>
+                        <textarea id="support-message" class="support-textarea-input" rows="5" placeholder="Provide background parameters, relevant trail route codes, or gear reservation IDs to accelerate processing..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-ticket-btn">
+                        <i class="fa-solid fa-shield-halved"></i> Dispatch Secure Request
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Right Sub-Column: FAQ Accordion & Quick Troubleshooting Guides Stack -->
+        <div class="support-resources-panel">
+            
+            <!-- Interactive FAQ Component Accordion Card Stack -->
+            <h4 class="resource-panel-title"><i class="fa-solid fa-circle-question"></i> Frequent Traveler Queries</h4>
+            <div class="faq-accordion-stack">
+                
+                <div class="faq-item-wrapper" onclick="toggleAccordionItem(this)">
+                    <div class="faq-trigger-header">
+                        <span>How is emergency medical evacuation managed?</span>
+                        <i class="fa-solid fa-chevron-down accordion-arrow"></i>
+                    </div>
+                    <div class="faq-content-body">
+                        <p>All active bookings include standard secondary search-and-rescue satellite telemetry routing hooks. In an emergency, basecamp dispatch immediately deploys regional helicopter support vectors using your live GPS location data.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item-wrapper" onclick="toggleAccordionItem(this)">
+                    <div class="faq-trigger-header">
+                        <span>Can I adjust my packing weight allowance later?</span>
+                        <i class="fa-solid fa-chevron-down accordion-arrow"></i>
+                    </div>
+                    <div class="faq-content-body">
+                        <p>Yes. Rucksack parameters can be re-calibrated natively inside the <strong>Gear Packing</strong> panel up to 48 hours prior to trail check-in. Excess logistics demands may trigger porter trust fee adjustments.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item-wrapper" onclick="toggleAccordionItem(this)">
+                    <div class="faq-trigger-header">
+                        <span>What happens if weather cancels a route?</span>
+                        <i class="fa-solid fa-chevron-down accordion-arrow"></i>
+                    </div>
+                    <div class="faq-content-body">
+                        <p>If meteorological sensors signal unsafe conditions (e.g., avalanche risk, rapid flooding), the outfitter triggers a protective route hold. Your escrow funds are held securely until the transit window stabilizes or alternative routes are mapped.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Troubleshooting Resource Anchor Guide Links Card -->
+            <div class="troubleshooting-links-card">
+                <h4><i class="fa-solid fa-laptop-code"></i> Troubleshooting Library</h4>
+                <p class="resource-card-subtext">Quick documentation blueprints to resolve portal file formatting issues immediately.</p>
+                
+                <div class="resource-links-grid">
+                    <a href="javascript:void(0)" class="resource-anchor-row" onclick="navigateToErrorPage()">
+                        <i class="fa-solid fa-file-pdf pdf-accent-color"></i>
+                        <div>
+                            <strong>Digital Medical Waiver Requirements</strong>
+                            <span>Learn how to complete and sign your health data documents natively.</span>
+                        </div>
+                    </a>
+                    
+                    <a href="javascript:void(0)" class="resource-anchor-row" onclick="navigateToErrorPage()">
+                        <i class="fa-solid fa-triangle-exclamation warning-accent-color"></i>
+                        <div>
+                            <strong>Satellite Beacon Activation Directory</strong>
+                            <span>Fix beacon pairing and signal timeout anomalies instantly.</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<style>
+    /* Client Support Center Master Grid Workspace Component Styles */
+.support-workspace-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px; /* Explicit structural layout column allocation balance split width */
+    gap: 32px;
+    align-items: start;
+}
+
+/* Left Column Panel Forms Properties */
+.support-intake-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01);
+}
+
+.support-intake-card h4 {
+    font-size: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--text-main);
+    letter-spacing: 0.02em;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.support-intake-card h4 i {
+    color: var(--brand-accent);
+}
+
+.panel-instruction-text {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+.support-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 18px;
+}
+
+.support-input-group label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.support-select-input, .support-text-input, .support-textarea-input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    outline: none;
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    font-family: inherit;
+}
+
+.support-select-input:focus, .support-text-input:focus, .support-textarea-input:focus {
+    border-color: var(--brand-accent);
+    background-color: #FFFFFF;
+}
+
+.support-textarea-input {
+    resize: vertical;
+}
+
+.submit-ticket-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--brand-accent);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.submit-ticket-btn:hover {
+    background-color: #047857;
+}
+
+/* Right Column Resources Panel Elements */
+.resource-panel-title {
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.resource-panel-title i {
+    color: var(--brand-accent);
+}
+
+.faq-accordion-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.faq-item-wrapper {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.faq-item-wrapper:hover {
+    border-color: var(--brand-accent);
+}
+
+.faq-trigger-header {
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-main);
+    user-select: none;
+}
+
+.accordion-arrow {
+    font-size: 12px;
+    color: var(--text-muted);
+    transition: transform 0.2s ease-in-out;
+}
+
+.faq-content-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: var(--bg-light);
+}
+
+.faq-content-body p {
+    padding: 16px 20px;
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Accordion Active Interactive Class Modifiers via Script Engine toggle hooks */
+.faq-item-wrapper.active .accordion-arrow {
+    transform: rotate(180deg);
+    color: var(--brand-accent);
+}
+
+.faq-item-wrapper.active .faq-content-body {
+    max-height: 200px; /* Safe tracking ceiling height expands smoothly */
+}
+
+/* Troubleshooting Reference Links Block */
+.troubleshooting-links-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.troubleshooting-links-card h4 {
+    font-size: 15px;
+    font-weight: 800;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.troubleshooting-links-card h4 i {
+    color: var(--brand-primary);
+}
+
+.resource-card-subtext {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 18px;
+}
+
+.resource-links-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.resource-anchor-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    background-color: var(--bg-light);
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.resource-anchor-row:hover {
+    background-color: #EFF6FF;
+    border-color: rgba(5, 150, 105, 0.15);
+}
+
+.resource-anchor-row i {
+    font-size: 20px;
+    margin-top: 2px;
+}
+
+.pdf-accent-color { color: #EF4444; }
+.warning-accent-color { color: #F59E0B; }
+
+.resource-anchor-row strong {
+    display: block;
+    font-size: 13px;
+    color: var(--text-main);
+    font-weight: 700;
+}
+
+.resource-anchor-row span {
+    display: block;
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 2px;
+    line-height: 1.3;
+}
+
+/* Absolute Media Rule Query Overrides for Mobile Presentation Frameworks */
+@media (max-width: 1100px) {
+    .support-workspace-grid {
+        grid-template-columns: 1fr; /* Drop tracking track layout limits down to 1 vertical stack column block */
+        gap: 32px;
+    }
+}
+
+</style>
+
+<script>
+    /**
+ * Toggles the expanded status criteria values on the FAQ accordion item rows array cleanly
+ */
+function toggleAccordionItem(accordionElementReference) {
+    const isCurrentlyActive = accordionElementReference.classList.contains('active');
+    
+    // Programmatically collapse neighboring item states open indices 
+    accordionElementReference.parentNode.querySelectorAll('.faq-item-wrapper').forEach(item => {
+        item.classList.remove('active');
+    });
+    
+    // If targeted box row was closed, switch its active state toggled visible layer parameters
+    if (!isCurrentlyActive) {
+        accordionElementReference.classList.add('active');
+    }
+}
+
+/**
+ * Handles simulated client assistance outfitter ticket dispatches pipelines
+ */
+function submitTravelSupportTicket(formSubmitEventInstance) {
+    formSubmitEventInstance.preventDefault();
+    
+    const selectedUrgencyValue = document.getElementById('support-urgency').value;
+    const inputtedSubjectValue = document.getElementById('support-subject').value;
+    
+    // Fire transaction status verification popup confirmations 
+    alert(`Outfitter Assistance Dispatch Registry:\n\nSuccess! Your high-security travel support ticket has been securely routed into your outfitter coordinator's tracking matrix.\n\n[Classification]: ${selectedUrgencyValue}\n[Subject]: ${inputtedSubjectValue}\n\nOur wilderness coordination team will follow up via your secure portal channel.`);
+    
+    // Flush form layout values clean post-execution process loop parameters
+    document.getElementById('expedition-support-ticket-form').reset();
+}
+
+/**
+ * Standard fixed absolute dashboard view navigation router rule redirecting to 404 page
+ */
+function navigateToErrorPage() {
+    window.location.href = "404.html";
+}
+
+</script>
+
+                <!-- Auxiliary Viewport: Notification Alerts -->
+                <section id="section-alerts" class="dash-section hidden">
+                    <h2>Account Notifications</h2>
+                    <p class="section-desc">Review high-priority updates relating to your scheduled outfitter routes changes.</p>
+                    <div class="placeholder-card">
+                        <i class="fa-solid fa-bell" style="color: #D97706;"></i>
+                        <p>Meteorological Broadcast Channels & Regional Route Restriction Bulletins Logs</p>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+   <style>
+    /* Core Custom Root Variables - Client Adventure Premium Light Aesthetic Archetype */
+:root {
+    --brand-primary: #0F172A; /* Slate Dark Core */
+    --brand-accent: #059669;  /* Reassuring Exploration Wilderness Green Accent */
+    --brand-accent-hover: #D1FAE5; /* Soft light emerald glow background highlight for active tabs */
+    --bg-light: #F8FAFC;
+    --bg-card: #FFFFFF;
+    --text-main: #0F172A;
+    --text-muted: #64748B;
+    --border-color: #E2E8F0;
+    --sidebar-width: 260px;
+    --header-height: 70px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Master Platform Grid Layout Viewports */
+.dashboard-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* App Header Panel Layout */
+.dash-header {
+    height: var(--header-height);
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Native Vector 3-Line Mobile Hamburger Code Definition */
+.hamburger-menu {
+    display: none; 
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 3px;
+}
+
+.hamburger-bar {
+    width: 100%;
+    height: 2.5px;
+    background-color: #000000;
+    border-radius: 4px;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    user-select: none;
+    flex-shrink: 0;
+}
+
+.brand-img {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.brand-text {
+    font-size: 18px;
+    font-weight: 800;
+    color: #0F172A;
+    white-space: nowrap;
+}
+
+.brand-text span {
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-left: 2px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+/* Notifications SVG Wrapper Anchor */
+.notifications-bell {
+    position: relative;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+
+.notifications-bell:hover {
+    background-color: var(--bg-light);
+}
+
+.vector-bell {
+    width: 22px;
+    height: 22px;
+    color: var(--text-muted);
+    transition: color 0.2s, transform 0.2s;
+}
+
+.notifications-bell:hover .vector-bell {
+    color: var(--brand-accent);
+    transform: rotate(15deg);
+}
+
+.notifications-bell .badge {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 8px;
+    height: 8px;
+    background-color: #EF4444;
+    border: 1.5px solid var(--bg-card);
+    border-radius: 50%;
+}
+
+/* White Clean Background Profile Identifier Text Greeting */
+.profile-pill {
+    display: flex;
+    align-items: center;
+    padding: 6px 0;
+}
+
+.user-greeting {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--text-main);
+}
+
+/* Master Grid Alignment Panels Container Layout */
+.main-container {
+    display: flex;
+    flex: 1;
+    height: calc(100vh - var(--header-height));
+    overflow: hidden;
+}
+
+/* Sidebar Navigation Panel with Bounding Vector Icon Boxes */
+.dash-sidebar {
+    width: var(--sidebar-width);
+    background: var(--bg-card);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 90;
+}
+
+.sidebar-nav {
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    background: none;
+    border: none;
+    border-radius: 8px;
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Bounding Grid Alignment for Sharp SVG Vectors */
+.nav-item i {
+    font-size: 18px;
+    width: 24px;
+    text-align: center;
+    transition: color 0.2s ease;
+}
+
+/* Selected Tab Soft Emerald Glow Highlight States */
+.nav-item:hover, .nav-item.active {
+    background: var(--brand-accent-hover);
+    color: var(--brand-accent);
+}
+
+.nav-item:hover i, .nav-item.active i {
+    color: var(--brand-accent);
+}
+
+.sidebar-footer {
+    padding: 24px 16px;
+    border-top: 1px solid var(--border-color);
+}
+
+.logout-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    background: none;
+    border: none;
+    color: var(--brand-accent);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.logout-btn:hover {
+    background-color: var(--bg-light);
+}
+
+/* Main Live Presentation Content Viewports Area */
+.content-viewport {
+    flex: 1;
+    overflow-y: auto;
+    padding: 32px;
+    background-color: var(--bg-light);
+}
+
+.dash-section h2 {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+}
+
+.section-desc {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+.placeholder-card {
+    background: var(--bg-card);
+    border: 2px dashed var(--border-color);
+    border-radius: 12px;
+    padding: 80px 20px;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.placeholder-card i {
+    font-size: 48px;
+    color: #CBD5E1;
+    margin-bottom: 16px;
+}
+
+/* Translucent dim-mask background layer for mobile overlays slider drawer */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 23, 42, 0.3);
+    z-index: 85;
+    backdrop-filter: blur(1.5px);
+}
+
+/* Absolute Media Rule Query Systems Matrix for Responsive UI Checks */
+@media (max-width: 992px) {
+    .dash-header {
+        padding: 0 16px;
+    }
+
+    .header-left {
+        gap: 12px;
+    }
+
+    /* Force mobile hamburger visibility toggle open layer active */
+    .hamburger-menu {
+        display: flex !important;
+        z-index: 100;
+    }
+
+    .dash-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        height: 100vh;
+        transform: translateX(-100%);
+        box-shadow: 5px 0 25px rgba(0,0,0,0.15);
+    }
+
+    .dash-sidebar.open {
+        transform: translateX(0);
+    }
+
+    .sidebar-overlay.open {
+        display: block;
+    }
+    
+    .content-viewport {
+        padding: 24px 16px;
+    }
+
+    .user-greeting {
+        display: block;
+    }
+}
+
+   </style>
+
+   <script>
+    /**
+ * Brand Navigation Logo Anchor - Workspace System Reset Trigger Rule
+ */
+function refreshDashboard() {
+    console.log("Re-indexing traveler account dashboard viewports configuration arrays...");
+    
+    const brandElement = document.querySelector('.brand-logo');
+    brandElement.style.opacity = '0.4';
+    
+    // Smooth reset pipeline back to default active section view
+    setTimeout(() => {
+        brandElement.style.opacity = '1';
+        switchSection('book-trip');
+    }, 250);
+}
+
+/**
+ * Sidebar Interactive Isolated Section Switching Page Matrix Engine
+ */
+function switchSection(sectionId) {
+    // Hide all template section viewport panels
+    document.querySelectorAll('.dash-section').forEach(section => {
+        section.classList.add('hidden');
+    });
+    
+    // Target and uncover chosen section ID code anchor
+    const targetSection = document.getElementById(`section-${sectionId}`);
+    if (targetSection) {
+        targetSection.classList.remove('hidden');
+    }
+    
+    // Strip active tracking classes from layout links array elements
+    document.querySelectorAll('.nav-item').forEach(button => {
+        button.classList.remove('active');
+    });
+    
+    // Match element index binding targets matching selection inputs string arguments variables
+    const activeItem = Array.from(document.querySelectorAll('.nav-item')).find(btn => 
+        btn.getAttribute('onclick').includes(`'${sectionId}'`)
+    );
+    if (activeItem) {
+        activeItem.classList.add('active');
+    }
+    
+    // Automate closing drawer on responsive mobile triggers after routing completion
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+    if (sidebar && sidebar.classList.contains('open')) {
+        sidebar.classList.remove('open');
+        overlay.classList.remove('open');
+    }
+}
+
+/**
+ * Responsive Mobile Menu Button Drawer Toggle Trigger Action
+ */
+function toggleSidebar() {
+    const sidebarElement = document.getElementById('sidebar');
+    const overlayElement = document.getElementById('sidebar-overlay');
+    if (sidebarElement) {
+        sidebarElement.classList.toggle('open');
+        overlayElement.classList.toggle('open');
+    }
+}
+
+/**
+ * View Reset Functional Controller Switch
+ */
+function resetDashboardView() {
+    switchSection('book-trip');
+}
+
+   </script>
+</body>
+</html>
