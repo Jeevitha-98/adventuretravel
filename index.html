@@ -544,44 +544,40 @@
     // ==========================================
     // 2. CREATIVE POP-OUT THEATRE CINEMA VIEWER
     // ==========================================
+ 
+    // ==========================================
+    // 2. PLAY VIDEO DIRECTLY ON THE HOME PAGE
+    // ==========================================
     const videoTrigger = document.getElementById('videoTrigger');
     const nativeVid = document.getElementById('heroVid');
+    const playOverlay = videoTrigger?.querySelector('.video-overlay-play');
 
     if (videoTrigger && nativeVid) {
         videoTrigger.addEventListener('click', () => {
-            // Build absolute dark overlay frame model layout grids
-            const theaterOverlay = document.createElement('div');
-            theaterOverlay.style.cssText = `
-                position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-                background: rgba(13, 19, 26, 0.98); z-index: 200000;
-                display: flex; align-items: center; justify-content: center;
-                opacity: 0; transition: opacity 0.4s ease; backdrop-filter: blur(12px);
-            `;
+            if (nativeVid.paused) {
+                nativeVid.play();
+            } else {
+                nativeVid.pause();
+            }
+        });
 
-            theaterOverlay.innerHTML = `
-                <div style="position: relative; width: 90%; max-width: 1200px; aspect-ratio: 16/9; border: 3px solid #ffffff; border-radius: 16px; overflow: hidden; background: #000;">
-                    <video src="${nativeVid.querySelector('source').src}" autoplay controls style="width: 100%; height: 100%; object-fit: contain;"></video>
-                    <button id="closeTheater" style="position: absolute; top: -50px; right: 0; background: none; border: none; color: #ffffff; font-size: 1.1rem; font-weight: 800; cursor: pointer; letter-spacing: 1px;">CLOSE TERMINAL ✕</button>
-                </div>
-            `;
+        nativeVid.addEventListener('play', () => {
+            if (playOverlay) playOverlay.style.display = 'none';
+        });
 
-            document.body.appendChild(theaterOverlay);
-            requestAnimationFrame(() => theaterOverlay.style.opacity = '1');
-            document.body.style.overflow = 'hidden';
+        nativeVid.addEventListener('pause', () => {
+            if (playOverlay) playOverlay.style.display = 'flex';
+        });
 
-            // Dismiss cinema modal mode securely
-            document.getElementById('closeTheater').addEventListener('click', () => {
-                theaterOverlay.style.opacity = '0';
-                setTimeout(() => {
-                    theaterOverlay.remove();
-                    document.body.style.overflow = 'auto';
-                }, 400);
-            });
+        nativeVid.addEventListener('ended', () => {
+            if (playOverlay) playOverlay.style.display = 'flex';
         });
     }
+
 });
 
 </script>
+
 
 <!-- Fully Responsive Intersecting Brand Carousel Section -->
 <section id="partner-marquee-zone" class="marquee-section">
@@ -1475,18 +1471,24 @@
         
         <!-- SECTION TABS HEADER ROW -->
         <div class="booking-tabs-nav">
-            <button class="tab-trigger active" data-category="expeditions">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z"/></svg>
-                <span>Wilderness Expeditions</span>
-            </button>
-            <button class="tab-trigger" data-category="alpine">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2L2 22h20L14.5 2z"/></svg>
-                <span>Alpine Ridge Trekking</span>
-            </button>
-            <button class="tab-trigger" data-category="submarine">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                <span>Submarine Trench Diving</span>
-            </button>
+          <a href="404.html" class="tab-trigger active" data-category="expeditions">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z"/>
+    </svg>
+    <span>Wilderness Expeditions</span>
+</a>
+            <a href="404.html" class="tab-trigger" data-category="alpine">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M14.5 2L2 22h20L14.5 2z"/>
+    </svg>
+    <span>Alpine Ridge Trekking</span>
+</a><a href="404.html" class="tab-trigger" data-category="submarine">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+    </svg>
+    <span>Submarine Trench Diving</span>
+</a>
         </div>
 
         <!-- DATA INPUT ENGINE PANEL -->
@@ -2441,40 +2443,18 @@
     // ==========================================
     // 2. DISPATCH CALL SEQUENCE WORKFLOW (404 REDIRECT OVERLAY)
     // ==========================================
+   
+    // ==========================================
+    // 2. EXPLORE MORE - NAVIGATE TO 404 PAGE
+    // ==========================================
     const ctaTrigger = document.getElementById('matrixCtaTrigger');
 
     if (ctaTrigger) {
         ctaTrigger.addEventListener('click', () => {
-            // Setup solid backdrop simulation overlay sheet
-            const systemOverlay = document.createElement('div');
-            systemOverlay.style.cssText = `
-                position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-                background: #000000; color: #ffffff; z-index: 600000;
-                display: flex; flex-direction: column; align-items: center; justify-content: center;
-                font-family: system-ui, -apple-system, sans-serif; opacity: 0; transition: opacity 0.3s ease;
-            `;
-
-            systemOverlay.innerHTML = `
-                <h1 style="font-size: clamp(5rem, 12vw, 8rem); font-weight: 900; color: #ff4b2b; margin: 0; letter-spacing: -2px;">404</h1>
-                <h2 style="font-size: 1.4rem; font-weight: 800; margin: 0.5rem 0 1rem; text-transform: uppercase;">Grid Node Offline</h2>
-                <p style="font-size: 1rem; color: #657786; text-align: center; max-width: 440px; margin: 0 0 2rem 0; padding: 0 1rem;">Additional geographical vector sub-indexes are locked inside deep data cold archives. Matrix path unresolved.</p>
-                <button id="closeMatrix" style="background: #ffffff; color: #000000; border: none; padding: 0.85rem 2.5rem; font-weight: 800; font-size: 0.95rem; border-radius: 30px; cursor: pointer;">Return to Basecamp</button>
-            `;
-
-            document.body.appendChild(systemOverlay);
-            requestAnimationFrame(() => systemOverlay.style.opacity = '1');
-            document.body.style.overflow = 'hidden';
-
-            // Terminate simulated dashboard state cleanly
-            document.getElementById('closeMatrix').addEventListener('click', () => {
-                systemOverlay.style.opacity = '0';
-                setTimeout(() => {
-                    systemOverlay.remove();
-                    document.body.style.overflow = 'auto';
-                }, 300);
-            });
+            window.location.href = '404.html';
         });
     }
+
 
 });
 
@@ -2743,10 +2723,10 @@
         
         <!-- Filter Category Capsules Navigation Rows -->
         <div class="filter-capsule-row">
-            <button class="capsule-btn active">Europe</button>
-            <button class="capsule-btn">America</button>
-            <button class="capsule-btn">Africa</button>
-            <button class="capsule-btn">Asia</button>
+           <a href="404.html" class="capsule-btn active">Europe</a>
+<a href="404.html" class="capsule-btn">America</a>
+<a href="404.html" class="capsule-btn">Africa</a>
+<a href="404.html" class="capsule-btn">Asia</a>
         </div>
     </div>
 
@@ -3949,7 +3929,9 @@
                 <div class="blog-category-badge">Field Dispatches</div>
                 <h3 class="spotlight-title">Where does it come from?</h3>
                 <p class="spotlight-desc">Contrary to popular belief, Stackly itineraries are not simply random layouts. Each path has roots in verified coordinates, physical mapping data, and authentic remote field logging making it over 2000 routes deep.</p>
-                <button class="blog-inline-cta-btn fallback-redirect">Read more</button>
+             <a href="404.html" class="blog-inline-cta-btn">
+    Read more
+</a>
             </div>
         </div>
 
@@ -4324,41 +4306,20 @@
     // ==========================================
     // 2. REDIRECT PIPELINE ACTIONS (404 POPUP OVERLAY)
     // ==========================================
-    const redirectTriggers = document.querySelectorAll('.fallback-redirect, .blog-spotlight-card, .stream-article-node');
+    
+    // ==========================================
+    // 2. REDIRECT TO 404 PAGE
+    // ==========================================
+    const redirectTriggers = document.querySelectorAll(
+        '.fallback-redirect, .blog-spotlight-card, .stream-article-node'
+    );
 
     redirectTriggers.forEach(trigger => {
-        trigger.addEventListener('click', (e) => {
-            // Prevent event double-firing from children inner elements nested inside parent grids
-            e.stopPropagation();
-
-            const terminalOverlay = document.createElement('div');
-            terminalOverlay.style.cssText = `
-                position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-                background: #000000; color: #ffffff; z-index: 800000;
-                display: flex; flex-direction: column; align-items: center; justify-content: center;
-                font-family: system-ui, -apple-system, sans-serif; opacity: 0; transition: opacity 0.3s ease;
-            `;
-
-            terminalOverlay.innerHTML = `
-                <h1 style="font-size: clamp(5rem, 12vw, 8rem); font-weight: 900; color: #ff4b2b; margin: 0; letter-spacing: -2px;">404</h1>
-                <h2 style="font-size: 1.35rem; font-weight: 800; margin: 0.5rem 0 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Dispatch Log Missing</h2>
-                <p style="font-size: 1rem; color: #657786; text-align: center; max-width: 450px; margin: 0 0 2rem 0; padding: 0 1.5rem;">The requested document archive has been encrypted or pulled down from remote field servers. Path untrackable.</p>
-                <button id="killOverlayBtn" style="background: #ffffff; color: #000000; border: none; padding: 0.85rem 2.5rem; font-weight: 800; font-size: 0.95rem; border-radius: 30px; cursor: pointer;">Return to Basecamp</button>
-            `;
-
-            document.body.appendChild(terminalOverlay);
-            requestAnimationFrame(() => terminalOverlay.style.opacity = '1');
-            document.body.style.overflow = 'hidden';
-
-            document.getElementById('killOverlayBtn').addEventListener('click', () => {
-                terminalOverlay.style.opacity = '0';
-                setTimeout(() => {
-                    terminalOverlay.remove();
-                    document.body.style.overflow = 'auto';
-                }, 300);
-            });
+        trigger.addEventListener('click', () => {
+            window.location.href = '404.html';
         });
     });
+
 
 });
 

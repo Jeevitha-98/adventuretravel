@@ -606,12 +606,17 @@
         
         <!-- Clean Geometric Arrow Controllers -->
         <div class="slider-arrow-controls">
-            <button class="arrow-btn" id="worldPrev" aria-label="Previous Slide">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 19l-7-7 7-7"/></svg>
-            </button>
-            <button class="arrow-btn" id="worldNext" aria-label="Next Slide">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 5l7 7-7 7"/></svg>
-            </button>
+           <a href="404.html" class="arrow-btn" aria-label="Previous Slide">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="M15 19l-7-7 7-7"/>
+    </svg>
+</a>
+
+<a href="404.html" class="arrow-btn" aria-label="Next Slide">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="M9 5l7 7-7 7"/>
+    </svg>
+</a>
         </div>
     </div>
 
@@ -1040,12 +1045,17 @@
         
         <!-- Filter Category Capsules Navigation Rows (Linked to 404 Trigger Modules) -->
         <div class="filter-capsule-row" id="capsuleRow">
-            <button class="capsule-btn active">🌀 Romantic Escapes</button>
-            <button class="capsule-btn capsule-redirect">🏄 Beach Escapes</button>
-            <button class="capsule-btn capsule-redirect">🏙️ City Breaks</button>
-            <button class="capsule-btn capsule-redirect">🏔️ Mountain Retreats</button>
-            <button class="capsule-btn capsule-redirect">🏜️ Desert Escapes</button>
-            <button class="capsule-btn capsule-redirect">🧗 Adventure Trips</button>
+          <a href="404.html" class="capsule-btn active">🌀 Romantic Escapes</a>
+
+<a href="404.html" class="capsule-btn">🏄 Beach Escapes</a>
+
+<a href="404.html" class="capsule-btn">🏙️ City Breaks</a>
+
+<a href="404.html" class="capsule-btn">🏔️ Mountain Retreats</a>
+
+<a href="404.html" class="capsule-btn">🏜️ Desert Escapes</a>
+
+<a href="404.html" class="capsule-btn">🧗 Adventure Trips</a>
         </div>
     </div>
 
@@ -1455,42 +1465,18 @@
     // ==========================================
     // 2. REDIRECT PIPELINE (CAPSULE BUTTONS & ARROWS TO 404)
     // ==========================================
-    const redirectTriggers = document.querySelectorAll('.capsule-redirect, .fallback-redirect');
+    // ==========================================
+// 2. REDIRECT TO 404 PAGE
+// ==========================================
+const redirectTriggers = document.querySelectorAll(
+    '.capsule-redirect, .fallback-redirect'
+);
 
-    redirectTriggers.forEach(trigger => {
-        trigger.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-
-            const simulationOverlay = document.createElement('div');
-            simulationOverlay.style.cssText = `
-                position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-                background: #000000; color: #ffffff; z-index: 1000000;
-                display: flex; flex-direction: column; align-items: center; justify-content: center;
-                font-family: system-ui, -apple-system, sans-serif; opacity: 0; transition: opacity 0.3s ease;
-            `;
-
-            simulationOverlay.innerHTML = `
-                <h1 style="font-size: clamp(5rem, 12vw, 8rem); font-weight: 900; color: #ff4b2b; margin: 0; letter-spacing: -2px;">404</h1>
-                <h2 style="font-size: 1.35rem; font-weight: 800; margin: 0.5rem 0 1rem; text-transform: uppercase;">Lodge Secure Offline</h2>
-                <p style="font-size: 1rem; color: #657786; text-align: center; max-width: 450px; margin: 0 0 2rem 0; padding: 0 1.5rem;">Access vectors to this specific coordinate matrix are restricted while field validation is in progress. Connection severed.</p>
-                <button id="dismissStaysOverlay" style="background: #ffffff; color: #000000; border: none; padding: 0.85rem 2.5rem; font-weight: 800; font-size: 0.95rem; border-radius: 30px; cursor: pointer;">Return to Basecamp</button>
-            `;
-
-            document.body.appendChild(simulationOverlay);
-            requestAnimationFrame(() => simulationOverlay.style.opacity = '1');
-            document.body.style.overflow = 'hidden';
-
-            document.getElementById('dismissStaysOverlay').addEventListener('click', () => {
-                simulationOverlay.style.opacity = '0';
-                setTimeout(() => {
-                    simulationOverlay.remove();
-                    document.body.style.overflow = 'auto';
-                }, 300);
-            });
-        });
+redirectTriggers.forEach(trigger => {
+    trigger.addEventListener('click', () => {
+        window.location.href = '404.html';
     });
-
+});
 });
 
 </script>
@@ -2277,44 +2263,7 @@
 
     if (insightSection) insightScrollObserver.observe(insightSection);
 
-    // ==========================================
-    // 2. DISPATCH CALL SEQUENCE WORKFLOW (404 REDIRECT OVERLAY)
-    // ==========================================
-    const redirectTriggers = document.querySelectorAll('#expedition-insight-hub .fallback-redirect');
-
-    redirectTriggers.forEach(trigger => {
-        trigger.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-
-            const simulationOverlay = document.createElement('div');
-            simulationOverlay.style.cssText = `
-                position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-                background: #000000; color: #ffffff; z-index: 950000;
-                display: flex; flex-direction: column; align-items: center; justify-content: center;
-                font-family: system-ui, -apple-system, sans-serif; opacity: 0; transition: opacity 0.3s ease;
-            `;
-
-            simulationOverlay.innerHTML = `
-                <h1 style="font-size: clamp(5rem, 12vw, 8rem); font-weight: 900; color: #ff4b2b; margin: 0; letter-spacing: -2px;">404</h1>
-                <h2 style="font-size: 1.35rem; font-weight: 800; margin: 0.5rem 0 1rem; text-transform: uppercase;">Secure Vault Encrypted</h2>
-                <p style="font-size: 1rem; color: #657786; text-align: center; max-width: 450px; margin: 0 0 2rem 0; padding: 0 1rem;">The targeted pathfinder dashboard archive profile requires multi-factor clearance keys. Terminal offline.</p>
-                <button id="dismissInsightOverlay" style="background: #ffffff; color: #000000; border: none; padding: 0.85rem 2.5rem; font-weight: 800; font-size: 0.95rem; border-radius: 30px; cursor: pointer;">Return to Basecamp</button>
-            `;
-
-            document.body.appendChild(simulationOverlay);
-            requestAnimationFrame(() => simulationOverlay.style.opacity = '1');
-            document.body.style.overflow = 'hidden';
-
-            document.getElementById('dismissInsightOverlay').addEventListener('click', () => {
-                simulationOverlay.style.opacity = '0';
-                setTimeout(() => {
-                    simulationOverlay.remove();
-                    document.body.style.overflow = 'auto';
-                }, 300);
-            });
-        });
-    });
+    
 
 });
 
@@ -2716,42 +2665,18 @@
     // ==========================================
     // 2. REDIRECT PROCESSING MODULE (404 OVERLAY DETECTOR)
     // ==========================================
-    const matrixActionButtons = document.querySelectorAll('#destination-spotlight-matrix .fallback-redirect');
+    // ==========================================
+// 2. DIRECT 404 PAGE REDIRECTION
+// ==========================================
+const matrixActionButtons = document.querySelectorAll(
+    '#destination-spotlight-matrix .fallback-redirect'
+);
 
-    matrixActionButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-
-            const fullOverlayContainer = document.createElement('div');
-            fullOverlayContainer.style.cssText = `
-                position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-                background: #000000; color: #ffffff; z-index: 990000;
-                display: flex; flex-direction: column; align-items: center; justify-content: center;
-                font-family: system-ui, -apple-system, sans-serif; opacity: 0; transition: opacity 0.3s ease;
-            `;
-
-            fullOverlayContainer.innerHTML = `
-                <h1 style="font-size: clamp(5rem, 12vw, 8rem); font-weight: 900; color: #ff4b2b; margin: 0; letter-spacing: -2px;">404</h1>
-                <h2 style="font-size: 1.35rem; font-weight: 800; margin: 0.5rem 0 1rem; text-transform: uppercase;">Vector Path Locked</h2>
-                <p style="font-size: 1rem; color: #657786; text-align: center; max-width: 450px; margin: 0 0 2rem 0; padding: 0 1rem;">The selected travel blueprint grid route is currently unmapped. Access terminal is offline.</p>
-                <button id="dismissMatrixOverlay" style="background: #ffffff; color: #000000; border: none; padding: 0.85rem 2.5rem; font-weight: 800; font-size: 0.95rem; border-radius: 30px; cursor: pointer;">Return to Basecamp</button>
-            `;
-
-            document.body.appendChild(fullOverlayContainer);
-            requestAnimationFrame(() => fullOverlayContainer.style.opacity = '1');
-            document.body.style.overflow = 'hidden';
-
-            document.getElementById('dismissMatrixOverlay').addEventListener('click', () => {
-                fullOverlayContainer.style.opacity = '0';
-                setTimeout(() => {
-                    fullOverlayContainer.remove();
-                    document.body.style.overflow = 'auto';
-                }, 300);
-            });
-        });
+matrixActionButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        window.location.href = '404.html';
     });
-
+});
 });
 
 </script>

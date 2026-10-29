@@ -178,7 +178,9 @@
 
             <!-- Bottom-Up Entrance Action Button -->
             <div class="story-hero-cta-wrapper scroll-bottom-cascade">
-                <button class="story-hero-btn-primary fallback-redirect">Explore Our Credentials</button>
+         <a href="404.html" class="story-hero-btn-primary">
+    Explore Our Credentials
+</a>
             </div>
         </div>
 
@@ -692,96 +694,63 @@
 }
 </style>
 
+
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
 
     // ==========================================
     // 1. SCROLL INTERSECTION REVEAL TIMELINES
     // ==========================================
     const storyHeroArena = document.getElementById('story-hero-arena');
-    const titleWords = document.querySelectorAll('.story-scroll-word');
-    const bottomCascades = document.querySelectorAll('.scroll-bottom-cascade');
+    const titleWords = document.querySelectorAll('#story-hero-arena .story-scroll-word');
+    const bottomCascades = document.querySelectorAll('#story-hero-arena .scroll-bottom-cascade');
     const mediaBlockCard = document.getElementById('storyMediaBlock');
 
     const storyRevealOptions = {
         root: null,
-        threshold: 0.12 
+        threshold: 0.12
     };
 
     const triggerStoryHeroReveal = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                
+
                 // Stagger alternate side word entries sequentially
                 titleWords.forEach((word, index) => {
                     setTimeout(() => {
                         word.classList.add('reveal-active');
-                    }, index * 120); // 120ms staggered flow metrics
+                    }, index * 120);
                 });
 
-                // Cascade clean pure black body content paragraphs from the bottom base line
+                // Reveal body content from the bottom
                 bottomCascades.forEach((element, index) => {
                     setTimeout(() => {
                         element.classList.add('reveal-active');
                     }, (titleWords.length * 120) + (index * 150));
                 });
 
-                // Smooth scale-reveal for right-hand picture frame canvas box
+                // Reveal the right-hand image frame
                 setTimeout(() => {
                     if (mediaBlockCard) {
                         mediaBlockCard.classList.add('reveal-active');
                     }
                 }, (titleWords.length * 120) + 350);
 
-                observer.unobserve(entry.target); // Sever trace lines programmatically
+                observer.unobserve(entry.target);
             }
         });
     };
 
-    const storyHeroObserver = new IntersectionObserver(triggerStoryHeroReveal, storyRevealOptions);
-    if (storyHeroArena) storyHeroObserver.observe(storyHeroArena);
+    const storyHeroObserver = new IntersectionObserver(
+        triggerStoryHeroReveal,
+        storyRevealOptions
+    );
 
-    // ==========================================
-    // 2. DISPATCH REDIRECT CALL TRUNK (404 OVERLAY)
-    // ==========================================
-    const redirectTriggers = document.querySelectorAll('#story-hero-arena .fallback-redirect');
-
-    redirectTriggers.forEach(trigger => {
-        trigger.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-
-            const customOverlay = document.createElement('div');
-            customOverlay.style.cssText = `
-                position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-                background: #000000; color: #ffffff; z-index: 999999;
-                display: flex; flex-direction: column; align-items: center; justify-content: center;
-                font-family: system-ui, -apple-system, sans-serif; opacity: 0; transition: opacity 0.3s ease;
-            `;
-
-            customOverlay.innerHTML = `
-                <h1 style="font-size: clamp(5rem, 12vw, 8rem); font-weight: 900; color: #ff4b2b; margin: 0; letter-spacing: -2px;">404</h1>
-                <h2 style="font-size: 1.35rem; font-weight: 800; margin: 0.5rem 0 1rem; text-transform: uppercase;">Chronicle Node Offline</h2>
-                <p style="font-size: 1rem; color: #657786; text-align: center; max-width: 450px; margin: 0 0 2rem 0; padding: 0 1rem;">Historical data logs for our operational pathfinders are locked inside cold offline trunks. Path unresolved.</p>
-                <button id="dismissStoryOverlay" style="background: #ffffff; color: #000000; border: none; padding: 0.85rem 2.5rem; font-weight: 800; font-size: 0.95rem; border-radius: 30px; cursor: pointer;">Return to Basecamp</button>
-            `;
-
-            document.body.appendChild(customOverlay);
-            requestAnimationFrame(() => customOverlay.style.opacity = '1');
-            document.body.style.overflow = 'hidden';
-
-            document.getElementById('dismissStoryOverlay').addEventListener('click', () => {
-                customOverlay.style.opacity = '0';
-                setTimeout(() => {
-                    customOverlay.remove();
-                    document.body.style.overflow = 'auto';
-                }, 300);
-            });
-        });
-    });
+    if (storyHeroArena) {
+        storyHeroObserver.observe(storyHeroArena);
+    }
 
 });
-
 </script>
 
 <!-- Fully Responsive Continuous Brand Ribbon Pinned Row -->
@@ -1024,8 +993,13 @@
 
             <!-- Bottom-Up Entrance CTA Actions Grid Layout with Updated Gradient Code -->
             <div class="guarantee-cta-group" id="guaranteeCta">
-                <button class="guarantee-btn-gradient fallback-redirect">Explore Our Credentials</button>
-                <button class="guarantee-btn-secondary fallback-redirect">Browse Catalog</button>
+           <a href="404.html" class="guarantee-btn-gradient">
+    Explore Our Credentials
+</a>
+
+<a href="404.html" class="guarantee-btn-secondary">
+    Browse Catalog
+</a>
             </div>
         </div>
 
@@ -1790,106 +1764,73 @@
 }
 </style>
 
+
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
 
     // ==========================================
     // 1. SCROLL INTERSECTION REVEAL TIMELINE MODULE
     // ==========================================
     const mainSection = document.getElementById('guarantee-metrics-hub');
-    const headerWords = document.querySelectorAll('.guar-word');
+    const headerWords = document.querySelectorAll('#guarantee-metrics-hub .guar-word');
     const sideParagraph = document.getElementById('guaranteeDesc');
     const sideFeatures = document.getElementById('guaranteeFeatures');
     const bottomCtaRow = document.getElementById('guaranteeCta');
 
     const guaranteeRevealOptions = {
-        root: null, // Monitors visibility relative to the user viewport window
-        threshold: 0.12 // Triggers when 12% of the component enters the screen area
+        root: null,
+        threshold: 0.12
     };
 
     const triggerGuaranteeAnimations = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                
-                // Stagger title heading words upward sequentially
+
+                // Reveal title words sequentially
                 headerWords.forEach((word, index) => {
                     setTimeout(() => {
                         word.classList.add('reveal-active');
-                    }, index * 100); // 100ms fluid word pacing delay
+                    }, index * 100);
                 });
 
-                // Slide main descriptive text panel out from left screen boundary
+                // Reveal description
                 setTimeout(() => {
-                    if (sideParagraph) sideParagraph.classList.add('reveal-active');
+                    if (sideParagraph) {
+                        sideParagraph.classList.add('reveal-active');
+                    }
                 }, headerWords.length * 100 + 100);
 
-                // Slide feature checklist grid out from left screen boundary
+                // Reveal feature list
                 setTimeout(() => {
-                    if (sideFeatures) sideFeatures.classList.add('reveal-active');
+                    if (sideFeatures) {
+                        sideFeatures.classList.add('reveal-active');
+                    }
                 }, headerWords.length * 100 + 220);
 
-                // Cascade action gradient button and links up from bottom line base
+                // Reveal CTA buttons
                 setTimeout(() => {
-                    if (bottomCtaRow) bottomCtaRow.classList.add('reveal-active');
+                    if (bottomCtaRow) {
+                        bottomCtaRow.classList.add('reveal-active');
+                    }
                 }, headerWords.length * 100 + 380);
 
-                // Disconnect observer instance loop to optimize memory tracking cycles
-                observer.unobserve(entry.target); 
+                observer.unobserve(entry.target);
             }
         });
     };
 
-    const guaranteeObserver = new IntersectionObserver(triggerGuaranteeAnimations, guaranteeRevealOptions);
-    if (mainSection) guaranteeObserver.observe(mainSection);
+    const guaranteeObserver = new IntersectionObserver(
+        triggerGuaranteeAnimations,
+        guaranteeRevealOptions
+    );
 
-    // ==========================================
-    // 2. TERMINAL 404 COCKPIT OVERLAY CONTROLLER
-    // ==========================================
-    const redirectTriggers = document.querySelectorAll('#guarantee-metrics-hub .fallback-redirect');
-
-    redirectTriggers.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation(); // Prevents event bubbles from double-firing on nested parent items
-
-            // Generate dynamic solid backdrop simulation overlay sheet container
-            const panelOverlay = document.createElement('div');
-            panelOverlay.style.cssText = `
-                position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-                background: #000000; color: #ffffff; z-index: 999999;
-                display: flex; flex-direction: column; align-items: center; justify-content: center;
-                font-family: system-ui, -apple-system, sans-serif; opacity: 0; transition: opacity 0.3s ease;
-            `;
-
-            panelOverlay.innerHTML = `
-                <h1 style="font-size: clamp(5rem, 12vw, 8rem); font-weight: 900; color: #ff4b2b; margin: 0; letter-spacing: -2px;">404</h1>
-                <h2 style="font-size: 1.35rem; font-weight: 800; margin: 0.5rem 0 1rem; text-transform: uppercase;">Vector Core Isolated</h2>
-                <p style="font-size: 1rem; color: #657786; text-align: center; max-width: 450px; margin: 0 0 2rem 0; padding: 0 1rem;">The targeted tracking manifest requires physical key synchronization from an official pathfinder element. Connection severed.</p>
-                <button id="dismissGuaranteeOverlay" style="background: #ffffff; color: #000000; border: none; padding: 0.85rem 2.5rem; font-weight: 800; font-size: 0.95rem; border-radius: 30px; cursor: pointer; transition: transform 0.2s ease;">Return to Basecamp</button>
-            `;
-
-            document.body.appendChild(panelOverlay);
-            
-            // Force layout paint frame updates
-            requestAnimationFrame(() => {
-                panelOverlay.style.opacity = '1';
-            });
-            document.body.style.overflow = 'hidden';
-
-            // Reset dashboard constraints cleanly on overlay exit close
-            document.getElementById('dismissGuaranteeOverlay').addEventListener('click', () => {
-                panelOverlay.style.opacity = '0';
-                setTimeout(() => {
-                    panelOverlay.remove();
-                    document.body.style.overflow = 'auto';
-                }, 300);
-            });
-        });
-    });
+    if (mainSection) {
+        guaranteeObserver.observe(mainSection);
+    }
 
 });
-
 </script>
+
 
 <!-- Fully Responsive Exploration Categories Section -->
 <section id="explore-sectors-hub" class="sectors-section">
@@ -2189,88 +2130,57 @@
 
 </style>
 
+
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
 
     // ==========================================
     // 1. SCROLL INTERSECTION REVEAL MODULE
     // ==========================================
     const sectorsSection = document.getElementById('explore-sectors-hub');
-    const wordSpans = document.querySelectorAll('.sect-word');
-    const categoryCards = document.querySelectorAll('.scroll-card-reveal');
+    const wordSpans = document.querySelectorAll('#explore-sectors-hub .sect-word');
+    const categoryCards = document.querySelectorAll('#explore-sectors-hub .scroll-card-reveal');
 
     const sectorsObserverOptions = {
         root: null,
-        threshold: 0.12 
+        threshold: 0.12
     };
 
     const triggerSectorsReveal = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                
-                // Stagger header text parameter nodes word-by-word
+
+                // Reveal header words one by one
                 wordSpans.forEach((word, index) => {
                     setTimeout(() => {
                         word.classList.add('reveal-active');
                     }, index * 100);
                 });
 
-                // Cascade clean category panels up one by one sequentially
+                // Reveal category cards sequentially
                 categoryCards.forEach((card, index) => {
                     setTimeout(() => {
                         card.classList.add('reveal-active');
-                    }, (wordSpans.length * 100) + 150 + (index * 120)); // 120ms elegant staggering cascade delay
+                    }, (wordSpans.length * 100) + 150 + (index * 120));
                 });
 
-                observer.unobserve(entry.target); // Sever trace line monitoring loops safely
+                observer.unobserve(entry.target);
             }
         });
     };
 
-    const sectorsObserver = new IntersectionObserver(triggerSectorsReveal, sectorsObserverOptions);
-    if (sectorsSection) sectorsObserver.observe(sectorsSection);
+    const sectorsObserver = new IntersectionObserver(
+        triggerSectorsReveal,
+        sectorsObserverOptions
+    );
 
-    // ==========================================
-    // 2. DISPATCH REDIRECT CALL TRUNK (404 OVERLAY)
-    // ==========================================
-    const categoryItems = document.querySelectorAll('.sector-card-item');
-
-    categoryItems.forEach(item => {
-        item.addEventListener('click', () => {
-            const sectorName = item.querySelector('.sector-title').textContent.toUpperCase();
-
-            const simulationOverlay = document.createElement('div');
-            simulationOverlay.style.cssText = `
-                position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-                background: #000000; color: #ffffff; z-index: 999999;
-                display: flex; flex-direction: column; align-items: center; justify-content: center;
-                font-family: system-ui, -apple-system, sans-serif; opacity: 0; transition: opacity 0.3s ease;
-            `;
-
-            simulationOverlay.innerHTML = `
-                <h1 style="font-size: clamp(5rem, 12vw, 8rem); font-weight: 900; color: #ff4b2b; margin: 0; letter-spacing: -2px;">404</h1>
-                <h2 style="font-size: 1.35rem; font-weight: 800; margin: 0.5rem 0 1rem; text-transform: uppercase;">Category Terminal Sealed</h2>
-                <p style="font-size: 1rem; color: #657786; text-align: center; max-width: 450px; margin: 0 0 2rem 0; padding: 0 1rem;">Tracking servers for [ ${sectorName} ] are currently updating coordinate frames. Connection offline.</p>
-                <button id="dismissSectorsOverlay" style="background: #ffffff; color: #000000; border: none; padding: 0.85rem 2.5rem; font-weight: 800; font-size: 0.95rem; border-radius: 30px; cursor: pointer;">Return to Basecamp</button>
-            `;
-
-            document.body.appendChild(simulationOverlay);
-            requestAnimationFrame(() => simulationOverlay.style.opacity = '1');
-            document.body.style.overflow = 'hidden';
-
-            document.getElementById('dismissSectorsOverlay').addEventListener('click', () => {
-                simulationOverlay.style.opacity = '0';
-                setTimeout(() => {
-                    simulationOverlay.remove();
-                    document.body.style.overflow = 'auto';
-                }, 300);
-            });
-        });
-    });
+    if (sectorsSection) {
+        sectorsObserver.observe(sectorsSection);
+    }
 
 });
-
 </script>
+
 
 <!-- Fully Responsive Brand-Themed Upcoming Expeditions Section -->
 <section id="upcoming-expeditions-matrix" class="upcoming-matrix-section">
@@ -2769,82 +2679,56 @@
 
 </style>
 
+
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
 
     // ==========================================
     // 1. SCROLL VIEWPORT OBSERVER STAGGER ENTRANCES
     // ==========================================
     const matrixSection = document.getElementById('upcoming-expeditions-matrix');
-    const upWords = document.querySelectorAll('.up-word');
-    const cascadeCards = document.querySelectorAll('.scroll-node-cascade');
+
+    const upWords = document.querySelectorAll(
+        '#upcoming-expeditions-matrix .up-word'
+    );
+
+    const cascadeCards = document.querySelectorAll(
+        '#upcoming-expeditions-matrix .scroll-node-cascade'
+    );
 
     const upcomingScrollObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Stagger title heading parameters word-by-word upward
+
+                // Reveal heading words one by one
                 upWords.forEach((word, index) => {
                     setTimeout(() => {
                         word.classList.add('reveal-active');
-                    }, index * 120); // 120ms elegant staggering spacing
+                    }, index * 120);
                 });
 
-                // Cascade clean card panels into view one-by-one sequentially
+                // Reveal cards one by one
                 cascadeCards.forEach((card, index) => {
                     setTimeout(() => {
                         card.classList.add('reveal-active');
-                    }, (upWords.length * 120) + 150 + (index * 140)); // 140ms intervals between adjacent cards
+                    }, (upWords.length * 120) + 150 + (index * 140));
                 });
 
-                observer.unobserve(entry.target); // Kill tracking loop pass pass to preserve device memory cycles
+                observer.unobserve(entry.target);
             }
         });
-    }, { root: null, threshold: 0.12 });
-
-    if (matrixSection) upcomingScrollObserver.observe(matrixSection);
-
-    // ==========================================
-    // 2. SECURE 404 COCKPIT OVERLAY INTERCEPTOR ROUTER
-    // ==========================================
-    const activeRouteTriggers = document.querySelectorAll('#upcoming-expeditions-matrix .fallback-redirect, #upcoming-expeditions-matrix .upcoming-exp-card');
-
-    activeRouteTriggers.forEach(node => {
-        node.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation(); // Shield child triggers from double firing parent bubble clicks
-
-            const simulationOverlay = document.createElement('div');
-            simulationOverlay.style.cssText = `
-                position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-                background: #000000; color: #ffffff; z-index: 1000000;
-                display: flex; flex-direction: column; align-items: center; justify-content: center;
-                font-family: system-ui, -apple-system, sans-serif; opacity: 0; transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            `;
-
-            simulationOverlay.innerHTML = `
-                <h1 style="font-size: clamp(5rem, 12vw, 8rem); font-weight: 900; color: #ff4b2b; margin: 0; letter-spacing: -2px;">404</h1>
-                <h2 style="font-size: 1.35rem; font-weight: 800; margin: 0.5rem 0 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Expedition Terminal Sealed</h2>
-                <p style="font-size: 1rem; color: #657786; text-align: center; max-width: 450px; margin: 0 0 2rem 0; padding: 0 1rem;">The requested adventure route package data is currently offline for parameter re-calibration. Matrix connection severed.</p>
-                <button id="dismissUpcomingOverlay" style="background: #ffffff; color: #000000; border: none; padding: 0.85rem 2.5rem; font-weight: 800; font-size: 0.95rem; border-radius: 30px; cursor: pointer; transition: transform 0.2s ease;">Return to Basecamp</button>
-            `;
-
-            document.body.appendChild(simulationOverlay);
-            requestAnimationFrame(() => simulationOverlay.style.opacity = '1');
-            document.body.style.overflow = 'hidden';
-
-            document.getElementById('dismissUpcomingOverlay').addEventListener('click', () => {
-                simulationOverlay.style.opacity = '0';
-                setTimeout(() => {
-                    simulationOverlay.remove();
-                    document.body.style.overflow = 'auto';
-                }, 300);
-            });
-        });
+    }, {
+        root: null,
+        threshold: 0.12
     });
 
-});
+    if (matrixSection) {
+        upcomingScrollObserver.observe(matrixSection);
+    }
 
+});
 </script>
+
 
 <!-- Fully Responsive "Why Trust Us" Asymmetrical Feature Section -->
 <section id="trust-metrics-hub" class="trust-section">
@@ -3588,14 +3472,19 @@
 }
 </style>
 
+
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
 
     // ==========================================
     // 1. SCROLL INTERSECTION TIMELINE OBSERVER
     // ==========================================
     const trustSection = document.getElementById('trust-metrics-hub');
-    const headerWords = document.querySelectorAll('.trust-word');
+
+    const headerWords = document.querySelectorAll(
+        '#trust-metrics-hub .trust-word'
+    );
+
     const narrativeText = document.getElementById('trustDesc');
     const checklistGrid = document.getElementById('trustChecklist');
     const baseActionRow = document.getElementById('trustCta');
@@ -3603,90 +3492,65 @@
 
     const trustRevealOptions = {
         root: null,
-        threshold: 0.12 
+        threshold: 0.12
     };
 
     const triggerTrustSequence = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                
-                // Stagger title heading words upward sequentially
+
+                // Reveal heading words sequentially
                 headerWords.forEach((word, index) => {
                     setTimeout(() => {
                         word.classList.add('reveal-active');
-                    }, index * 100); // 100ms swift parameter delay
+                    }, index * 100);
                 });
 
-                // Slide text copy block out from right viewport boundary window
+                // Reveal description
                 setTimeout(() => {
-                    if (narrativeText) narrativeText.classList.add('reveal-active');
+                    if (narrativeText) {
+                        narrativeText.classList.add('reveal-active');
+                    }
                 }, headerWords.length * 100 + 100);
 
-                // Slide dual checklists grid out from right viewport boundary window
+                // Reveal checklist
                 setTimeout(() => {
-                    if (checklistGrid) checklistGrid.classList.add('reveal-active');
+                    if (checklistGrid) {
+                        checklistGrid.classList.add('reveal-active');
+                    }
                 }, headerWords.length * 100 + 220);
 
-                // Lift capsule gradient button up from baseline layout row
+                // Reveal CTA button
                 setTimeout(() => {
-                    if (baseActionRow) baseActionRow.classList.add('reveal-active');
+                    if (baseActionRow) {
+                        baseActionRow.classList.add('reveal-active');
+                    }
                 }, headerWords.length * 100 + 380);
 
-                // Zoom up left-hand circle avatar canvas block
+                // Reveal avatar image
                 setTimeout(() => {
-                    if (avatarCanvas) avatarCanvas.classList.add('reveal-active');
+                    if (avatarCanvas) {
+                        avatarCanvas.classList.add('reveal-active');
+                    }
                 }, headerWords.length * 100 + 350);
 
-                observer.unobserve(entry.target); // Sever trace line monitoring loops to preserve memory lifecycle
+                observer.unobserve(entry.target);
             }
         });
     };
 
-    const trustObserver = new IntersectionObserver(triggerTrustSequence, trustRevealOptions);
-    if (trustSection) trustObserver.observe(trustSection);
+    const trustObserver = new IntersectionObserver(
+        triggerTrustSequence,
+        trustRevealOptions
+    );
 
-    // ==========================================
-    // 2. TERMINAL 404 COCKPIT OVERLAY TRUNK LINK
-    // ==========================================
-    const overlayTriggers = document.querySelectorAll('#trust-metrics-hub .fallback-redirect');
-
-    overlayTriggers.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-
-            const cockpitOverlay = document.createElement('div');
-            cockpitOverlay.style.cssText = `
-                position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-                background: #000000; color: #ffffff; z-index: 999999;
-                display: flex; flex-direction: column; align-items: center; justify-content: center;
-                font-family: system-ui, -apple-system, sans-serif; opacity: 0; transition: opacity 0.3s ease;
-            `;
-
-            cockpitOverlay.innerHTML = `
-                <h1 style="font-size: clamp(5rem, 12vw, 8rem); font-weight: 900; color: #ff4b2b; margin: 0; letter-spacing: -2px;">404</h1>
-                <h2 style="font-size: 1.35rem; font-weight: 800; margin: 0.5rem 0 1rem; text-transform: uppercase;">Manifest Core Encrypted</h2>
-                <p style="font-size: 1rem; color: #657786; text-align: center; max-width: 450px; margin: 0 0 2rem 0; padding: 0 1rem;">The targeted pathfinder verification catalog is locked for administrative timeline synchronization. Connection offline.</p>
-                <button id="dismissTrustOverlay" style="background: #ffffff; color: #000000; border: none; padding: 0.85rem 2.5rem; font-weight: 800; font-size: 0.95rem; border-radius: 30px; cursor: pointer; transition: transform 0.2s ease;">Return to Basecamp</button>
-            `;
-
-            document.body.appendChild(cockpitOverlay);
-            requestAnimationFrame(() => cockpitOverlay.style.opacity = '1');
-            document.body.style.overflow = 'hidden';
-
-            document.getElementById('dismissTrustOverlay').addEventListener('click', () => {
-                cockpitOverlay.style.opacity = '0';
-                setTimeout(() => {
-                    cockpitOverlay.remove();
-                    document.body.style.overflow = 'auto';
-                }, 300);
-            });
-        });
-    });
+    if (trustSection) {
+        trustObserver.observe(trustSection);
+    }
 
 });
-
 </script>
+
 
 <section id="explorer-stories" class="stories-section compact-padding">
     <div class="stories-container">

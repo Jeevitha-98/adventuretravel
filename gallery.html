@@ -169,7 +169,9 @@
 
             <!-- Side-Entrance Action Button Node -->
             <div class="gallery-hero-cta-wrapper" id="galleryRightCta">
-                <button class="gallery-hero-btn-primary fallback-redirect">Sync Terminal Media</button>
+            <a href="404.html" class="gallery-hero-btn-primary">
+    Sync Terminal Media
+</a>
             </div>
         </div>
 
@@ -439,106 +441,81 @@
     }
 }
 
+.gallery-hero-description.reveal-active {
+    opacity: 1;
+    transform: translateX(0);
+}
 </style>
 
+
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
 
     // ==========================================
     // 1. SCROLL REVEAL VIEWPORT OBSERVER ENTRANCES
     // ==========================================
     const heroSection = document.getElementById('gallery-hero-arena');
-    const scrollWords = document.querySelectorAll('.gallery-scroll-word');
+
+    const scrollWords = document.querySelectorAll(
+        '#gallery-hero-arena .gallery-scroll-word'
+    );
+
     const leftDescription = document.getElementById('galleryLeftDesc');
     const rightCtaWrapper = document.getElementById('galleryRightCta');
     const mediaBlockCanvas = document.getElementById('galleryMediaBlock');
 
-    // Scans element area visibility changes relative to active screen borders
     const heroRevealOptions = {
         root: null,
-        threshold: 0.12 
+        threshold: 0.12
     };
 
     const triggerGalleryHeroSequence = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                
-                // A. Stagger multi-directional alternate title word entries
+
+                // Reveal title words alternately
                 scrollWords.forEach((word, index) => {
                     setTimeout(() => {
                         word.classList.add('reveal-active');
-                    }, index * 120); // 120ms uniform text stagger step
+                    }, index * 120);
                 });
 
-                // B. Slide paragraph descriptive block out from left side boundary window
+                // Reveal description
                 setTimeout(() => {
-                    if (leftDescription) leftDescription.classList.add('reveal-active');
+                    if (leftDescription) {
+                        leftDescription.classList.add('reveal-active');
+                    }
                 }, scrollWords.length * 120 + 100);
 
-                // C. Slide capsule gradient link button out from right side boundary window
+                // Reveal CTA button
                 setTimeout(() => {
-                    if (rightCtaWrapper) rightCtaWrapper.classList.add('reveal-active');
+                    if (rightCtaWrapper) {
+                        rightCtaWrapper.classList.add('reveal-active');
+                    }
                 }, scrollWords.length * 120 + 250);
 
-                // D. Gracefully expand the multi-image mosaic cluster stage box
+                // Reveal image mosaic
                 setTimeout(() => {
-                    if (mediaBlockCanvas) mediaBlockCanvas.classList.add('reveal-active');
+                    if (mediaBlockCanvas) {
+                        mediaBlockCanvas.classList.add('reveal-active');
+                    }
                 }, scrollWords.length * 120 + 400);
 
-                // Kill trace loops programmatically to secure layout states
-                observer.unobserve(entry.target); 
+                observer.unobserve(entry.target);
             }
         });
     };
 
-    const heroObserver = new IntersectionObserver(triggerGalleryHeroSequence, heroRevealOptions);
-    if (heroSection) heroObserver.observe(heroSection);
+    const heroObserver = new IntersectionObserver(
+        triggerGalleryHeroSequence,
+        heroRevealOptions
+    );
 
-    // ==========================================
-    // 2. DISPATCH REDIRECT CALL TRUNK (404 OVERLAY)
-    // ==========================================
-    const overlayTriggers = document.querySelectorAll('#gallery-hero-arena .fallback-redirect');
-
-    overlayTriggers.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation(); // Shield children events from double firing parent handlers
-
-            // Generate clean full screen simulation dashboard overlay layer
-            const terminalOverlay = document.createElement('div');
-            terminalOverlay.style.cssText = `
-                position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-                background: #000000; color: #ffffff; z-index: 1000000;
-                display: flex; flex-direction: column; align-items: center; justify-content: center;
-                font-family: system-ui, -apple-system, sans-serif; opacity: 0; transition: opacity 0.3s ease;
-            `;
-
-            terminalOverlay.innerHTML = `
-                <h1 style="font-size: clamp(5rem, 12vw, 8rem); font-weight: 900; color: #ff4b2b; margin: 0; letter-spacing: -2px;">404</h1>
-                <h2 style="font-size: 1.35rem; font-weight: 800; margin: 0.5rem 0 1rem; text-transform: uppercase;">Media Vault Offline</h2>
-                <p style="font-size: 1rem; color: #657786; text-align: center; max-width: 450px; margin: 0 0 2rem 0; padding: 0 1rem;">The raw media cloud server requires direct pathfinder key synchronization. Terminal connection severed.</p>
-                <button id="dismissGalleryOverlay" style="background: #ffffff; color: #000000; border: none; padding: 0.85rem 2.5rem; font-weight: 800; font-size: 0.95rem; border-radius: 30px; cursor: pointer; transition: transform 0.2s ease;">Return to Basecamp</button>
-            `;
-
-            document.body.appendChild(terminalOverlay);
-            
-            // Force browser repaint cycle pass pass
-            requestAnimationFrame(() => terminalOverlay.style.opacity = '1');
-            document.body.style.overflow = 'hidden';
-
-            // Reset operational configurations cleanly on overlay close
-            document.getElementById('dismissGalleryOverlay').addEventListener('click', () => {
-                terminalOverlay.style.opacity = '0';
-                setTimeout(() => {
-                    terminalOverlay.remove();
-                    document.body.style.overflow = 'auto';
-                }, 300);
-            });
-        });
-    });
+    if (heroSection) {
+        heroObserver.observe(heroSection);
+    }
 
 });
-
 </script>
 
 <!-- Fully Responsive Alternating Media Grid Matrix -->
@@ -567,7 +544,9 @@
                 <span class="sector-coordinate-tag">🗺️ Basecamp Alpha // 01</span>
                 <h3>Glacial Slopes Ascent</h3>
                 <p class="matrix-hover-text">High-altitude tactical deployment capture tracking team lines across the vertical Chamonix ridges.</p>
-                <button class="matrix-inline-btn fallback-redirect">Inspect Vector →</button>
+               <a href="404.html" class="matrix-inline-btn">
+    Inspect Vector →
+</a>
             </div>
         </div>
 
@@ -577,7 +556,9 @@
                 <span class="sector-coordinate-tag">🗺️ Basecamp Ocean // 04</span>
                 <h3>Submarine Trench Dive</h3>
                 <p class="matrix-hover-text">物理 Marine data logging calibrations registered within deep unedited subterranean caverns.</p>
-                <button class="matrix-inline-btn fallback-redirect">Inspect Vector →</button>
+              <a href="404.html" class="matrix-inline-btn">
+    Inspect Vector →
+</a>
             </div>
             <div class="card-media-wrapper">
                 <img src="./assests/deep sea diving.webp" alt="Submarine Expedition View" class="matrix-raw-img">
@@ -595,7 +576,9 @@
                 <span class="sector-coordinate-tag">🗺️ Basecamp Dunes // 09</span>
                 <h3>Arid Horizon Base</h3>
                 <p class="matrix-hover-text">Endless isolated sand waves under tracking surveillance filters to protect tactical squad units.</p>
-                <button class="matrix-inline-btn fallback-redirect">Inspect Vector →</button>
+          <a href="404.html" class="matrix-inline-btn">
+    Inspect Vector →
+</a>
             </div>
         </div>
 
@@ -605,7 +588,9 @@
                 <span class="sector-coordinate-tag">🗺️ Basecamp Peak // 03</span>
                 <h3>Meridian Citadel Check</h3>
                 <p class="matrix-hover-text">High-fidelity climate telemetry captures documenting raw glacial fields outside tourist tracks.</p>
-                <button class="matrix-inline-btn fallback-redirect">Inspect Vector →</button>
+             <a href="404.html" class="matrix-inline-btn">
+    Inspect Vector →
+</a>
             </div>
             <div class="card-media-wrapper">
                 <img src="./assests/trekking.webp" alt="Alpine Mountain Range Ridge Path" class="matrix-raw-img">
@@ -839,81 +824,48 @@
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
 
     // ==========================================
     // 1. HIGH-PERFORMANCE INTERSECTION REVEALS
     // ==========================================
     const matrixSection = document.getElementById('gallery-media-matrix');
     const titleWords = document.querySelectorAll('.matrix-word');
-    const gridCards = document.querySelectorAll('.gallery-matrix-grid .scroll-node-reveal');
+    const gridCards = document.querySelectorAll(
+        '.gallery-matrix-grid .scroll-node-reveal'
+    );
 
     const matrixRevealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                
-                // Stagger header text parameter fields word-by-word
+
+                // Reveal title words one by one
                 titleWords.forEach((word, index) => {
                     setTimeout(() => {
                         word.classList.add('reveal-active');
-                    }, index * 120); // 120ms incremental text gap
+                    }, index * 120);
                 });
 
-                // Cascade structural alternating cards open one by one sequentially
+                // Reveal cards sequentially
                 gridCards.forEach((card, index) => {
                     setTimeout(() => {
                         card.classList.add('reveal-active');
-                    }, (titleWords.length * 120) + 150 + (index * 120)); // 120ms staging interval delays
+                    }, (titleWords.length * 120) + 150 + (index * 120));
                 });
 
-                observer.unobserve(entry.target); // Sever trace line monitoring loops to preserve memory lifecycle
+                observer.unobserve(entry.target);
             }
         });
-    }, { root: null, threshold: 0.12 });
-
-    if (matrixSection) matrixRevealObserver.observe(matrixSection);
-
-    // ==========================================
-    // 2. DISPATCH REDIRECT CALL TRUNK (404 OVERLAY)
-    // ==========================================
-    const redirectButtons = document.querySelectorAll('.gallery-matrix-grid .fallback-redirect');
-
-    redirectButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-
-            const cockpitOverlay = document.createElement('div');
-            cockpitOverlay.style.cssText = `
-                position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-                background: #000000; color: #ffffff; z-index: 1000000;
-                display: flex; flex-direction: column; align-items: center; justify-content: center;
-                font-family: system-ui, -apple-system, sans-serif; opacity: 0; transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            `;
-
-            cockpitOverlay.innerHTML = `
-                <h1 style="font-size: clamp(5rem, 12vw, 8rem); font-weight: 900; color: #ff4b2b; margin: 0; letter-spacing: -2px;">404</h1>
-                <h2 style="font-size: 1.35rem; font-weight: 800; margin: 0.5rem 0 1rem; text-transform: uppercase;">Manifest File Sealed</h2>
-                <p style="font-size: 1rem; color: #657786; text-align: center; max-width: 450px; margin: 0 0 2rem 0; padding: 0 1rem;">The targeted pathfinder terrain manifest requires physical key verification. Connection offline.</p>
-                <button id="dismissMatrixOverlay" style="background: #ffffff; color: #000000; border: none; padding: 0.85rem 2.5rem; font-weight: 800; font-size: 0.95rem; border-radius: 30px; cursor: pointer; transition: transform 0.2s ease;">Return to Basecamp</button>
-            `;
-
-            document.body.appendChild(cockpitOverlay);
-            requestAnimationFrame(() => cockpitOverlay.style.opacity = '1');
-            document.body.style.overflow = 'hidden';
-
-            document.getElementById('dismissMatrixOverlay').addEventListener('click', () => {
-                cockpitOverlay.style.opacity = '0';
-                setTimeout(() => {
-                    cockpitOverlay.remove();
-                    document.body.style.overflow = 'auto';
-                }, 300);
-            });
-        });
+    }, {
+        root: null,
+        threshold: 0.12
     });
 
-});
+    if (matrixSection) {
+        matrixRevealObserver.observe(matrixSection);
+    }
 
+});
 </script>
 
 <!-- Fully Responsive Immersive Layered Parallax Gallery Section -->
@@ -1228,7 +1180,7 @@
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
 
     // ==========================================
     // 1. HIGH-PERFORMANCE SCROLL INTERSECTIONS
@@ -1240,69 +1192,34 @@
     const parallaxObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                
-                // Stagger header text parameter components word-by-word
+
+                // Reveal header words one by one
                 headerWords.forEach((word, index) => {
                     setTimeout(() => {
                         word.classList.add('reveal-active');
-                    }, index * 120); // 120ms elegant text gap sequence
+                    }, index * 120);
                 });
 
-                // Cascade large layered timeline cards open one after another smoothly
+                // Reveal timeline rows sequentially
                 visualRows.forEach((row, index) => {
                     setTimeout(() => {
                         row.classList.add('reveal-active');
-                    }, (headerWords.length * 120) + 150 + (index * 200)); // 200ms depth pacing intervals between blocks
+                    }, (headerWords.length * 120) + 150 + (index * 200));
                 });
 
-                observer.unobserve(entry.target); // Sever trace monitoring loops programmatically
+                observer.unobserve(entry.target);
             }
         });
-    }, { root: null, threshold: 0.12 });
-
-    if (parallaxSection) parallaxObserver.observe(parallaxSection);
-
-    // ==========================================
-    // 2. DISPATCH REDIRECT CALL TRUNK (404 OVERLAY)
-    // ==========================================
-    const sitemapTriggers = document.querySelectorAll('#parallax-gallery-chassis .fallback-redirect');
-
-    sitemapTriggers.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-
-            const simulationOverlay = document.createElement('div');
-            simulationOverlay.style.cssText = `
-                position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-                background: #000000; color: #ffffff; z-index: 1000000;
-                display: flex; flex-direction: column; align-items: center; justify-content: center;
-                font-family: system-ui, -apple-system, sans-serif; opacity: 0; transition: opacity 0.3s ease;
-            `;
-
-            simulationOverlay.innerHTML = `
-                <h1 style="font-size: clamp(5rem, 12vw, 8rem); font-weight: 900; color: #ff4b2b; margin: 0; letter-spacing: -2px;">404</h1>
-                <h2 style="font-size: 1.35rem; font-weight: 800; margin: 0.5rem 0 1rem; text-transform: uppercase;">Asset Vector Encrypted</h2>
-                <p style="font-size: 1rem; color: #657786; text-align: center; max-width: 450px; margin: 0 0 2rem 0; padding: 0 1rem;">The raw vector file archive has been unmapped from public tracks to protect pioneer basecamp server data. Connection severed.</p>
-                <button id="dismissParallaxOverlay" style="background: #ffffff; color: #000000; border: none; padding: 0.85rem 2.5rem; font-weight: 800; font-size: 0.95rem; border-radius: 30px; cursor: pointer; transition: transform 0.2s ease;">Return to Basecamp</button>
-            `;
-
-            document.body.appendChild(simulationOverlay);
-            requestAnimationFrame(() => simulationOverlay.style.opacity = '1');
-            document.body.style.overflow = 'hidden';
-
-            document.getElementById('dismissParallaxOverlay').addEventListener('click', () => {
-                simulationOverlay.style.opacity = '0';
-                setTimeout(() => {
-                    simulationOverlay.remove();
-                    document.body.style.overflow = 'auto';
-                }, 300);
-            });
-        });
+    }, {
+        root: null,
+        threshold: 0.12
     });
 
-});
+    if (parallaxSection) {
+        parallaxObserver.observe(parallaxSection);
+    }
 
+});
 </script>
 
 <section id="faq-matrix-hub" class="faq-section">
