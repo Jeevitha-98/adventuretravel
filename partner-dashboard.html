@@ -1697,7 +1697,9 @@ function processTrustDisbursement(rowId, expeditionRosterName, cashAmountValue) 
                         <label for="automatic-heli-trigger">Authorize automated regional park search-and-rescue outfitter alert dispatches upon signal termination</label>
                     </div>
 
-                    <button type="submit" class="settings-save-btn">Save Telemetry Rules</button>
+                   <button type="button" class="settings-save-btn" onclick="window.location.href='404.html'">
+    Save Telemetry Rules
+</button>
                 </form>
             </div>
 
@@ -2448,20 +2450,40 @@ body {
 
    </style>
 
+<script>
+    
+</script>
    <script>
     /**
  * Brand Navigation Logo Anchor - Workspace System Reset Trigger Rule
  */
 function refreshDashboard() {
-    console.log("Re-indexing adventure outfitter pipeline configurations workspace matrices...");
-    
+    console.log("Refreshing dashboard and preserving the current section...");
+
     const brandElement = document.querySelector('.brand-logo');
+
+    // Find the currently visible dashboard section
+    const visibleSection = Array.from(
+        document.querySelectorAll('.dash-section')
+    ).find(section => !section.hidden);
+
+    if (visibleSection) {
+        const sectionId = visibleSection.id.replace('section-', '');
+        sessionStorage.setItem('stackly_active_section', sectionId);
+    }
+
     brandElement.style.opacity = '0.4';
-    
-    // Smooth navigation flush routing back to primary tab workspace section
+
     setTimeout(() => {
         brandElement.style.opacity = '1';
-        switchSection('expeditions');
+
+        const savedSection = sessionStorage.getItem(
+            'stackly_active_section'
+        );
+
+        if (savedSection) {
+            switchSection(savedSection);
+        }
     }, 250);
 }
 
